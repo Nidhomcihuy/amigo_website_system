@@ -10,39 +10,115 @@ body {
   background: linear-gradient(#fff, #4b0b0b);
 }
 
-/* NAVBAR */
-.navbar {
+/* ===== NAVBAR (MENU UTAMA) ===== */
+.navbar,
+.site-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 40px;
   background: #5a0c0c;
-  color: #fff;
+  color: #ffffff;
   position: sticky;
   top: 0;
   z-index: 10;
 }
 
+/* ===== HEADER INNER ===== */
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* ===== LOGO AREA ===== */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.brand {
+  font-weight: 600;
+  font-size: 18px;
+  color: #5a0c0c;
+  text-decoration: none;
+}
+
+/* ===== NAVIGATION LINKS ===== */
+.nav-links {
+  display: flex;
+  align-items: center;
+}
 
 .nav-links a {
-  color: #fff;
+  position: relative;
+  color: #ffffff;
   text-decoration: none;
-  margin: 0 10px;
+  margin: 0 15px;
   font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  padding-bottom: 4px;
 }
 
+/* Hover Effect */
 .nav-links a:hover {
-  text-decoration: underline;
+  color: #ffffff;
 }
 
+/* Garis bawah efek hover */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #ffffff;
+  transition: width 0.3s ease;
+}
 
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ===== HALAMAN AKTIF ===== */
 .nav-links a.active {
   font-weight: 700;
-  border-bottom: 2px solid #5a0c0c;
+  color: #ffffff;
 }
 
-.menu-icon {
+/* Garis bawah untuk link aktif (lebih kuat dari hover) */
+.nav-links a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff; /* Warna putih */
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* ⬅️ dorong menu ke kanan */
+}
+
+/* ===== HAMBURGER MENU (MOBILE) ===== */
+.hamburger {
   display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: #fff;
   cursor: pointer;
 }
 
@@ -56,7 +132,7 @@ body {
 .menu-section h2 {
   font-family: 'Dancing Script', cursive;
   font-size: 40px;
-  color: #fff;
+  color: #5a0c0c;
 }
 
 .menu-categories {
