@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amigo Cake</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">🍰 Amigo Cake</div>
+    <nav class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="about.html">About</a>
+      <a href="bookcake.html">Book Cake</a>
+    </nav>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Custom Cake</h1>
+      <p>Wujudkan kue impianmu bersama kami! Di toko kue kami, setiap lapisan kue dibuat dengan penuh cinta dan bahan premium.</p>
+      <button class="btn">Read More</button>
+    </div>
+    <div class="hero-image">
+      <div class="image-placeholder">Gambar kue utama di sini</div>
+    </div>
+  </section>
+
+  <!-- MENU SECTION -->
+  <section class="menu" id="menu">
+    <h2>Our Menu</h2>
+    <div class="menu-categories">
+      <button class="active">All</button>
+      <button>Custom Cake</button>
+      <button>Millecrepes</button>
+      <button>Cheesecake</button>
+      <button>Soft Cookies</button>
+    </div>
+
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-image">Gambar produk</div>
+        <div class="product-info">
+          <h3>Nama Produk</h3>
+          <p>Rp120.000</p>
+          <button class="cart-btn">🛒</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image">Gambar produk</div>
+        <div class="product-info">
+          <h3>Nama Produk</h3>
+          <p>Rp90.000</p>
+          <button class="cart-btn">🛒</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image">Gambar produk</div>
+        <div class="product-info">
+          <h3>Nama Produk</h3>
+          <p>Rp75.000</p>
+          <button class="cart-btn">🛒</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image">Gambar produk</div>
+        <div class="product-info">
+          <h3>Nama Produk</h3>
+          <p>Rp100.000</p>
+          <button class="cart-btn">🛒</button>
+        </div>
+      </div>
+    </div>
+
+    <button class="view-more">View More</button>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="about">
+    <div class="about-image">
+      <div class="image-placeholder">Gambar kue coklat di sini</div>
+    </div>
+    <div class="about-text">
+      <h2>We Are Amigo Cake 🎂</h2>
+      <p>Di sini, kami percaya kalau setiap potongan kue bukan cuma soal rasa, tapi juga tentang momen dan kebahagiaan yang menyertainya.</p>
+      <p>Dari resep klasik hingga kreasi kekinian, semua kue kami dibuat dengan bahan berkualitas dan penuh cinta dari dapur kami yang hangat.</p>
+    </div>
+  </section>
+
+  <!-- BOOK A CAKE -->
+  <section class="book">
+    <h2>Book A Cake</h2>
+    <form class="book-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="text" placeholder="Phone Number" required>
+      <input type="text" placeholder="Address" required>
+      <input type="text" placeholder="Cake Variants" required>
+      <select>
+        <option>1 Cake</option>
+        <option>2 Cakes</option>
+        <option>3 Cakes</option>
+      </select>
+      <input type="date" required>
+      <button type="submit" class="btn">Book Now</button>
+    </form>
+    <div class="map">
+      <div class="image-placeholder">Map Area</div>
+      <p>Jl Barito 1V/1 No.19 Keringan, Nganjuk</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div>
+        <h3>Contact Us</h3>
+        <p>📍 Location</p>
+        <p>📞 +62 858-0061-1600</p>
+        <p>✉️ illonalaeliani@gmail.com</p>
+      </div>
+
+      <div>
+        <h3>Amigo Cake</h3>
+        <p>Setiap potongan adalah momen bahagia. Kue yang dibuat dengan cinta dan bahan terbaik untuk hari spesial Anda.</p>
+      </div>
+
+      <div>
+        <h3>Opening Hours</h3>
+        <p>Everyday</p>
+        <p>08.00 AM - 10.00 PM</p>
+      </div>
+    </div>
+    <p class="footer-bottom">© 2025 All Rights Reserved By Kita Sendiri :)</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
