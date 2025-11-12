@@ -30,7 +30,7 @@
     <div class="product-name"><?= htmlspecialchars($product_name) ?></div>
     
     <div class="product-footer">
-        <div class="product-price">Rp **<?= number_format($product_price, 0, ',', '.') ?>**</div>
+        <div class="product-price">Rp <?= number_format($product_price, 0, ',', '.') ?></div>
         
         <div class="edit-btn">
             <a href="edit_product.php?id=<?= $product_id ?>" style="color: white; display: flex; align-items: center; justify-content: center;">

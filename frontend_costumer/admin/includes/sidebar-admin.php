@@ -1,5 +1,5 @@
 <div class="sidebar">
-    <div class="logo">amigo.</div>
+    <div class="logo">Amigo Cake</div>
     <nav>
         <a href="dashboard.php" class="menu-item active">
             <i class="fas fa-chart-line"></i>
