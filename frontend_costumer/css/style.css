@@ -17,7 +17,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 15px 40px;
-  background: #5a0c0c;
+  background: #e1315b;
   color: #ffffff;
   position: sticky;
   top: 0;
@@ -124,15 +124,15 @@ body {
 /* MENU SECTION */
 .menu {
   text-align: center;
-  background: linear-gradient(#fff, #4b0b0b);
-  color: #fff;
+  background: linear-gradient(#fff, #e1315b);
+  color: #e1315b;
   padding: 50px 20px;
 }
 
 .menu h2 {
   font-family: 'Dancing Script', cursive;
   font-size: 40px;
-  color: #5a0c0c;
+  color: #e1315b;
 }
 
 .menu-categories {
@@ -141,7 +141,7 @@ body {
 
 .menu-categories button {
   background: #fff;
-  color: #5a0c0c;
+  color: #e1315b;
   border: none;
   margin: 5px;
   padding: 8px 15px;
@@ -150,7 +150,7 @@ body {
 }
 
 .menu-categories button.active {
-  background: #5a0c0c;
+  background: #e1315b ;
   color: #fff;
 }
 
@@ -182,7 +182,7 @@ body {
 }
 
 .cart-btn {
-  background: #5a0c0c;
+  background: #e1315b;
   color: #fff;
   border: none;
   border-radius: 50%;
@@ -192,16 +192,17 @@ body {
 
 .view-more {
   background: #fff;
-  color: #5a0c0c;
+  color: #e1315b;
   border: none;
   margin-top: 20px;
   padding: 10px 25px;
-  border-radius: 8px;
+  border-radius: 8px; 
   cursor: pointer;
 }
 
 /* ABOUT */
 .about {
+  background: linear-gradient(#e1315b,#fff);
   display: flex;
   flex-wrap: wrap;
   padding: 50px;
@@ -218,11 +219,11 @@ body {
 }
 
 .about-image img {
-  width: 600px;              /* atur ukuran gambar */
+  width: 650px;              /* atur ukuran gambar */
   height: auto;
   object-fit: cover;
   object-position: left center;
-  margin-left: -130px;        /* ⬅️ dorong gambar sedikit ke kiri */
+  margin-left: -10px;        /* ⬅️ dorong gambar sedikit ke kiri */
 }
 .about-text {
   flex: 1;
@@ -244,62 +245,118 @@ body {
   font-family: "Dancing Script", cursive;
   font-size: 46px;
   font-weight: 700;
-  color: #7b3f45; /* merah keunguan elegan */
+  color: #ffffff; /* merah keunguan elegan */
   margin-bottom: 15px;
 }
 
 /* ===== PARAGRAF ===== */
 .about-text p {
   font-size: 18px;
-  color: #444;
+  color: #ffffff;
   text-align: justify;
   margin-bottom: 12px;
   max-width: 600px;
 }
-/* BOOK SECTION */
+/* ===== SECTION BOOK ===== */
 .book {
-  background: linear-gradient(#4b0b0b, #5a0c0c);
-  color: #fff;
-  padding: 50px 20px;
-  text-align: center;
+  padding: 80px 10%;
+ background: linear-gradient(#fff, #e1315b);
+  color: #ffffff;
+}
+
+.book-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 50px;
+}
+
+/* LEFT SIDE - FORM */
+.book-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.book-text h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 36px;
+  margin-bottom: 20px;
 }
 
 .book-form {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 15px;
-  margin-top: 30px;
 }
 
 .book-form input,
 .book-form select {
-  padding: 10px;
-  border: none;
-  border-radius: 6px;
-}
-
-.book .btn {
-  background: #fff;
-  color: #5a0c0c;
-  border: none;
+  padding: 12px;
+  border: 2px solid #ffffff;
   border-radius: 8px;
-  padding: 10px 15px;
+  background: transparent;
+  color: #ffffff ;
+  font-size: 15px;
+  z-index: 1;
+}
+
+.book-form input::placeholder {
+  color: #f1f1f1;
+}
+
+.book-form label {
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.book-form button {
+  margin-top: 15px;
+  background: #ffffff;
+  color: #e1315b;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 25px;
+  font-weight: 600;
   cursor: pointer;
+  transition: 0.3s;
 }
 
-.map {
-  margin-top: 30px;
+.book-form button:hover {
+  background: #dbced1;
 }
 
-.map .image-placeholder {
-  height: 200px;
-  line-height: 200px;
+/* RIGHT SIDE - MAP */
+.book-map {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.book-map h3 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.book-map iframe {
+  width: 100%;
+  height: 450px;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.book-map .address {
+  font-family: 'Dancing Script', cursive;
+  font-size: 20px;
+  color: #ffffff;
 }
 
 /* FOOTER */
 footer {
-  background: #2a0505;
-  color: #fff;
+  background: #ffffff;
+  color: #B56576;
   padding: 30px 20px;
   text-align: center;
 }
@@ -335,7 +392,7 @@ footer {
   font-family: "Dancing Script", cursive;
   font-size: 60px;
   font-weight: 700;
-  color: #7b3f45; /* warna merah muda tua */
+  color: #e1315b; /* warna merah muda tua */
   margin-bottom: 15px;
 }
 
@@ -349,8 +406,8 @@ footer {
 /* ===== TOMBOL ===== */
 .btn {
   display: inline-block;
-  background: linear-gradient(145deg, #7b3f45, #a86b72);
-  color: #fff;
+  background: linear-gradient(145deg, #e1315b, #ffeef0);
+  color: #ffffff;
   border: none;
   border-radius: 30px;
   padding: 12px 28px;
@@ -358,11 +415,11 @@ footer {
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 3px 4px 0px #4d2226;
+  box-shadow: 3px 4px 0px #bc8388;
 }
 .hero-image {
   position: absolute;
-  right: 0;
+  right: 10%;
   top: 50%;
   transform: translateY(-37%);
   width: 60%; /* atau sesuaikan ukuran yang diinginkan */
@@ -398,7 +455,7 @@ footer {
   .nav-links {
     display: none;
     flex-direction: column;
-    background: #5a0c0c;
+    background: #e1315b;
     position: absolute;
     top: 60px;
     right: 0;

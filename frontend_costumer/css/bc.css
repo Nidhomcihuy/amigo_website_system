@@ -18,8 +18,8 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 15px 40px;
-  background: #5a0c0c;
-  color: #fff;
+  background: #ffffff;
+  color: #e1315b;
   position: sticky;
   top: 0;
   z-index: 10;
@@ -50,7 +50,7 @@ body {
 .brand {
   font-weight: 600;
   font-size: 18px;
-  color: #fff;
+  color: #e1315b;
   text-decoration: none;
 }
 
@@ -61,7 +61,7 @@ body {
 }
 
 .nav-links a {
-  color: #fff;
+  color: #e1315b;
   text-decoration: none;
   margin: 0 15px;
   font-weight: 500;
@@ -72,7 +72,7 @@ body {
 
 /* Hover Effect */
 .nav-links a:hover {
-  color: #ffdede;
+  color: #e1315b;
 }
 
 /* Garis bawah halus saat hover */
@@ -83,7 +83,7 @@ body {
   bottom: -3px;
   width: 0%;
   height: 2px;
-  background-color: #ffdede;
+  background-color: #e1315b;
   transition: width 0.3s ease;
 }
 
@@ -94,8 +94,8 @@ body {
 /* ===== HALAMAN AKTIF ===== */
 .nav-links a.active {
   font-weight: 700;
-  border-bottom: 2px solid #fff;
-  color: #fff;
+  border-bottom: 2px solid #e1315b;
+  color: #e1315b;
 }
 
 /* ===== HAMBURGER MENU (MOBILE) ===== */
@@ -111,8 +111,8 @@ body {
 /* ===== SECTION BOOK ===== */
 .book {
   padding: 80px 10%;
-  background: linear-gradient(90deg, #5a0c0c 0%, #8b1a1a 100%);
-  color: #fff;
+ background:  #e1315b;
+  color: #ffffff;
 }
 
 .book-container {
@@ -147,8 +147,9 @@ body {
   border: 2px solid #ffffff;
   border-radius: 8px;
   background: transparent;
-  color: #ffffff;
+  color: #ffffff ;
   font-size: 15px;
+  z-index: 1;
 }
 
 .book-form input::placeholder {
@@ -163,7 +164,7 @@ body {
 .book-form button {
   margin-top: 15px;
   background: #ffffff;
-  color: #5a0c0c;
+  color: #e1315b;
   border: none;
   border-radius: 25px;
   padding: 10px 25px;
@@ -173,7 +174,7 @@ body {
 }
 
 .book-form button:hover {
-  background: #ffffff;
+  background: #dbced1;
 }
 
 /* RIGHT SIDE - MAP */
@@ -191,7 +192,7 @@ body {
 
 .book-map iframe {
   width: 100%;
-  height: 250px;
+  height: 450px;
   border: none;
   border-radius: 10px;
   margin-bottom: 10px;
@@ -200,13 +201,13 @@ body {
 .book-map .address {
   font-family: 'Dancing Script', cursive;
   font-size: 20px;
-  color: #fff;
+  color: #ffffff;
 }
 
 /* FOOTER */
 footer {
-  background: #2a0505;
-  color: #fff;
+  background: #ffffff;
+  color: #B56576;
   padding: 30px 20px;
   text-align: center;
 }
@@ -242,7 +243,7 @@ footer {
   font-family: "Dancing Script", cursive;
   font-size: 60px;
   font-weight: 700;
-  color: #7b3f45; /* warna merah muda tua */
+  color: #e1315b; /* warna merah muda tua */
   margin-bottom: 15px;
 }
 
@@ -251,6 +252,36 @@ footer {
   line-height: 1.5;
   color: #555;
   margin-bottom: 50px;
+}
+
+/* ===== TOMBOL ===== */
+.btn {
+  display: inline-block;
+  background: linear-gradient(145deg, #e1315b, #ffeef0);
+  color: #ffffff;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 3px 4px 0px #bc8388;
+}
+.hero-image {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-37%);
+  width: 60%; /* atau sesuaikan ukuran yang diinginkan */
+    
+  object-fit: cover;
+  object-position: right center; /* untuk memastikan potongan dimulai dari sisi kanan gambar */
+  
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 4px 6px 0px #4d2226;
 }
 
 

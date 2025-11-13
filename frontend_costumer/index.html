@@ -101,28 +101,45 @@ santai aja, jelajahi menu kami, dan biarkan aroma manis dari Amigo Cake bikin ha
 lebih berwarna 🍰✨</p>
     </div>
   </section>
-
-  <!-- BOOK A CAKE -->
+<!-- ====== Section Book Cake ====== -->
   <section class="book">
-    <h2>Book A Cake</h2>
-    <form class="book-form">
-      <input type="text" placeholder="Your Name" required>
-      <input type="text" placeholder="Phone Number" required>
-      <input type="text" placeholder="Address" required>
-      <input type="text" placeholder="Cake Variants" required>
-      <select>
-        <option>1 Cake</option>
-        <option>2 Cakes</option>
-        <option>3 Cakes</option>
-      </select>
-      <input type="date" required>
-      <button type="submit" class="btn">Book Now</button>
-    </form>
-    <div class="map">
-      <div class="image-placeholder">Map Area</div>
-      <p>Jl Barito 1V/1 No.19 Keringan, Nganjuk</p>
+    <div class="book-container">
+      <div class="book-text">
+        <h2>Book A Cake</h2>
+
+        <form class="book-form">
+          <input type="text" placeholder="Your Name" required />
+          <input type="tel" placeholder="Phone Number" required />
+          <input type="text" placeholder="Address" required />
+          <input type="text" placeholder="Cake Variants" required />
+
+          <label for="quantity">Quantity</label>
+          <select id="quantity" name="quantity">
+            <option>1 Cake</option>
+            <option>2 Cakes</option>
+            <option>3 Cakes</option>
+          </select>
+
+          <label for="date">Pick Up Date</label>
+          <input type="date" id="date" required />
+
+          <button type="submit">Book Now</button>
+        </form>
+      </div>
+
+      <div class="book-map">
+        <h3>Lokasi Kami</h3>
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.7470889583867!2d112.21757377499294!3d-7.815771677547935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e784abb4d3d08d5%3A0x2fbe2e39bfc8b3e9!2sJl.%20Barito%20IVA%20No.%2019%2C%20Keringan%2C%20Nganjuk!5e0!3m2!1sen!2sid!4v1699620000000!5m2!1sen!2sid" 
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        <p class="address">Jl Barito IVA No. 19 Keringan, Nganjuk</p>
+      </div>
     </div>
   </section>
+
 
   <!-- FOOTER -->
   <footer>
