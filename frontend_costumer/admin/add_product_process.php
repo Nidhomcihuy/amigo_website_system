@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $diameter = trim($_POST['diameter'] ?? 0); 
     // Variabel deskripsi (dibiarkan kosong)
     $deskripsi = trim($_POST['description'] ?? ''); 
-
+    echo $kategori_product;
     // Sanitasi dan Konversi Tipe Data
     $nama_product = $conn->real_escape_string($nama_product);
     $kategori_product = $conn->real_escape_string($kategori_product);
@@ -81,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header("Location: dashboard.php");
         exit;
     }
-
+    
     // 3. Masukkan Data ke Database
     $sql = "INSERT INTO product (NAMA_PRODUCT, HARGA, PATH_GAMBAR, KATEGORI_PRODUCT, DIAMETER_SIZE, DESKRIPSI_PRODUCT) 
             VALUES (?, ?, ?, ?, ?, ?)"; 
@@ -89,14 +89,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $conn->prepare($sql);
     
     // Binding: sdsiss (Nama, Harga, Path, Kategori, Diameter, Deskripsi)
-    $stmt->bind_param("sdsiss", 
+    $stmt->bind_param("sdssis", 
         $nama_product, 
         $harga, 
         $path_gambar, 
         $kategori_product, 
         $diameter, 
         $deskripsi
-    ); 
+    );
+
 
     if ($stmt->execute()) {
         $_SESSION['message'] = "✅ Produk **$nama_product** (Diameter: $diameter cm) berhasil ditambahkan!";

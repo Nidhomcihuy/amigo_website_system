@@ -9,16 +9,6 @@
     <div class="sidebar-card balance-card">
         <div>Balance</div>
         <div class="balance-amount">Rp <?= number_format($current_balance, 0, ',', '.') ?></div>
-        <div class="balance-actions">
-            <button class="action-btn">
-                <i class="fas fa-arrow-up"></i>
-                <span>Top Up</span>
-            </button>
-            <button class="action-btn">
-                <i class="fas fa-arrow-right-arrow-left"></i>
-                <span>Transfer</span>
-            </button>
-        </div>
     </div>
 
     <div class="sidebar-card">

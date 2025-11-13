@@ -1,3 +1,4 @@
+/* ===== RESET ===== */
 * {
   margin: 0;
   padding: 0;
@@ -6,8 +7,8 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  color: #333;
-  background-color: #fff;
+  background: linear-gradient(#fff, #4b0b0b);
+  color: #fff;
 }
 
 /* ===== NAVBAR (MENU UTAMA) ===== */
@@ -17,8 +18,8 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 15px 40px;
-  background: #690108;
-  color: #ffffff;
+  background: #FCF1DB;
+  color: #690108;
   position: sticky;
   top: 0;
   z-index: 10;
@@ -61,7 +62,7 @@ body {
 
 .nav-links a {
   position: relative;
-  color: #ffffff;
+  color: #690108;
   text-decoration: none;
   margin: 0 15px;
   font-weight: 500;
@@ -71,7 +72,7 @@ body {
 
 /* Hover Effect */
 .nav-links a:hover {
-  color: #ffffff;
+  color: #690108;
 }
 
 /* Garis bawah efek hover */
@@ -82,7 +83,7 @@ body {
   bottom: 0;
   width: 0%;
   height: 2px;
-  background-color: #ffffff;
+  background-color: #690108;
   transition: width 0.3s ease;
 }
 
@@ -93,7 +94,7 @@ body {
 /* ===== HALAMAN AKTIF ===== */
 .nav-links a.active {
   font-weight: 700;
-  color: #ffffff;
+  color: #690108;
 }
 
 /* Garis bawah untuk link aktif (lebih kuat dari hover) */
@@ -104,7 +105,7 @@ body {
   bottom: 0;
   width: 100%;
   height: 2px;
-  background-color: #ffffff; /* Warna putih */
+  background-color: #690108; /* Warna putih */
 }
 .nav-links {
   display: flex;
@@ -120,191 +121,6 @@ body {
   color: #fff;
   cursor: pointer;
 }
-/* ===== HERO ===== */
-.hero {
-  position: relative;
-  width: 100%;
-  height: 100vh; /* 🔹 gambar penuh 1 layar */
-  background: url("../image_costumer/bghero.png") no-repeat center center/cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-/* 🔹 lapisan gelap/transparan agar teks mudah dibaca */
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4); /* bisa ubah transparansi */
-  z-index: 1;
-}
-
-/* 🔹 teks di atas gambar */
-.hero-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  color: #fff;
-  max-width: 800px;
-  padding: 0 20px;
-}
-
-.hero-content h1 {
-  font-family: "Dancing Script", cursive;
-  font-size: 72px;
-  margin-bottom: 20px;
-}
-
-.hero-content p {
-  font-family: "Poppins", sans-serif;
-  font-size: 20px;
-  line-height: 1.8;
-}
-
-
-/* MENU SECTION */
-.menu {
-  text-align: center;
-  background: linear-gradient( #690108, #FCF1DB);
-  color: #FCF1DB;
-  padding: 50px 20px;
-}
-
-.menu h2 {
-  font-family: 'Dancing Script', cursive;
-  font-size: 40px;
-  color: #FCF1DB;
-}
-
-.menu-categories {
-  margin: 20px 0;
-}
-
-.menu-categories button {
-  background: #690108;
-  color: #FCF1DB;
-  border: none;
-  margin: 5px;
-  padding: 8px 15px;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-.menu-categories button.active {
-  background: #FCF1DB;
-  color: #690108;
-}
-
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  margin-top: 30px;
-}
-
-.product-card {
-  background: #fff;
-  border-radius: 10px;
-  padding: 10px;
-  color: #333;
-}
-
-.product-image {
-  background: #eee;
-  height: 150px;
-  border-radius: 8px;
-  text-align: center;
-  line-height: 150px;
-}
-
-.product-info {
-  margin-top: 10px;
-  text-align: center;
-}
-
-
-
-.view-more {
-  background: #fff;
-  color: #690108;
-  border: none;
-  margin-top: 20px;
-  padding: 10px 25px;
-  border-radius: 8px; 
-  cursor: pointer;
-}
-
-/* ABOUT */
-.about {
-  background: linear-gradient( #FCF1DB, #690108);
-  display: flex;
-  flex-wrap: wrap;
-  padding: 50px;
-  align-items: center;
-  gap: 20px;
-}
-
-/* TEKS */
-.about-text {
-  flex: 1;
-  min-width: 300px;
-  /* ⚠️ HAPUS margin-left negatif agar teks tidak keluar layout */
-  margin-left: 0;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: #2b2b2b;
-  font-family: "Poppins", sans-serif;
-  line-height: 1.8;
-}
-
-.about-text h2 {
-  font-family: "Dancing Script", cursive;
-  font-size: 46px;
-  font-weight: 700;
-  color: #690108;
-  margin-bottom: 15px;
-}
-
-.about-text p {
-  font-size: 18px;
-  color: #ffffff;
-  text-align: justify;
-  margin-bottom: 12px;
-  max-width: 600px;
-  z-index: 1;
-}
-
-/* MAP */
-.book-map {
-  flex: 1;
-  min-width: 300px;
-  text-align: center;
-}
-
-.book-map h3 {
-  font-family: 'Dancing Script', cursive;
-  font-size: 28px;
-  margin-bottom: 15px;
-  color: #690108;
-}
-
-.book-map iframe {
-  width: 100%;
-  height: 450px;
-  border: none;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-
-.book-map .address {
-  font-family: 'Dancing Script', cursive;
-  font-size: 20px;
-  color: #FCF1DB;
-}
-
 
 /* ===== GALERI ===== */
 .galeri {
@@ -396,8 +212,6 @@ body {
 }
 
 
-
-
 /* FOOTER */
  footer {
   background: linear-gradient(to bottom, #6d1a1d, #4d2226);
@@ -487,43 +301,32 @@ body {
   box-shadow: 4px 6px 0px #4d2226;
 }
 
-/* ===== Responsive: Tablet (≤1024px) ===== */
-@media (max-width: 1024px) {
-  .hero {
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 880px) {
+  .nav-links {
+    position: absolute;
+    top: 64px;
+    right: 0;
+    left: 0;
+    background: #5a0c0c;
+    flex-direction: column;
+    gap: 10px;
+    display: none;
+    padding: 15px 0;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .footer-container {
     flex-direction: column;
     text-align: center;
-    padding: 60px 40px;
-    gap: 10px;
-  }
-}
-
-/* ===== Responsive: Mobile (≤768px) ===== */
-@media (max-width: 768px) {
-  .hero {
-    padding: 40px 20px;
-    gap: 10px;
-  }
-
-  .hero-text h1 {
-    font-size: 30px;
-  }
-
-  .hero-text p {
-    font-size: 15px;
-    text-align: justify;
-  }
-
-   footer {
-    padding: 50px 5%;
-  }
-
-  .footer-content {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .social-icons {
-    margin-top: 15px;
   }
   .galeri-card {
     width: 95%; /* 🔹 jarak lebih kecil di layar HP */

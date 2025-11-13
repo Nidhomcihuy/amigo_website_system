@@ -24,6 +24,9 @@
         <a href="settings.php" class="menu-item">
             <i class="fas fa-gear"></i>
             <span>Settings</span>
+      <a href="logout.php" class="menu-item">
+  <i class="fas fa-sign-out-alt"></i>
+    <span>Logout</span>
         </a>
     </nav>
 </div>
