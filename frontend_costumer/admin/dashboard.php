@@ -42,7 +42,7 @@ if ($result_popular && $result_popular->num_rows > 0) {
 $variant_cakes = [];
 $sql_variant = "SELECT ID_PRODUCT, NAMA_PRODUCT, HARGA, PATH_GAMBAR, KATEGORI_PRODUCT
                 FROM product 
-                WHERE KATEGORI_PRODUCT = 'Mille Crepes'
+                WHERE KATEGORI_PRODUCT = 'Custom Cake'
                 LIMIT 3"; 
 
 $result_variant = $conn->query($sql_variant);
@@ -78,7 +78,6 @@ if ($result_variant && $result_variant->num_rows > 0) {
                 <p>Arrange your cake and add the cake</p>
             </div>
         </div>
-
         <div class="content-wrapper">
             <div class="left-content">
                 <div class="section-header">
@@ -142,11 +141,15 @@ if ($result_variant && $result_variant->num_rows > 0) {
                     <?php endif; ?>
                 </div>
             </div>
-
             <?php include('includes/right-sidebar.php'); ?>
         </div>
     </div>
-    
+    <?php
+if (isset($_GET['go']) && $_GET['go'] === 'order') {
+    header("Location: total_order.php");
+    exit();
+}
+?>
     <div id="addProductModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -241,7 +244,6 @@ if ($result_variant && $result_variant->num_rows > 0) {
                     openModal();
                 });
             }
-            
             if (closeBtn) {closeBtn.addEventListener('click', closeModal);}
             if (cancelBtn) {cancelBtn.addEventListener('click', closeModal);}
 
