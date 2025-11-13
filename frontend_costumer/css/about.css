@@ -18,8 +18,8 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 15px 40px;
-  background: #5a0c0c;
-  color: #ffffff;
+  background: #ffffff;
+  color: #e1315b;
   position: sticky;
   top: 0;
   z-index: 10;
@@ -62,7 +62,7 @@ body {
 
 .nav-links a {
   position: relative;
-  color: #ffffff;
+  color: #e1315b;
   text-decoration: none;
   margin: 0 15px;
   font-weight: 500;
@@ -72,7 +72,7 @@ body {
 
 /* Hover Effect */
 .nav-links a:hover {
-  color: #ffffff;
+  color: #e1315b;
 }
 
 /* Garis bawah efek hover */
@@ -83,7 +83,7 @@ body {
   bottom: 0;
   width: 0%;
   height: 2px;
-  background-color: #ffffff;
+  background-color: #e1315b;
   transition: width 0.3s ease;
 }
 
@@ -94,7 +94,7 @@ body {
 /* ===== HALAMAN AKTIF ===== */
 .nav-links a.active {
   font-weight: 700;
-  color: #ffffff;
+  color: #e1315b;
 }
 
 /* Garis bawah untuk link aktif (lebih kuat dari hover) */
@@ -105,7 +105,7 @@ body {
   bottom: 0;
   width: 100%;
   height: 2px;
-  background-color: #ffffff; /* Warna putih */
+  background-color: #e1315b; /* Warna putih */
 }
 /* ===== HAMBURGER MENU (MOBILE) ===== */
 .hamburger {
@@ -117,27 +117,30 @@ body {
   cursor: pointer;
 }
 
-/* ==== ABOUT SECTION ==== */
+/* ABOUT */
 .about {
-  padding: 120px 10% 80px;
-  background: linear-gradient(180deg, #fff8f8, #ffe6e6);
-  color: #5c2a2a;
-  text-align: center;
-}
-
-.about-container {
+  background: linear-gradient(#e1315b,#fff);
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  padding: 50px;
   align-items: center;
-  gap: 40px;
+  gap: 20px;
 }
 
-.about-img img {
-  max-width: 300px;
-  width: 100%;
-  border-radius: 20px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+.about-image {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start; /* ⬅️ gambar menempel di kiri */
+  align-items: center;
+  transform: translateY(25%);  /* geser sedikit ke bawah (opsional) */
+}
+
+.about-image img {
+  width: 650px;              /* atur ukuran gambar */
+  height: auto;
+  object-fit: cover;
+  object-position: left center;
+  margin-left: -10px;        /* ⬅️ dorong gambar sedikit ke kiri */
 }
 .about-text {
   flex: 1;
@@ -153,33 +156,28 @@ body {
   font-family: "Poppins", sans-serif;
   line-height: 1.8;
 }
-.about-text {
-  flex: 1;
-  min-width: 280px;
-  text-align: left;
-}
-
 
 /* ===== JUDUL ===== */
 .about-text h2 {
   font-family: "Dancing Script", cursive;
   font-size: 46px;
   font-weight: 700;
-  color: #7b3f45; /* merah keunguan elegan */
+  color: #ffffff; /*putih*/
   margin-bottom: 15px;
 }
+
 /* ===== PARAGRAF ===== */
 .about-text p {
   font-size: 18px;
-  color: #444;
+  color: #ffffff;
   text-align: justify;
   margin-bottom: 12px;
   max-width: 600px;
 }
 /* FOOTER */
 footer {
-  background: #2a0505;
-  color: #fff;
+  background: #e1315b;
+  color: #ffffff;
   padding: 30px 20px;
   text-align: center;
 }
@@ -195,56 +193,51 @@ footer {
   font-size: 14px;
   opacity: 0.8;
 }
-.hero {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 80px 100px;
-  background-color: #ffffff;
-  color: #333;
-  font-family: "Poppins", sans-serif;
-  min-height: 80vh;
-}
+
 
 /* ===== TEKS UTAMA ===== */
 .hero-text {
   max-width: 600px;
 }
 
-.hero-text h1 {
-  font-family: "Dancing Script", cursive;
-  font-size: 60px;
-  font-weight: 700;
-  color: #7b3f45; /* warna merah muda tua */
-  margin-bottom: 15px;
-}
+
 
 .hero-text p {
   font-size: 20px;
   line-height: 1.5;
-  color: #555;
-  margin-bottom: 50px;
-}
-/* ===== TEKS UTAMA ===== */
-.hero-text {
-  max-width: 600px;
-}
-
-.hero-text h1 {
-  font-family: "Dancing Script", cursive;
-  font-size: 60px;
-  font-weight: 700;
-  color: #7b3f45; /* warna merah muda tua */
-  margin-bottom: 15px;
-}
-
-.hero-text p {
-  font-size: 20px;
-  line-height: 1.5;
-  color: #555;
+  color: #ffffff;
   margin-bottom: 50px;
 }
 
+/* ===== TOMBOL ===== */
+.btn {
+  display: inline-block;
+  background: linear-gradient(145deg, #e1315b, #ffeef0);
+  color: #ffffff;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 3px 4px 0px #bc8388;
+}
+.hero-image {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-37%);
+  width: 60%; /* atau sesuaikan ukuran yang diinginkan */
+    
+  object-fit: cover;
+  object-position: right center; /* untuk memastikan potongan dimulai dari sisi kanan gambar */
+  
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 4px 6px 0px #4d2226;
+}
 /* ==== RESPONSIVE ==== */
 @media (max-width: 768px) {
   .nav-links {
