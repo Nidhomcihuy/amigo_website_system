@@ -124,7 +124,7 @@ body {
 
 /* ===== GALERI ===== */
 .galeri {
-  background: linear-gradient( #690108, #FCF1DB);
+  background: linear-gradient(#690108, #FCF1DB);
   color: #fff;
   font-family: "Dancing Script", cursive;
   text-align: center;
@@ -133,21 +133,31 @@ body {
   overflow: hidden;
 }
 
+/* ===== JUDUL GALERI ===== */
+.galeri h2 {
+  color: #FCF1DB;
+  padding: 60px 0 40px;
+  margin: 0;
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
 /* ===== GRID GALERI ===== */
 .galeri-grid {
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: 60px; /* 🔹 jarak antar gambar */
-  padding: 60px 0; /* ruang atas bawah antar section */
+  gap: 40px; /* jarak antar gambar */
+  padding: 40px 0; /* ruang atas bawah */
 }
 
 /* ===== CARD SETIAP KEGIATAN ===== */
 .galeri-card {
   position: relative;
-  width: 90%; /* 🔹 beri ruang kanan-kiri */
-  height: 100vh; /* 🔹 tinggi 1 layar penuh */
-  margin: 0 auto; /* 🔹 rata tengah */
+  width: 90%;
+  height: 1500px; /* tinggi ideal */
+  margin: 0 auto;
   overflow: hidden;
   border-radius: 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
@@ -159,7 +169,7 @@ body {
 }
 
 .galeri-card:hover {
-  transform: scale(1.01);
+  transform: scale(1.02);
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
 }
 
@@ -175,18 +185,19 @@ body {
   filter: brightness(0.75);
   transition: filter 0.3s ease, transform 0.5s ease;
   border-radius: 20px;
+  z-index: 1;
 }
 
 .galeri-card:hover .galeri-image {
   filter: brightness(0.9);
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
 /* ===== TEKS INFO DI BAWAH GAMBAR ===== */
 .galeri-info {
   position: relative;
   z-index: 2;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.45);
   width: 100%;
   padding: 20px 0;
   border-bottom-left-radius: 20px;
@@ -195,20 +206,10 @@ body {
 
 .galeri-info h3 {
   font-family: "Poppins", sans-serif;
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 600;
   color: #fff;
   margin: 0;
-}
-
-/* ===== JUDUL GALERI ===== */
-.galeri h2 {
-  color: #FCF1DB;
-  padding: 60px 0 40px;
-  margin: 0;
-  font-size: 40px;
-  font-weight: 600;
-  letter-spacing: 1px;
 }
 
 
