@@ -148,12 +148,16 @@ body {
   color: #fff;
   max-width: 800px;
   padding: 0 20px;
+
+  /* biar teks tetap di tengah */
+  margin: 0 auto;
 }
 
 .hero-content h1 {
   font-family: "Dancing Script", cursive;
-  font-size: 72px;
-  margin-bottom: 20px;
+  font-size: 64px;
+  line-height: 1;
+  margin-bottom: 16px;
 }
 
 .hero-content p {
@@ -161,6 +165,54 @@ body {
   font-size: 20px;
   line-height: 1.8;
 }
+
+/* SLIDER TEKS - FIX */
+.hero-slider {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  /* hilangkan posisi absolute */
+  position: relative;
+
+  /* tinggi mengikuti konten secara normal */
+  min-height: auto;
+}
+
+/* tiap slide ditumpuk normal, tapi hanya 1 yang tampil */
+.hero-slider .slide {
+  display: none;         /* sembunyikan default */
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+
+/* slide aktif tampil normal dan horizontal */
+.hero-slider .li-active {
+  display: block;
+  opacity: 1;
+}
+
+/* Indikator */
+.hero-indicator {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.hero-indicator span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: #fff6;
+  margin: 0 5px;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.hero-indicator .li-active {
+  background: #fff;
+}
+
+
 
 
 /* MENU SECTION */
