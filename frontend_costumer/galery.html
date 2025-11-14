@@ -7,7 +7,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="css/galery.css" />
-  
+   <script>
+    function toggleMenu() {
+      const nav = document.querySelector('.nav-links');
+      nav.classList.toggle('active');
+    }
+  </script>
   </head>
 <body>
 
@@ -15,10 +20,10 @@
   <header class="navbar">
     <div class="logo">Aloha, Amigos! 🍰</div>
     <nav class="nav-links">
-      <a href="index.html" class="active">Home</a>
+      <a href="index.html">Home</a>
       <a href="menu.html">Menu</a>
       <a href="about.html">About</a>
-      <a href="galery.html">Galery</a>
+      <a href="galery.html"  class="active">Galery</a>
     </nav>
     <div class="menu-icon" onclick="toggleMenu()">☰</div>
   </header>

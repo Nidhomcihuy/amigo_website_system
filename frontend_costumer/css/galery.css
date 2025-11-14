@@ -33,20 +33,6 @@ body {
   width: 100%;
 }
 
-/* ===== LOGO AREA ===== */
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo img {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
 .brand {
   font-weight: 600;
   font-size: 18px;
@@ -54,7 +40,6 @@ body {
   text-decoration: none;
 }
 
-/* ===== NAVIGATION LINKS ===== */
 .nav-links {
   display: flex;
   align-items: center;
@@ -62,7 +47,7 @@ body {
 
 .nav-links a {
   position: relative;
-  color: #690108;
+  color: #5a0c0c;
   text-decoration: none;
   margin: 0 15px;
   font-weight: 500;
@@ -72,7 +57,7 @@ body {
 
 /* Hover Effect */
 .nav-links a:hover {
-  color: #690108;
+  color: #5a0c0c;
 }
 
 /* Garis bawah efek hover */
@@ -83,7 +68,7 @@ body {
   bottom: 0;
   width: 0%;
   height: 2px;
-  background-color: #690108;
+  background-color: #5a0c0c;
   transition: width 0.3s ease;
 }
 
@@ -94,7 +79,7 @@ body {
 /* ===== HALAMAN AKTIF ===== */
 .nav-links a.active {
   font-weight: 700;
-  color: #690108;
+  color: #5a0c0c;
 }
 
 /* Garis bawah untuk link aktif (lebih kuat dari hover) */
@@ -105,12 +90,13 @@ body {
   bottom: 0;
   width: 100%;
   height: 2px;
-  background-color: #690108; /* Warna putih */
+  background-color: #5a0c0c; /* Warna putih */
 }
 .nav-links {
   display: flex;
   align-items: center;
   margin-left: auto; /* ⬅️ dorong menu ke kanan */
+  gap: 20px;
 }
 /* ===== HAMBURGER MENU (MOBILE) ===== */
 .hamburger {
@@ -120,6 +106,13 @@ body {
   border: none;
   color: #fff;
   cursor: pointer;
+}
+.menu-icon {
+  display: none;       /* hamburger hilang di desktop */
+  cursor: pointer;
+  font-size: 28px;
+  user-select: none;
+
 }
 
 /* ===== GALERI ===== */
@@ -305,16 +298,20 @@ body {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 880px) {
-  .nav-links {
-    position: absolute;
-    top: 64px;
-    right: 0;
-    left: 0;
-    background: #5a0c0c;
-    flex-direction: column;
-    gap: 10px;
+ .nav-links {
     display: none;
-    padding: 15px 0;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 150px;
+  }
+  .nav-links.active {
+    display: flex;
+  }
+  .menu-icon {
+    display: block;
   }
 
   .nav-links.show {
@@ -340,5 +337,30 @@ body {
 
   .galeri h2 {
     font-size: 30px;
+  }
+    .menu-icon {
+    display: block;
+    font-size: 32px;
+    cursor: pointer;
+    z-index: 2000;
+    display: block;
+  }
+  /* Sembunyikan menu awalnya */
+  .nav-links {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    background:#ffdada;
+    flex-direction: column;
+    width: 200px;
+    padding: 20px;
+    border-radius: 12px;
+    display: none;  /* hidden default */
+  }
+
+  .nav-links a {
+    padding: 10px 0;
+    color: #5a0c0c;
+    text-align: right;
   }
 }
