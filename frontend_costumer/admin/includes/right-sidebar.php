@@ -3,7 +3,7 @@
     
     <?php
     // Data ini dapat diambil dari database di file utama (dashboard.php)
-    $current_balance = 12000.00; // Contoh data
+    $current_balance = 12000; // Contoh data
     ?>
     
     <div class="sidebar-card balance-card">

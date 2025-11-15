@@ -1,0 +1,151 @@
+/* --- CSS Khusus untuk Halaman Account Settings (account-settings.css) --- */
+
+.account-settings-content {
+    padding-right: 30px;
+}
+
+/* --- Header Akun --- */
+.account-header-banner {
+    background-color: #7d3e5d; /* Warna Maroon */
+    color: white;
+    padding: 30px 40px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+    /* Menambahkan dekorasi gelombang/lingkaran */
+    background-image: linear-gradient(135deg, #7d3e5d 0%, #9d5876 100%);
+}
+
+.account-header-banner::before {
+    content: '';
+    position: absolute;
+    right: -100px;
+    top: -100px;
+    width: 250px;
+    height: 250px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+.account-header-banner .header-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+}
+
+/* --- Subtitle dan Separator --- */
+.section-subtitle {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 25px;
+    padding-bottom: 5px;
+}
+
+.form-separator {
+    border: 0;
+    height: 1px;
+    background-color: #ddd;
+    margin: 50px 0;
+}
+
+/* --- Form Layout --- */
+.account-form {
+    margin-bottom: 40px;
+}
+
+.form-group, .form-group-half {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group-half {
+    flex: 1;
+}
+
+.account-form label {
+    display: block;
+    font-size: 13px;
+    color: #7d3e5d; /* Warna teks label */
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.account-form input:not([type="checkbox"]) {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+    background-color: #f9f9f9; /* Latar belakang abu-abu muda */
+}
+
+.account-form input:focus {
+    border-color: #7d3e5d;
+    background-color: white;
+}
+
+/* --- Add Form Button --- */
+.btn-save {
+    padding: 12px 40px;
+    background-color: #3b9f5f; /* Hijau Save */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.btn-save:hover {
+    background-color: #2e7d4d;
+}
+
+/* --- Update Form Buttons and Links --- */
+.password-row {
+    margin-top: 30px;
+}
+
+.forgot-link {
+    color: #d9534f; /* Merah untuk Forgot? */
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 13px;
+    margin-left: 5px;
+}
+
+.btn-update {
+    padding: 12px 40px;
+    background-color: #7d3e5d; /* Maroon Update */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.btn-update:hover {
+    background-color: #6d3450;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}
