@@ -597,65 +597,7 @@
     /* CSS Kustom untuk Modal "Add Cake" */
     /* =================================== */
 
-    .modal {
-        display: none; /* KUNCI: Sembunyikan pop-up saat halaman dimuat */
-        position: fixed;
-        z-index: 1000; 
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(0,0,0,0.5); /* Overlay gelap */
-        padding-top: 50px;
-        justify-content: center;
-        align-items: flex-start; 
-    }
-
-    .modal-content {
-        background-color: #fefefe;
-        margin-top: 50px; 
-        padding: 30px; /* Padding lebih besar */
-        border-radius: 20px; /* Border radius lebih besar */
-        width: 90%;
-        max-width: 800px; /* Lebar maksimum untuk layout 2 kolom */
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        animation: slideIn 0.3s ease-out; 
-        border: 2px solid #8B0000; /* Border merah marun */
-    }
-
-    .modal-header {
-        display: flex;
-        justify-content: center; /* Judul di tengah */
-        align-items: center;
-        border-bottom: 2px solid #8B0000; /* Garis bawah merah marun */
-        padding-bottom: 15px;
-        margin-bottom: 25px; /* Jarak lebih besar */
-        position: relative; /* Untuk posisi tombol X */
-    }
-
-    .modal-header h2 {
-        margin: 0;
-        font-size: 2rem; /* Ukuran font lebih besar */
-        color: #8B0000; /* Warna merah marun */
-        font-weight: bold;
-    }
-
-    .close-btn {
-        position: absolute; /* Posisikan tombol X absolut */
-        right: 0px; /* Jarak dari kanan */
-        top: 0px; /* Jarak dari atas */
-        color: #8B0000; /* Warna merah marun */
-        font-size: 30px; /* Ukuran lebih besar */
-        font-weight: bold;
-        cursor: pointer;
-        transition: color 0.2s;
-    }
-
-    .close-btn:hover {
-        color: #FF0000; /* Merah terang saat hover */
-    }
-
+    
     /* Struktur Form Utama */
     .form-body {
         display: flex;
@@ -1145,3 +1087,229 @@
             top: 10px;
         }
     }
+    /* === ADD CAKE MODAL STYLES === */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    padding: 24px 32px 16px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    margin: 0;
+    color: #333;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.close-btn {
+    font-size: 28px;
+    font-weight: bold;
+    color: #999;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+.form-body {
+    display: flex;
+    padding: 0 32px 24px;
+    gap: 32px;
+}
+
+.form-left {
+    flex: 1;
+}
+
+.form-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #8B0000;
+    box-shadow: 0 0 0 2px rgba(139, 0, 0, 0.1);
+}
+
+.image-upload-area {
+    width: 200px;
+    height: 200px;
+    border: 2px dashed #ccc;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    position: relative;
+}
+
+.image-upload-area.has-image {
+    border-color: #8B0000;
+}
+
+.image-preview {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.image-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.placeholder-icon {
+    color: #ccc;
+}
+
+.browse-btn {
+    background-color: #8B0000;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    margin-top: 12px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.browse-btn:hover {
+    background-color: #6a0000;
+}
+
+.drag-drop-text {
+    margin-top: 8px;
+    color: #999;
+    font-size: 14px;
+    text-align: center;
+}
+
+.form-actions-custom {
+    padding: 0 32px 24px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.btn-custom-cancel,
+.btn-custom-add {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-custom-cancel {
+    background-color: #f5f5f5;
+    color: #666;
+}
+
+.btn-custom-cancel:hover {
+    background-color: #e0e0e0;
+}
+
+.btn-custom-add {
+    background-color: #8B0000;
+    color: white;
+}
+
+.btn-custom-add:hover {
+    background-color: #6a0000;
+}
+
+/* === TOAST NOTIFICATION STYLES === */
+.toast-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 16px 24px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1001;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.toast-notification.success {
+    background-color: #28a745;
+}
+
+.toast-notification.error {
+    background-color: #dc3545;
+}
+
+.close-notification {
+    margin-left: 16px;
+    font-size: 20px;
+    cursor: pointer;
+    line-height: 1;
+}

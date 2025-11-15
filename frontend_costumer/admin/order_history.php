@@ -109,5 +109,8 @@ $orders_to_display = ($current_tab === 'history') ? $orders_history : $orders_on
             
         </div>
     </div>
+    <?php include('includes/modals/add_cake_modal.php'); ?>
+<script src="js/add_cake_modal.js"></script>
+
 </body>
 </html>
