@@ -174,5 +174,8 @@ $current_page = 'edit_cake';
             });
         });
     </script>
+    <?php include('includes/modals/add_cake_modal.php'); ?>
+<script src="js/add_cake_modal.js"></script>
+
 </body>
 </html>

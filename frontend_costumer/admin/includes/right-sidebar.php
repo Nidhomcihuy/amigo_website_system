@@ -26,5 +26,11 @@
         </div>
     </div>   
 
-    <a href="add_product.php" class="add-cake-btn" style="text-align: center; text-decoration: none; display: block;">Add cake</a>
+     <a href="#" 
+       class="add-cake-btn" 
+       data-modal="addProductModal" 
+       style="text-align: center; text-decoration: none; display: block;">
+       Add Cake
+    </a>
+
 </div>
