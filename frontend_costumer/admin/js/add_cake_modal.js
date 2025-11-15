@@ -1,12 +1,11 @@
-// js/add_cake_modal.js
 document.addEventListener('DOMContentLoaded', function() {
-    const modals = document.querySelectorAll(".modal"); // Bisa ada lebih dari satu
+    const modals = document.querySelectorAll(".modal");
     const addCakeBtns = document.querySelectorAll(".add-cake-btn");
 
     addCakeBtns.forEach((btn) => {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
-            const modalId = btn.dataset.modal; // bisa buat data-modal="addProductModal"
+            const modalId = btn.dataset.modal;
             const modal = document.getElementById(modalId);
             if(modal) modal.style.display = "flex";
         });
@@ -34,7 +33,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if(event.target == modal) closeModal();
         });
 
-        // Preview Image
         if(productImageInput) {
             productImageInput.addEventListener('change', function() {
                 if(this.files && this.files[0]) {
@@ -55,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
 
-        // Drag & Drop
         if(imageUploadArea) {
             imageUploadArea.addEventListener('drop', (e) => {
                 e.preventDefault();
