@@ -1,0 +1,233 @@
+/* --- 1. MODAL FRAME & OVERLAY --- */
+.modal {
+    display: none; /* Controlled by JS: display: flex; */
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); /* Semi-transparent black overlay */
+    
+    /* Center modal content */
+    align-items: center; 
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* When JS sets display: flex, use this for fade-in effect */
+.modal[style*="display: flex"] {
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    border-radius: 15px;
+    max-width: 900px;
+    width: 95%; /* Responsive width */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+    animation: slideIn 0.3s forwards;
+    padding: 0; /* Remove default padding */
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* --- 2. MODAL HEADER & CLOSE BUTTON --- */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+    font-weight: 600;
+}
+
+.close-btn {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #7d3e5d;
+}
+
+/* --- 3. FORM LAYOUT (Two-Column) --- */
+.form-body {
+    display: flex;
+    gap: 30px;
+    padding: 30px;
+}
+
+.form-left {
+    flex: 1;
+}
+
+.form-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center image upload area vertically */
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #7d3e5d;
+}
+
+/* --- 4. IMAGE UPLOAD AREA --- */
+.image-upload-area {
+    border: 2px dashed #ccc;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+/* Style saat hover/drag-over */
+.image-upload-area:hover,
+.image-upload-area[style*="border-color: rgb(139, 0, 0)"] {
+    border-color: #7d3e5d;
+    background-color: #f7f7f7;
+}
+
+.image-preview {
+    margin-bottom: 15px;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.image-preview img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.placeholder-icon {
+    color: #ccc;
+}
+
+.browse-btn {
+    background-color: #7d3e5d;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
+}
+
+.browse-btn:hover {
+    background-color: #6d3450;
+}
+
+.drag-drop-text {
+    font-size: 13px;
+    color: #999;
+    margin: 0;
+}
+
+/* --- 5. FORM ACTIONS --- */
+.form-actions-custom {
+    padding: 20px 30px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.btn-custom-cancel,
+.btn-custom-add {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+}
+
+.btn-custom-cancel {
+    background-color: #eee;
+    color: #555;
+}
+
+.btn-custom-cancel:hover {
+    background-color: #ddd;
+}
+
+.btn-custom-add {
+    background-color: #7d3e5d;
+    color: white;
+}
+
+.btn-custom-add:hover {
+    background-color: #6d3450;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .form-body {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+    .modal-header,
+    .form-actions-custom {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}   
