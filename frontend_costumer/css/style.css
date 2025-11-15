@@ -211,7 +211,7 @@ body {
 /* MENU SECTION */
 .menu {
   text-align: center;
-  background: linear-gradient( #690108, #FCF1DB);
+  background: linear-gradient(#690108, #FCF1DB);
   color: #FCF1DB;
   padding: 50px 20px;
 }
@@ -241,6 +241,32 @@ body {
   color: #690108;
 }
 
+/* DESKRIPSI DINAMIS */
+.menu-description {
+  background: #FCF1DB;
+  color: #690108;
+  display: inline-block;     /* tetap mengikuti panjang teks */
+  padding: 10px 20px;
+  border-radius: 25px;
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: center;
+  max-width: 700px;          /* batasi lebar agar tidak terlalu panjang */
+  line-height: 1.5;
+  word-wrap: break-word;     /* teks panjang tetap turun */
+}
+
+/* ANIMASI */
+.fade {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.fade.show {
+  opacity: 1;
+}
+
+/* PRODUCT GRID */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -268,17 +294,16 @@ body {
   text-align: center;
 }
 
-
-
 .view-more {
   background: #fff;
   color: #690108;
   border: none;
   margin-top: 20px;
   padding: 10px 25px;
-  border-radius: 8px; 
+  border-radius: 8px;
   cursor: pointer;
 }
+
 
 /* ABOUT */
 .about {
@@ -372,29 +397,30 @@ body {
   letter-spacing: 1px;
 }
 
-/* ===== GRID GALERI ===== */
+/* ===== GRID GALERI (lebih rapi tapi tetap column) ===== */
 .galeri-grid {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  gap: 40px; /* jarak antar gambar */
-  padding: 40px 0; /* ruang atas bawah */
+  width: 90%;
+  margin: 0 auto;
+  gap: 40px;
+  padding: 40px 0;
 }
 
-/* ===== CARD SETIAP KEGIATAN ===== */
+/* ===== CARD KEGIATAN (MAGIC FIX) ===== */
 .galeri-card {
   position: relative;
-  width: 90%;
-  height: 1500px; /* tinggi ideal */
+  width: 100%;
+  height: 450px;        /* FIX: dari 1500px → proporsional */
   margin: 0 auto;
   overflow: hidden;
   border-radius: 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
   display: flex;
-  flex-direction: column;
   justify-content: flex-end;
   align-items: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #000;
 }
 
 .galeri-card:hover {
@@ -405,16 +431,13 @@ body {
 /* ===== GAMBAR ===== */
 .galeri-image {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   background-size: cover;
   background-position: center;
   filter: brightness(0.75);
   transition: filter 0.3s ease, transform 0.5s ease;
-  border-radius: 20px;
-  z-index: 1;
 }
 
 .galeri-card:hover .galeri-image {
@@ -422,24 +445,71 @@ body {
   transform: scale(1.05);
 }
 
-/* ===== TEKS INFO DI BAWAH GAMBAR ===== */
+/* ===== TEKS INFO ===== */
 .galeri-info {
   position: relative;
-  z-index: 2;
-  background: rgba(0, 0, 0, 0.45);
   width: 100%;
-  padding: 20px 0;
+  padding: 18px 0;
+  background: rgba(0, 0, 0, 0.45);
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+  z-index: 2;
 }
 
 .galeri-info h3 {
   font-family: "Poppins", sans-serif;
-  font-size: 26px;
+  font-size: 22px;     /* lebih pas */
   font-weight: 600;
-  color: #fff;
   margin: 0;
+  color: #fff;
 }
+.galeri-subtitle {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  margin-top: -20px;
+  margin-bottom: 40px;
+  color: #FCF1DB;
+  opacity: 0.9;
+}
+/* Fade-in effect */
+.fade-card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.7s ease;
+}
+
+.fade-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+
+.lightbox.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 0 40px rgba(0,0,0,0.6);
+}
+
+
 
 
 
