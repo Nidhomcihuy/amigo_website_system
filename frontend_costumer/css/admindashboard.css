@@ -24,11 +24,13 @@
     }
 
     .logo {
-        font-size: 28px;
-        font-weight: bold;
-        color: #333;
-        margin-bottom: 40px;
-    }
+    font-size: 18px;      /* ukuran lebih kecil */
+    font-weight: bold;
+    margin: 0;            /* hilangkan jarak bawah */
+    position: relative;   /* posisikan di pojok kiri atas */
+    top: 5px;          
+    left: 5px;           
+}
 
     .menu-item {
         display: flex;

@@ -4,9 +4,9 @@ $active_page = $current_page ?? 'dashboard';
 ?>
 <div class="sidebar">
     <div class="logo">
-        <!-- <img src="../image_costumer/amigo.png" alt="Amigo Cake Logo" class="logo-img"> -->
+        <img src="../image_costumer/amigo.svg" alt="Amigo Cake Logo" class="logo-img">
     </div>
-    
+
     <nav>
         <a href="dashboard.php" class="menu-item <?= $active_page === 'dashboard' ? 'active' : '' ?>">
             <i class="fas fa-chart-line"></i>
