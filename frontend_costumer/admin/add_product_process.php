@@ -20,7 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $diameter = trim($_POST['diameter'] ?? 0); 
     // Variabel deskripsi (dibiarkan kosong)
     $deskripsi = trim($_POST['description'] ?? ''); 
-    echo $kategori_product;
+    // echo $kategori_product; // <-- BARIS INI HARUS DIHAPUS/DIKOMENTARI
+    
     // Sanitasi dan Konversi Tipe Data
     $nama_product = $conn->real_escape_string($nama_product);
     $kategori_product = $conn->real_escape_string($kategori_product);
@@ -84,12 +85,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     // 3. Masukkan Data ke Database
     $sql = "INSERT INTO product (NAMA_PRODUCT, HARGA, PATH_GAMBAR, KATEGORI_PRODUCT, DIAMETER_SIZE, DESKRIPSI_PRODUCT) 
-            VALUES (?, ?, ?, ?, ?, ?)"; 
+             VALUES (?, ?, ?, ?, ?, ?)"; 
     
     $stmt = $conn->prepare($sql);
     
-    // Binding: sdsiss (Nama, Harga, Path, Kategori, Diameter, Deskripsi)
-    $stmt->bind_param("sdssis", 
+    // Binding: sdssis (Nama, Harga, Path, Kategori, Diameter, Deskripsi)
+    $stmt->bind_param("sdsiss", 
         $nama_product, 
         $harga, 
         $path_gambar, 
@@ -100,6 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     if ($stmt->execute()) {
+        // SET PESAN SUKSES DI SESSION
         $_SESSION['message'] = "✅ Produk **$nama_product** (Diameter: $diameter cm) berhasil ditambahkan!";
     } else {
         $_SESSION['message'] = "❌ Gagal menambahkan produk: " . $conn->error;
@@ -108,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->close();
     $conn->close();
     
-    // Redirect kembali ke dashboard
+    // REDIRECT KE DASHBOARD.PHP (Akan memuat pesan dari session)
     header("Location: dashboard.php");
     exit;
 
