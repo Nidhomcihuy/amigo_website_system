@@ -76,92 +76,64 @@
   </div>
 </section>
 
-
   <!-- MENU SECTION -->
 <section class="menu" id="menu">
   <h2>Our Menu</h2>
 
+  <!-- KATEGORI -->
   <div class="menu-categories">
-    <button class="active">All</button>
-    <button>Custom Cake</button>
-    <button>Millecrepes</button>
-    <button>Cheesecake</button>
-    <button>Soft Cookies</button>
+    <button class="category-btn active" data-category="All">All</button>
+    <button class="category-btn" data-category="Custom Cake">Custom Cake</button>
+    <button class="category-btn" data-category="Mille Crepes">Mille Crepes</button>
+    <button class="category-btn" data-category="Cheesecake">Cheesecake</button>
+    <button class="category-btn" data-category="Soft Cookies">Soft Cookies</button>
   </div>
 
-  <!-- DESKRIPSI DINAMIS -->
+  <!-- DESKRIPSI KATEGORI -->
   <p id="menu-description" class="menu-description fade show">
     Selamat datang di menu kami 🍰
   </p>
 
-  <div class="product-grid">
-    <div class="product-card">
-      <div class="product-image">Gambar produk</div>
-      <div class="product-info">
-        <h3>Nama Produk</h3>
-        <p>Rp120.000</p>
-      </div>
-    </div>
+  <?php
+$conn = new mysqli("localhost", "root", "55555", "db_amigocake");
 
-    <div class="product-card">
-      <div class="product-image">Gambar produk</div>
-      <div class="product-info">
-        <h3>Nama Produk</h3>
-        <p>Rp90.000</p>
-      </div>
-    </div>
+// cek error koneksi
+if ($conn->connect_error) {
+  die("Koneksi gagal: " . $conn->connect_error);
+}
 
-    <div class="product-card">
-      <div class="product-image">Gambar produk</div>
-      <div class="product-info">
-        <h3>Nama Produk</h3>
-        <p>Rp75.000</p>
-      </div>
-    </div>
+// Ambil data produk terbaru (urutan paling baru di atas)
+$sql = "SELECT * FROM product ORDER BY ID_PRODUCT DESC";
+$q = $conn->query($sql);
 
-    <div class="product-card">
-      <div class="product-image">Gambar produk</div>
-      <div class="product-info">
-        <h3>Nama Produk</h3>
-        <p>Rp100.000</p>
+// Jika tidak ada data
+if (!$q || $q->num_rows == 0) {
+  echo "<p>Tidak ada produk.</p>";
+  return;
+}
+?>
+
+<div class="product-grid">
+
+<?php while($p = $q->fetch_assoc()) { ?>
+  
+  <div class="product-card" data-category="<?php echo $p['KATEGORI_PRODUCT']; ?>">
+      
+      <div class="product-image">
+        <img src="<?php echo $p['PATH_GAMBAR']; ?>" 
+             alt="<?php echo $p['NAMA_PRODUCT']; ?>">
       </div>
-    </div>
+
+      <div class="product-info">
+        <h3><?php echo $p['NAMA_PRODUCT']; ?></h3>
+        <p>Rp<?php echo number_format($p['HARGA'], 0, ',', '.'); ?></p>
+      </div>
   </div>
+<?php } ?>
+</div>
 
   <button class="view-more">View More</button>
 </section>
-
-
-
-<!-- SCRIPT KATEGORI + DESKRIPSI + ANIMASI -->
-<script>
-  const descriptions = {
-  "All": "🍰 Selamat datang di menu kami 🍰",
-  "Custom Cake":
-    "🎂 Sponge cake / buttercake yang diberi isian fiiling berupa diplomat cream atau fresh cream. Di coating menggunakan buttercream agar lebih kokoh dan dapat dihias sesuai keinginan customer. Dijadikan sebagai salah satu bagian penting dalam perayaan ulang tahun, anniversary atau sejenisnya. 🎂",
-  "Millecrepes":
-    "🍮 Disusun dari tumpukan crepes dilapisi dengan fresh cream didalamnya. Varian rasa yang bervariasi mulai dari chocolate, lotus biscoff hingga seasonal fruit. 🍮",
-  "Cheesecake":
-    "🧀 Disajikan sebagai dessert. Cream cheese, tepung dan telur sebagai bahan baku utama menjadikan cheesecake menjadi salah satu hidangan yang lembut. Dapat dinikmati menggunakan selai stroberi, blueberry atau tanpa selai. 🧀",
-  "Soft Cookies":
-    "🍪 Menggunakan butter yang berkualitas menjadikan soft cookies memiliki tekstur yang lembut di bagian dalam dan crunchy di bagian luarnya. Soft cookies memiliki banyak varian, seperti classic dan cheese red velvet yang menggunakan filling dari cream cheese. 🍪"
-};
-
-  const buttons = document.querySelectorAll(".menu-categories button");
-  const desc = document.getElementById("menu-description");
-
-  buttons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      desc.classList.remove("show");
-      setTimeout(() => {
-        desc.textContent = descriptions[btn.textContent];
-        desc.classList.add("show");
-      }, 50);
-      document.querySelector(".menu-categories .active")?.classList.remove("active");
-      btn.classList.add("active");
-    });
-  });
-</script>
 
    <!-- ABOUT SECTION -->
   <section class="about">
@@ -357,6 +329,55 @@ document.querySelectorAll(".galeri-card").forEach(card => {
 // Click anywhere on lightbox to close
 lightbox.addEventListener("click", () => {
   lightbox.classList.remove("show");
+});
+</script>
+<script>
+const descriptions = {
+  "All": "🍰 Selamat datang di menu kami 🍰",
+
+  "Custom Cake":
+    "🎂 Sponge cake / buttercake yang diberi isian diplomat cream atau fresh cream, dilapisi buttercream, cocok untuk ulang tahun dan event spesial 🎂",
+
+  "Mille Crepes":
+    "🍮 Tumpukan crepes lembut dengan fresh cream di setiap lapisan. Varian: coklat, biscoff, oreo, buah musiman 🍮",
+
+  "Cheesecake":
+    "🧀 Cream cheese lembut yang dipanggang atau dikukus, cocok dengan topping blueberry, strawberry atau tanpa topping 🧀",
+
+  "Soft Cookies":
+    "🍪 Luar crunchy, dalam lembut. Varian classic, choco chunk, red velvet cheese, dan banyak lagi 🍪"
+};
+
+const buttons = document.querySelectorAll(".category-btn");
+const products = document.querySelectorAll(".product-card");
+const desc = document.getElementById("menu-description");
+
+buttons.forEach(btn => {
+  btn.addEventListener("click", () => {
+
+    // update tombol active
+    buttons.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    const category = btn.dataset.category;
+
+    // animasi fade deskripsi
+    desc.classList.remove("show");
+    setTimeout(() => {
+      desc.textContent = descriptions[category];
+      desc.classList.add("show");
+    }, 50);
+
+    // FILTER PRODUK
+    products.forEach(prod => {
+      const prodCat = prod.dataset.category.trim();
+      prod.style.display =
+        (category === "All" || prodCat === category)
+          ? "block"
+          : "none";
+    });
+
+  });
 });
 </script>
 

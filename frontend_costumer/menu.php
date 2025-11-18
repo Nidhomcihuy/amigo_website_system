@@ -1,5 +1,5 @@
 <?php
-
+// tidak ada PHP khusus di atas
 ?>
 
 <!DOCTYPE html>
@@ -10,21 +10,24 @@
   <title>Menu | Amigo Cake</title>
   <link rel="stylesheet" href="css/menu.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-   <script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <script>
     function toggleMenu() {
       const nav = document.querySelector('.nav-links');
       nav.classList.toggle('active');
     }
   </script>
 </head>
+
 <body>
-   <!-- NAVBAR -->
+
+  <!-- NAVBAR -->
   <header class="navbar">
     <div class="logo">Aloha, Amigos! 🍰</div>
     <nav class="nav-links">
-      <a href="dashboard.php" >Home</a>
-      <a href="menu.php" class="active" >Menu</a>
+      <a href="dashboard.php">Home</a>
+      <a href="menu.php" class="active">Menu</a>
       <a href="about.php">About</a>
       <a href="galery.php">Galery</a>
     </nav>
@@ -35,15 +38,16 @@
 <section class="menu" id="menu">
   <h2>Our Menu</h2>
 
+  <!-- KATEGORI -->
   <div class="menu-categories">
-    <button class="active">All</button>
-    <button>Custom Cake</button>
-    <button>Millecrepes</button>
-    <button>Cheesecake</button>
-    <button>Soft Cookies</button>
+    <button class="category-btn active" data-category="All">All</button>
+    <button class="category-btn" data-category="Custom Cake">Custom Cake</button>
+    <button class="category-btn" data-category="Mille Crepes">Mille Crepes</button>
+    <button class="category-btn" data-category="Cheesecake">Cheesecake</button>
+    <button class="category-btn" data-category="Soft Cookies">Soft Cookies</button>
   </div>
 
-  <!-- DESKRIPSI DINAMIS -->
+  <!-- DESKRIPSI KATEGORI -->
   <p id="menu-description" class="menu-description fade show">
     Selamat datang di menu kami 🍰
   </p>
@@ -51,27 +55,25 @@
 <?php
 $conn = new mysqli("localhost", "root", "qwerty", "db_amigocake");
 
-// cek error koneksi
 if ($conn->connect_error) {
   die("Koneksi gagal: " . $conn->connect_error);
 }
 
-// Ambil data produk terbaru (urutan paling baru di atas)
 $sql = "SELECT * FROM product ORDER BY ID_PRODUCT DESC";
 $q = $conn->query($sql);
 
-// Jika tidak ada data
 if (!$q || $q->num_rows == 0) {
   echo "<p>Tidak ada produk.</p>";
   return;
 }
 ?>
 
+<!-- PRODUK GRID -->
 <div class="product-grid">
 
 <?php while($p = $q->fetch_assoc()) { ?>
   
-  <div class="product-card">
+  <div class="product-card" data-category="<?php echo $p['KATEGORI_PRODUCT']; ?>">
       
       <div class="product-image">
         <img src="<?php echo $p['PATH_GAMBAR']; ?>" 
@@ -84,53 +86,16 @@ if (!$q || $q->num_rows == 0) {
       </div>
 
   </div>
+
 <?php } ?>
 </div>
 
-  <button class="view-more">View More</button>
+<button class="view-more">View More</button>
+
 </section>
 
-<!-- SCRIPT KATEGORI + DESKRIPSI + ANIMASI -->
-<script>
-  const descriptions = {
-  "All": "🍰 Selamat datang di menu kami 🍰",
-
-  "Custom Cake":
-    "🎂 Sponge cake / buttercake yang diberi isian fiiling berupa diplomat cream atau fresh cream. Di coating menggunakan buttercream agar lebih kokoh dan dapat dihias sesuai keinginan customer. Dijadikan sebagai salah satu bagian penting dalam perayaan ulang tahun, anniversary atau sejenisnya. 🎂",
-
-  "Millecrepes":
-    "🍮 Disusun dari tumpukan crepes dilapisi dengan fresh cream didalamnya. Varian rasa yang bervariasi mulai dari chocolate, lotus biscoff hingga seasonal fruit. 🍮",
-
-  "Cheesecake":
-    "🧀 Disajikan sebagai dessert. Cream cheese, tepung dan telur sebagai bahan baku utama menjadikan cheesecake menjadi salah satu hidangan yang lembut. Dapat dinikmati menggunakan selai stroberi, blueberry atau tanpa selai. 🧀",
-
-  "Soft Cookies":
-    "🍪 Menggunakan butter yang berkualitas menjadikan soft cookies memiliki tekstur yang lembut di bagian dalam dan crunchy di bagian luarnya. Soft cookies memiliki banyak varian, seperti classic dan cheese red velvet yang menggunakan filling dari cream cheese. 🍪"
-};
-
-  const buttons = document.querySelectorAll(".menu-categories button");
-  const desc = document.getElementById("menu-description");
-
-  buttons.forEach(btn => {
-    btn.addEventListener("click", () => {
-
-      // Hilangkan kelas show untuk reset animasi
-      desc.classList.remove("show");
-
-      // Ganti isi teks + animasi fade
-      setTimeout(() => {
-        desc.textContent = descriptions[btn.textContent];
-        desc.classList.add("show");
-      }, 50);
-
-      // Tombol aktif
-      document.querySelector(".menu-categories .active")?.classList.remove("active");
-      btn.classList.add("active");
-    });
-  });
-</script>
-  <!-- FOOTER -->
- <footer>
+<!-- FOOTER -->
+<footer>
   <div class="footer-content">
     <div>
       <h3>Contact Us</h3>
@@ -142,13 +107,12 @@ if (!$q || $q->num_rows == 0) {
     <div>
       <h3>Amigo Cake</h3>
       <p>Setiap potongan adalah momen bahagia. Kue yang dibuat dengan cinta dan bahan terbaik untuk hari spesial Anda.</p>
-      
-      <!-- 🔹 Ikon Sosial Media -->
+
       <div class="social-icons">
         <a href="https://wa.me/6285800611600" target="_blank" class="whatsapp">
           <i class="fa-brands fa-whatsapp"></i>
         </a>
-        <a href="https://www.instagram.com/amigo.cake?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="instagram">
+        <a href="https://www.instagram.com/amigo.cake" target="_blank" class="instagram">
           <i class="fa-brands fa-instagram"></i>
         </a>
       </div>
@@ -163,33 +127,57 @@ if (!$q || $q->num_rows == 0) {
   <p class="footer-bottom">© 2025 All Rights Reserved By Kita Sendiri :)</p>
 </footer>
 
-  <script src="js/script.js"></script>
-  <script>
-fetch("../backend/get_products.php")
-  .then(response => response.json())
-  .then(products => {
-    const grid = document.getElementById("product-grid");
-    grid.innerHTML = "";
 
-    products.forEach(p => {
-      const card = `
-        <div class="product-card">
-          <div class="product-image">
-            <img src="../backend/${p.PATH_GAMBAR}" alt="${p.NAMA_PRODUCT}">
-          </div>
+<!-- SCRIPT FILTER + DESKRIPSI -->
+<script>
+const descriptions = {
+  "All": "🍰 Selamat datang di menu kami 🍰",
 
-          <div class="product-info">
-            <h3>${p.NAMA_PRODUCT}</h3>
-            <p class="price">Rp${p.HARGA.toLocaleString()}</p>
-            <p class="category">${p.KATEGORI_PRODUCT}</p>
-            <p class="size">Diameter: ${p.DIAMETER_SIZE} cm</p>
-          </div>
-        </div>
-      `;
-      grid.innerHTML += card;
+  "Custom Cake":
+    "🎂 Sponge cake / buttercake yang diberi isian diplomat cream atau fresh cream, dilapisi buttercream, cocok untuk ulang tahun dan event spesial 🎂",
+
+  "Mille Crepes":
+    "🍮 Tumpukan crepes lembut dengan fresh cream di setiap lapisan. Varian: coklat, biscoff, oreo, buah musiman 🍮",
+
+  "Cheesecake":
+    "🧀 Cream cheese lembut yang dipanggang atau dikukus, cocok dengan topping blueberry, strawberry atau tanpa topping 🧀",
+
+  "Soft Cookies":
+    "🍪 Luar crunchy, dalam lembut. Varian classic, choco chunk, red velvet cheese, dan banyak lagi 🍪"
+};
+
+const buttons = document.querySelectorAll(".category-btn");
+const products = document.querySelectorAll(".product-card");
+const desc = document.getElementById("menu-description");
+
+buttons.forEach(btn => {
+  btn.addEventListener("click", () => {
+
+    // update tombol active
+    buttons.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    const category = btn.dataset.category;
+
+    // animasi fade deskripsi
+    desc.classList.remove("show");
+    setTimeout(() => {
+      desc.textContent = descriptions[category];
+      desc.classList.add("show");
+    }, 50);
+
+    // FILTER PRODUK
+    products.forEach(prod => {
+      const prodCat = prod.dataset.category.trim();
+      prod.style.display =
+        (category === "All" || prodCat === category)
+          ? "block"
+          : "none";
     });
-  })
-  .catch(err => console.error("Error:", err));
+
+  });
+});
 </script>
+
 </body>
 </html>
