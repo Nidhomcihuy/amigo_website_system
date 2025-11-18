@@ -152,11 +152,12 @@ body {
 
 /* GRID */
 .galeri-grid {
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  margin: auto;
-  gap: 45px;
+display: flex;
+flex-direction: column; /* Pertahankan ini untuk tampilan mobile/defa ult */
+width: 90%;
+margin: auto;
+gap: 45px;
+align-items: center;
 }
 
 /* CARD */

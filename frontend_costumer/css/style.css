@@ -397,14 +397,14 @@ body {
   letter-spacing: 1px;
 }
 
-/* ===== GRID GALERI (lebih rapi tapi tetap column) ===== */
+/* GRID */
 .galeri-grid {
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  margin: 0 auto;
-  gap: 40px;
-  padding: 40px 0;
+display: flex;
+flex-direction: column; /* Pertahankan ini untuk tampilan mobile/defa ult */
+width: 90%;
+margin: auto;
+gap: 45px;
+align-items: center;
 }
 
 /* ===== CARD KEGIATAN (MAGIC FIX) ===== */
