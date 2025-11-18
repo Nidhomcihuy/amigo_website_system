@@ -118,56 +118,68 @@ body {
 /* ===== GALERI ===== */
 .galeri {
   background: linear-gradient(#690108, #FCF1DB);
-  color: #fff;
-  font-family: "Dancing Script", cursive;
   text-align: center;
-  padding: 0;
-  margin: 0;
+  padding-top: 80px;
+  padding-bottom: 50px;
   overflow: hidden;
 }
 
-/* ===== JUDUL GALERI ===== */
 .galeri h2 {
+  font-family: "Playfair Display", serif;
   color: #FCF1DB;
-  padding: 60px 0 40px;
-  margin: 0;
-  font-size: 40px;
-  font-weight: 600;
+  font-size: 46px;
+  margin-bottom: 10px;
   letter-spacing: 1px;
 }
 
-/* ===== GRID GALERI (lebih rapi tapi tetap column) ===== */
+.galeri h2::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background: #FCF1DB;
+  border-radius: 4px;
+  display: block;
+  margin: 12px auto 0;
+}
+
+.galeri-subtitle {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  color: #fbe6d0;
+  opacity: 0.9;
+  margin-bottom: 40px;
+}
+
+/* GRID */
 .galeri-grid {
   display: flex;
   flex-direction: column;
   width: 90%;
-  margin: 0 auto;
-  gap: 40px;
-  padding: 40px 0;
+  margin: auto;
+  gap: 45px;
 }
 
-/* ===== CARD KEGIATAN (MAGIC FIX) ===== */
+/* CARD */
 .galeri-card {
   position: relative;
   width: 100%;
-  height: 450px;        /* FIX: dari 1500px → proporsional */
-  margin: 0 auto;
-  overflow: hidden;
+  height: 700px;
   border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
   background: #000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.45);
+  transition: 0.4s ease;
 }
 
 .galeri-card:hover {
   transform: scale(1.02);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.55);
 }
 
-/* ===== GAMBAR ===== */
+/* IMAGE */
 .galeri-image {
   position: absolute;
   inset: 0;
@@ -175,46 +187,44 @@ body {
   height: 100%;
   background-size: cover;
   background-position: center;
-  filter: brightness(0.75);
-  transition: filter 0.3s ease, transform 0.5s ease;
+  filter: brightness(0.72);
+  transition: 0.4s ease;
 }
 
 .galeri-card:hover .galeri-image {
-  filter: brightness(0.9);
+  filter: brightness(0.92);
   transform: scale(1.05);
 }
 
-/* ===== TEKS INFO ===== */
+/* TEXT */
 .galeri-info {
-  position: relative;
   width: 100%;
-  padding: 18px 0;
-  background: rgba(0, 0, 0, 0.45);
+  padding: 20px 0;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(3px);
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  z-index: 2;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: 0.35s ease;
+}
+
+.galeri-card:hover .galeri-info {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .galeri-info h3 {
-  font-family: "Poppins", sans-serif;
-  font-size: 22px;     /* lebih pas */
-  font-weight: 600;
-  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
   color: #fff;
 }
-.galeri-subtitle {
-  font-family: "Poppins", sans-serif;
-  font-size: 16px;
-  margin-top: -20px;
-  margin-bottom: 40px;
-  color: #FCF1DB;
-  opacity: 0.9;
-}
-/* Fade-in effect */
+
+/* FADE EFFECT ON LOAD */
 .fade-card {
   opacity: 0;
   transform: translateY(40px);
-  transition: 0.7s ease;
+  transition: 0.8s ease;
 }
 
 .fade-card.show {
@@ -222,7 +232,7 @@ body {
   transform: translateY(0);
 }
 
-/* Lightbox */
+/* LIGHTBOX */
 .lightbox {
   position: fixed;
   inset: 0;
@@ -230,7 +240,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 10000;
+  z-index: 20000;
   opacity: 0;
   pointer-events: none;
   transition: 0.3s ease;
@@ -393,7 +403,7 @@ body {
     position: absolute;
     top: 80px;
     right: 20px;
-    background:#ffdada;
+    background:#FCF1DB;
     flex-direction: column;
     width: 200px;
     padding: 20px;

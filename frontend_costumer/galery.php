@@ -39,7 +39,7 @@
     <div class="book-text">
 
       <h2>Galeri Kegiatan Kami</h2>
-      <p class="galeri-subtitle">Dokumentasi kegiatan workshop, event, dan aktivitas bersama pelanggan ✨</p>
+      <p class="galeri-subtitle">"Momen berharga yang kami abadikan dalam setiap langkah perjalanan bersama.✨"</p>
 
       <!-- ==== WRAPPER GRID ==== -->
       <div class="galeri-grid">
