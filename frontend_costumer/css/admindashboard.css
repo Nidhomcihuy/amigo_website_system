@@ -23,7 +23,11 @@ body {
     box-shadow: 2px 0 5px rgba(0,0,0,0.05);
 }
 
+<<<<<<< HEAD
 .logo {
+=======
+    .logo {
+>>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
     font-size: 18px;      /* ukuran lebih kecil */
     font-weight: bold;
     margin: 0;            /* hilangkan jarak bawah */
@@ -773,6 +777,202 @@ body {
     }
     .modal-content {
         margin-top: 20px;
+<<<<<<< HEAD
+=======
+    }
+
+    .action-btn {
+        flex: 1;
+        background-color: rgba(255, 255, 255, 0.2);
+        border: none;
+        padding: 10px;
+        border-radius: 10px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .action-btn:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .action-btn i {
+        font-size: 20px;
+    }
+
+    .action-btn span {
+        font-size: 12px;
+    }
+
+    .address-info {
+        display: flex;
+        align-items: start;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    .address-info i {
+        color: #7d3e5d;
+        margin-top: 3px;
+    }
+
+    .address-text {
+        flex: 1;
+    }
+
+    .address-title {
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 5px;
+    }
+
+    .address-detail {
+        font-size: 13px;
+        color: #666;
+        line-height: 1.5;
+    }
+
+    .address-actions {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .outline-btn {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #e0e0e0;
+        background-color: white;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 13px;
+        transition: all 0.3s;
+    }
+
+    .outline-btn:hover {
+        background-color: #f5f5f5;
+    }
+
+    .add-cake-btn {
+        width: 100%;
+        padding: 15px;
+        background: linear-gradient(135deg, #7d3e5d 0%, #9d5876 100%);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .add-cake-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(125, 62, 93, 0.3);
+    }
+
+    @media (max-width: 1200px) {
+        .product-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 992px) {
+        .sidebar {
+            transform: translateX(-100%);
+        }
+        
+        .main-content {
+            margin-left: 0;
+            width: 100%;
+        }
+        
+        .content-wrapper {
+            flex-direction: column;
+        }
+        
+        .right-sidebar {
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .category-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .product-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+    /* =================================== */
+    /* CSS Kustom untuk Modal "Add Cake" */
+    /* =================================== */
+
+    
+    /* Struktur Form Utama */
+    .form-body {
+        display: flex;
+        flex-wrap: wrap; /* Agar bisa wrap di layar kecil */
+        gap: 30px; /* Jarak antar kolom */
+        margin-bottom: 30px;
+    }
+
+    .form-left {
+        flex: 1; /* Ambil sisa ruang */
+        min-width: 280px; /* Lebar minimum sebelum wrap */
+    }
+
+    .form-right {
+        flex: 1;
+        min-width: 280px;
+        display: flex; /* Untuk memusatkan area upload */
+        justify-content: center;
+        align-items: center;
+    }
+
+    .form-group {
+        margin-bottom: 20px; /* Jarak antar form group */
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 8px; /* Jarak label ke input */
+        font-weight: 600;
+        color: #333;
+        font-size: 1.1rem; /* Ukuran font label */
+    }
+
+    .form-group input:not([type="file"]),
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 12px 15px; /* Padding lebih besar */
+        border: 1px solid #ccc;
+        border-radius: 8px; /* Sudut lebih melengkung */
+        box-sizing: border-box;
+        font-size: 1rem;
+        background-color: #f9f9f9; /* Background abu-abu muda */
+        transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        border-color: #8B0000; /* Border fokus merah marun */
+        box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.2); /* Shadow fokus merah marun */
+        outline: none;
+    }
+
+    /* Area Upload Gambar */
+    .image-upload-area {
+        border: 2px dashed #ccc; /* Border putus-putus */
+        border-radius: 12px;
+>>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
         padding: 20px;
     }
     .modal-header h2 {
@@ -1198,6 +1398,121 @@ body {
     transition: border-color 0.2s;
 }
 
+<<<<<<< HEAD
+=======
+    /* Responsiveness */
+    @media (max-width: 768px) {
+        .form-body {
+            flex-direction: column; 
+        }
+        .form-left, .form-right {
+            min-width: unset; 
+            width: 100%;
+        }
+        .modal-content {
+            margin-top: 20px;
+            padding: 20px;
+        }
+        .modal-header h2 {
+            font-size: 1.5rem;
+        }
+        .close-btn {
+            font-size: 24px;
+            right: 10px;
+            top: 10px;
+        }
+    }
+    /* === ADD CAKE MODAL STYLES === */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    padding: 24px 32px 16px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    margin: 0;
+    color: #333;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.close-btn {
+    font-size: 28px;
+    font-weight: bold;
+    color: #999;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+.form-body {
+    display: flex;
+    padding: 0 32px 24px;
+    gap: 32px;
+}
+
+.form-left {
+    flex: 1;
+}
+
+.form-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.2s;
+}
+
+>>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
 .form-group input:focus,
 .form-group select:focus {
     outline: none;
@@ -1220,7 +1535,11 @@ body {
 }
 
 .image-upload-area.has-image {
+<<<<<<< HEAD
     border-color: #6D2835;
+=======
+    border-color: #8B0000;
+>>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
 }
 
 .image-preview {
@@ -1244,7 +1563,11 @@ body {
 }
 
 .browse-btn {
+<<<<<<< HEAD
     background-color: #6D2835;
+=======
+    background-color: #8B0000;
+>>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
     color: white;
     padding: 8px 16px;
     border-radius: 6px;
@@ -1255,7 +1578,11 @@ body {
 }
 
 .browse-btn:hover {
+<<<<<<< HEAD
     background-color: #5B212D;
+=======
+    background-color: #6a0000;
+>>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
 }
 
 .drag-drop-text {
@@ -1293,12 +1620,20 @@ body {
 }
 
 .btn-custom-add {
+<<<<<<< HEAD
     background-color: #6D2835;
+=======
+    background-color: #8B0000;
+>>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
     color: white;
 }
 
 .btn-custom-add:hover {
+<<<<<<< HEAD
     background-color: #5B212D;
+=======
+    background-color: #6a0000;
+>>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
 }
 
 /* === TOAST NOTIFICATION STYLES === */
@@ -1334,4 +1669,7 @@ body {
     cursor: pointer;
     line-height: 1;
 }
+<<<<<<< HEAD
     
+=======
+>>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e

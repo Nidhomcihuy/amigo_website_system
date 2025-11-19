@@ -2,12 +2,22 @@
 
 /* --- Header dan General Layout --- */
 .order-history-content {
+<<<<<<< HEAD
     max-width: 1000px;
     padding-right: 30px;
 }
 
 .order-history-header-banner {
     background-color: #6D2835; /* Maroon (diganti) */
+=======
+    /* Mengatur lebar konten */
+    max-width: 1000px; 
+    padding-right: 30px; 
+}
+
+.order-history-header-banner {
+    background-color: #7d3e5d; /* Maroon */
+>>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
     color: white;
     padding: 20px 30px;
     border-radius: 20px;
@@ -38,7 +48,11 @@
     padding: 10px 15px;
     display: flex;
     align-items: center;
+<<<<<<< HEAD
     width: 60%;
+=======
+    width: 60%; /* Sesuai gambar */
+>>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
 }
 
 .search-bar-container .fas {
@@ -51,6 +65,10 @@
     outline: none;
     flex-grow: 1;
     font-size: 16px;
+<<<<<<< HEAD
+=======
+    padding: 0;
+>>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
 }
 
 /* --- Tab Switcher --- */
@@ -73,11 +91,18 @@
     transition: all 0.3s;
     background-color: transparent;
     border: none;
+<<<<<<< HEAD
     cursor: pointer;
 }
 
 .tab-btn.active {
     background-color: #6D2835; /* active diganti */
+=======
+}
+
+.tab-btn.active {
+    background-color: #7d3e5d; /* Maroon */
+>>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
     color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -98,9 +123,13 @@
     flex-grow: 1;
 }
 
+<<<<<<< HEAD
 .order-id, 
 .order-status, 
 .order-total {
+=======
+.order-id, .order-status, .order-total {
+>>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
     font-size: 16px;
     color: #333;
     margin-bottom: 5px;
@@ -114,12 +143,20 @@
 
 /* Warna Status */
 .status-done {
+<<<<<<< HEAD
     color: #3b9f5f;
+=======
+    color: #3b9f5f; /* Green for Done */
+>>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
     font-weight: 600;
 }
 
 .status-process {
+<<<<<<< HEAD
     color: orange;
+=======
+    color: orange; /* Orange for Process */
+>>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
     font-weight: 600;
 }
 
@@ -135,7 +172,10 @@
     color: #555;
 }
 
+<<<<<<< HEAD
 /* --- Action Buttons --- */
+=======
+>>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
 .order-actions {
     display: flex;
     gap: 10px;
@@ -148,6 +188,7 @@
     color: white;
     cursor: pointer;
     font-size: 14px;
+<<<<<<< HEAD
     font-weight: 500;
     transition: background-color 0.2s;
 }
@@ -159,10 +200,35 @@
 }
 
 .delete-btn:hover,
+=======
+    transition: background-color 0.2s;
+    font-weight: 500;
+}
+
+/* Gaya tombol untuk History (Delete) */
+.delete-btn {
+    background-color: #d9534f; /* Red */
+}
+
+.delete-btn:hover {
+    background-color: #c9302c;
+}
+
+/* Gaya tombol untuk Ongoing (Cancel, Mark As Complete) */
+.cancel-btn {
+    background-color: #d9534f; /* Red */
+}
+
+.complete-btn {
+    background-color: #3b9f5f; /* Green */
+}
+
+>>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
 .cancel-btn:hover {
     background-color: #c9302c;
 }
 
+<<<<<<< HEAD
 /* Complete Button */
 .complete-btn {
     background-color: #3b9f5f;
@@ -176,3 +242,8 @@
 .tab-btn:hover:not(.active) {
     color: #6D2835;
 }
+=======
+.complete-btn:hover {
+    background-color: #2e7d4d;
+}
+>>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e

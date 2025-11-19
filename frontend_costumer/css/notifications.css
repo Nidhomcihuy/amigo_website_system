@@ -8,7 +8,11 @@
 }
 
 .notifications-header-banner {
+<<<<<<< HEAD
     background-color: #6D2835; /* Warna Maroon (diganti) */
+=======
+    background-color: #7d3e5d; /* Warna Maroon */
+>>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
     color: white;
     padding: 20px 30px;
     border-radius: 20px;
@@ -92,7 +96,11 @@
 
 /* Style untuk notifikasi yang belum dibaca (unread) */
 .notification-card.unread {
+<<<<<<< HEAD
     border-left-color: #6D2835; /* Garis warna maroon (diganti) */
+=======
+    border-left-color: #7d3e5d; /* Garis warna maroon */
+>>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
     background-color: #fff8f8; /* Sedikit latar belakang agar menonjol */
     font-weight: 500;
 }
@@ -105,7 +113,11 @@
 
 .card-icon {
     font-size: 24px;
+<<<<<<< HEAD
     color: #6D2835; /* Icon warna maroon (diganti) */
+=======
+    color: #7d3e5d;
+>>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
     margin-right: 15px;
 }
 
@@ -190,6 +202,12 @@
 }
 
 .page-number.active {
+<<<<<<< HEAD
     background-color: #6D2835; /* Active page warna maroon (diganti) */
     color: white;
 }
+=======
+    background-color: #7d3e5d;
+    color: white;
+}
+>>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
