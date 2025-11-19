@@ -7,7 +7,7 @@
 // -----------------------------------------------------
 define('DB_SERVER', 'localhost');
 define('DB_USERNAME', 'root'); // Ganti dengan username DB Anda
-define('DB_PASSWORD', 'qwerty');     // Ganti dengan password DB Anda
+define('DB_PASSWORD', '55555');     // Ganti dengan password DB Anda
 define('DB_NAME', 'db_amigocake'); // Ganti dengan nama database Anda
 
 /* Mencoba terhubung ke database MySQL */
