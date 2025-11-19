@@ -3,22 +3,12 @@
     
     <?php
     // Data ini dapat diambil dari database di file utama (dashboard.php)
-    $current_balance = 12000.00; // Contoh data
+    $current_balance = 12000; // Contoh data
     ?>
     
     <div class="sidebar-card balance-card">
         <div>Balance</div>
         <div class="balance-amount">Rp <?= number_format($current_balance, 0, ',', '.') ?></div>
-        <div class="balance-actions">
-            <button class="action-btn">
-                <i class="fas fa-arrow-up"></i>
-                <span>Top Up</span>
-            </button>
-            <button class="action-btn">
-                <i class="fas fa-arrow-right-arrow-left"></i>
-                <span>Transfer</span>
-            </button>
-        </div>
     </div>
 
     <div class="sidebar-card">
@@ -36,5 +26,11 @@
         </div>
     </div>   
 
-    <a href="add_product.php" class="add-cake-btn" style="text-align: center; text-decoration: none; display: block;">Add cake</a>
+     <a href="#" 
+       class="add-cake-btn" 
+       data-modal="addProductModal" 
+       style="text-align: center; text-decoration: none; display: block;">
+       Add Cake
+    </a>
+
 </div>

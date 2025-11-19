@@ -1,0 +1,191 @@
+/* --- CSS Khusus untuk Halaman Total Order (total-order-stats.css) --- */
+
+/* --- Top Bar Search Input --- */
+.top-bar.order-top-bar {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-container-order {
+    position: relative;
+    display: flex;
+    align-items: center;
+    /* Memberi ruang lebih di sebelah kiri */
+    margin-left: 20px; 
+}
+
+.search-icon-order {
+    position: absolute;
+    left: 10px;
+    color: #333;
+    font-size: 18px;
+}
+
+.search-input-order {
+    padding: 10px 15px 10px 40px; /* Padding kiri untuk ikon */
+    border: none;
+    border-radius: 12px;
+    background-color: #eee;
+    font-size: 16px;
+    outline: none;
+    transition: background-color 0.3s;
+    width: 300px;
+}
+
+.search-input-order:focus {
+    background-color: #fff;
+    box-shadow: 0 0 0 2px rgba(109,40,53,0.1);
+}
+
+/* greeting / profile */
+.greeting-profile-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.info-greeting {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* --- STATS CARDS GRID --- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    background-color: #6D2835; /* Warna Maroon utama (diganti) */
+    color: white;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 180px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.14);
+}
+
+.stat-title {
+    font-size: 16px;
+    opacity: 0.8;
+    margin-bottom: 10px;
+}
+
+.stat-value {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.stat-value.big-value {
+    font-size: 60px;
+}
+
+.stat-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.stat-badge {
+    background-color: #3b9f5f; /* Hijau untuk kenaikan */
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.stat-time {
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+/* --- CHART STYLING --- */
+.chart-container {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 30px 40px 10px 20px; /* Padding disesuaikan untuk sumbu Y */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.chart-bar-area {
+    display: flex;
+    height: 300px; /* Tinggi area chart */
+    align-items: flex-end;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+
+.chart-y-axis {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 40px;
+    font-size: 14px;
+    color: #666;
+    margin-right: 15px;
+    text-align: right;
+    position: relative;
+    padding-bottom: 20px; 
+}
+.chart-y-axis span {
+    line-height: 1; /* Konsistensi spacing */
+}
+
+.chart-bars {
+    display: flex;
+    flex-grow: 1;
+    height: 100%;
+    align-items: flex-end;
+    gap: 30px; /* Jarak antara bar */
+    padding-bottom: 5px;
+}
+
+.bar-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    flex-grow: 1;
+}
+
+.bar {
+    width: 100%;
+    background-color: #3b9f5f; /* Warna bar hijau teal */
+    border-radius: 5px 5px 0 0;
+    transition: height 0.5s;
+}
+
+.bar-label {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+    white-space: nowrap;
+}
+
+/* Responsiveness */
+@media (max-width: 992px) {
+    .order-top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    .search-input-order {
+        width: 100%;
+    }
+}
