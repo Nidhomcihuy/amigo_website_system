@@ -1,0 +1,81 @@
+/* --- CSS Khusus untuk Halaman Edit Cake --- */
+
+/* Style untuk Hero Banner yang lebih kecil, kosong, dan berwarna maroon */
+.hero-banner-edit {
+    /* Tinggi dibuat lebih pendek dari Hero Banner Dashboard */
+    height: 150px; 
+    margin-bottom: 30px;
+    background: #6D2835; /* Warna Maroon Anda (diganti) */
+    border-radius: 20px;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+    color: white;
+}
+
+/* Navigasi Kategori Tabs */
+.category-tabs {
+    display: flex;
+    gap: 15px;
+    padding: 10px 0;
+    margin-bottom: 30px;
+    /* Border bawah untuk visual pemisah */
+    border-bottom: 1px solid #e0e0e0; 
+}
+
+.category-tab {
+    padding: 8px 15px;
+    cursor: pointer;
+    color: #666;
+    font-weight: 500;
+    transition: all 0.3s;
+    border-radius: 8px;
+    position: relative;
+    /* Mengatasi wrapping teks */
+    white-space: nowrap; 
+}
+
+.category-tab:hover {
+    color: #6D2835;
+}
+
+.category-tab.active {
+    color: #fff;
+    background-color: #6D2835;
+    font-weight: 600;
+}
+
+/* Penyesuaian Layout Grid untuk Left Content */
+/* Sesuai permintaan Anda untuk mengambil ruang lebih luas (flex: 2) */
+.content-wrapper .left-content {
+    /* flex: 2; digunakan di inline style, pastikan ini konsisten.
+       Jika right-sidebar menggunakan flex: 1, left-content akan dua kali lebih lebar. */
+    padding-right: 15px; /* Sedikit padding untuk memisahkan dari right-sidebar */
+}
+
+/* --- Style Product Card (Menggunakan kelas dashboard.css Anda) --- */
+/* Pastikan product-card, product-grid, product-image, dll. dimuat dari admin-dashboard.css.
+   Kode di bawah ini hanya untuk memastikan konsistensi tampilan dari gambar yang Anda kirim. */
+
+/* Contoh: Jika Anda ingin harga di sini tetap menggunakan $5.59 (dua desimal) */
+.product-price {
+    font-size: 18px;
+    font-weight: 600;
+    color: #6D2835;
+}
+
+/* Contoh: Rating bintang */
+.rating i {
+    color: #ffc107;
+    font-size: 14px;
+}
+
+/* Untuk tombol View All di bagian bawah */
+.view-all {
+    color: #6D2835;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 500;
+}

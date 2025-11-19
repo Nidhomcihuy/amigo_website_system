@@ -76,10 +76,8 @@ $conn->close();
                 <div class="welcome-text">Hello,<br>Welcome!</div>
             </div>
         </div>
-
         <div class="login-right">
             <h2>Enter Your Detail to Continue!</h2>
-            
             <?php if (!empty($error_message)): ?>
                 <div style="color: red; margin-bottom: 20px; padding: 10px; border: 1px solid red; border-radius: 5px;">
                     <?= htmlspecialchars($error_message) ?>
@@ -108,6 +106,5 @@ $conn->close();
             </form>
         </div>
     </div>
-
 </body>
 </html>

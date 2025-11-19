@@ -1,0 +1,178 @@
+/* --- CSS Khusus untuk Halaman Order History (order_history.css) --- */
+
+/* --- Header dan General Layout --- */
+.order-history-content {
+    max-width: 1000px;
+    padding-right: 30px;
+}
+
+.order-history-header-banner {
+    background-color: #6D2835; /* Maroon (diganti) */
+    color: white;
+    padding: 20px 30px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-history-header-banner .header-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.greeting-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* --- Search Bar --- */
+.search-bar-container {
+    position: relative;
+    margin-bottom: 30px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    width: 60%;
+}
+
+.search-bar-container .fas {
+    color: #999;
+    margin-right: 10px;
+}
+
+.search-bar-container input {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    font-size: 16px;
+}
+
+/* --- Tab Switcher --- */
+.tab-switcher {
+    display: flex;
+    background-color: #eee;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 30px;
+    width: fit-content;
+    border: 1px solid #ccc;
+}
+
+.tab-btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: all 0.3s;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.tab-btn.active {
+    background-color: #6D2835; /* active diganti */
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Order Card List --- */
+.order-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.card-left {
+    flex-grow: 1;
+}
+
+.order-id, 
+.order-status, 
+.order-total {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.order-id {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Warna Status */
+.status-done {
+    color: #3b9f5f;
+    font-weight: 600;
+}
+
+.status-process {
+    color: orange;
+    font-weight: 600;
+}
+
+.card-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 15px;
+}
+
+.order-date {
+    font-size: 14px;
+    color: #555;
+}
+
+/* --- Action Buttons --- */
+.order-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.action-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+/* Delete / Cancel Buttons */
+.delete-btn,
+.cancel-btn {
+    background-color: #d9534f;
+}
+
+.delete-btn:hover,
+.cancel-btn:hover {
+    background-color: #c9302c;
+}
+
+/* Complete Button */
+.complete-btn {
+    background-color: #3b9f5f;
+}
+
+.complete-btn:hover {
+    background-color: #2e7d4d;
+}
+
+/* Optional: small hover for tab buttons to match new palette */
+.tab-btn:hover:not(.active) {
+    color: #6D2835;
+}

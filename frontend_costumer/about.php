@@ -1,3 +1,7 @@
+<?php
+
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -21,10 +25,10 @@
   <header class="navbar">
     <div class="logo">Aloha, Amigos! 🍰</div>
     <nav class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="menu.html">Menu</a>
-      <a href="about.html" class="active">About</a>
-      <a href="galery.html">Galery</a>
+      <a href="dashboard.php">Home</a>
+      <a href="menu.php">Menu</a>
+      <a href="about.php" class="active">About</a>
+      <a href="galery.php">Galery</a>
     </nav>
     <div class="menu-icon" onclick="toggleMenu()">☰</div>
   </header>
