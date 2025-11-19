@@ -5,7 +5,11 @@
     /* Tinggi dibuat lebih pendek dari Hero Banner Dashboard */
     height: 150px; 
     margin-bottom: 30px;
+<<<<<<< HEAD
     background: #6D2835; /* Warna Maroon Anda (diganti) */
+=======
+    background: #7d3e5d; /* Warna Maroon Anda */
+>>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
     border-radius: 20px;
     padding: 30px;
     position: relative;
@@ -36,12 +40,20 @@
 }
 
 .category-tab:hover {
+<<<<<<< HEAD
     color: #6D2835;
+=======
+    color: #7d3e5d;
+>>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
 }
 
 .category-tab.active {
     color: #fff;
+<<<<<<< HEAD
     background-color: #6D2835;
+=======
+    background-color: #7d3e5d;
+>>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
     font-weight: 600;
 }
 
@@ -61,7 +73,11 @@
 .product-price {
     font-size: 18px;
     font-weight: 600;
+<<<<<<< HEAD
     color: #6D2835;
+=======
+    color: #7d3e5d;
+>>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
 }
 
 /* Contoh: Rating bintang */
@@ -72,10 +88,18 @@
 
 /* Untuk tombol View All di bagian bawah */
 .view-all {
+<<<<<<< HEAD
     color: #6D2835;
+=======
+    color: #7d3e5d;
+>>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 5px;
     font-weight: 500;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
