@@ -34,16 +34,10 @@
 
 .search-input-order:focus {
     background-color: #fff;
-<<<<<<< HEAD
     box-shadow: 0 0 0 2px rgba(109,40,53,0.1);
 }
 
 /* greeting / profile */
-=======
-    box-shadow: 0 0 0 2px #7d3e5d1a;
-}
-
->>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
 .greeting-profile-group {
     display: flex;
     align-items: center;
@@ -65,11 +59,7 @@
 }
 
 .stat-card {
-<<<<<<< HEAD
     background-color: #6D2835; /* Warna Maroon utama (diganti) */
-=======
-    background-color: #7d3e5d; /* Warna Maroon utama */
->>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
     color: white;
     border-radius: 20px;
     padding: 30px;
@@ -78,15 +68,12 @@
     justify-content: space-between;
     height: 180px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-<<<<<<< HEAD
     transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
 .stat-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 10px 24px rgba(0,0,0,0.14);
-=======
->>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
 }
 
 .stat-title {
@@ -157,10 +144,6 @@
     line-height: 1; /* Konsistensi spacing */
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
 .chart-bars {
     display: flex;
     flex-grow: 1;
@@ -205,8 +188,4 @@
     .search-input-order {
         width: 100%;
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e

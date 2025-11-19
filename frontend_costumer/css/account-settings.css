@@ -6,25 +6,16 @@
 
 /* --- Header Akun --- */
 .account-header-banner {
-<<<<<<< HEAD
     background-color: #6D2835; /* Warna Maroon Baru */
-=======
-    background-color: #7d3e5d; /* Warna Maroon */
->>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
     color: white;
     padding: 30px 40px;
     border-radius: 20px;
     margin-bottom: 40px;
     position: relative;
     overflow: hidden;
-<<<<<<< HEAD
 
     /* Dekorasi gradient */
     background-image: linear-gradient(135deg, #6D2835 0%, #6D2835 100%);
-=======
-    /* Menambahkan dekorasi gelombang/lingkaran */
-    background-image: linear-gradient(135deg, #7d3e5d 0%, #9d5876 100%);
->>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
 }
 
 .account-header-banner::before {
@@ -67,12 +58,8 @@
     margin-bottom: 40px;
 }
 
-<<<<<<< HEAD
 .form-group,
 .form-group-half {
-=======
-.form-group, .form-group-half {
->>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
     margin-bottom: 20px;
 }
 
@@ -88,11 +75,7 @@
 .account-form label {
     display: block;
     font-size: 13px;
-<<<<<<< HEAD
     color: #6D2835; /* Warna teks label baru */
-=======
-    color: #7d3e5d; /* Warna teks label */
->>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
     margin-bottom: 8px;
     font-weight: 600;
 }
@@ -105,7 +88,6 @@
     font-size: 16px;
     outline: none;
     transition: border-color 0.3s;
-<<<<<<< HEAD
     background-color: #f9f9f9;
 }
 
@@ -115,17 +97,6 @@
 }
 
 /* --- Save Button --- */
-=======
-    background-color: #f9f9f9; /* Latar belakang abu-abu muda */
-}
-
-.account-form input:focus {
-    border-color: #7d3e5d;
-    background-color: white;
-}
-
-/* --- Add Form Button --- */
->>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
 .btn-save {
     padding: 12px 40px;
     background-color: #3b9f5f; /* Hijau Save */
@@ -158,11 +129,7 @@
 
 .btn-update {
     padding: 12px 40px;
-<<<<<<< HEAD
     background-color: #6D2835; /* Maroon Baru */
-=======
-    background-color: #7d3e5d; /* Maroon Update */
->>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
     color: white;
     border: none;
     border-radius: 8px;
@@ -174,11 +141,7 @@
 }
 
 .btn-update:hover {
-<<<<<<< HEAD
     background-color: #5B212D;
-=======
-    background-color: #6d3450;
->>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
 }
 
 /* Responsiveness */
@@ -187,8 +150,4 @@
         flex-direction: column;
         gap: 0;
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> aa51728f7c90bc7b3888e52ad66868f5c77f812e
