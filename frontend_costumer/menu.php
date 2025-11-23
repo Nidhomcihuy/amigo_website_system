@@ -8,7 +8,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Menu | Amigo Cake</title>
-  <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/menu.css?v=<?php echo time(); ?>">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -53,7 +53,7 @@
   </p>
 
 <?php
-$conn = new mysqli("localhost", "root", "55555", "db_amigocake");
+$conn = new mysqli("localhost", "root", "qwerty", "db_amigocake");
 
 if ($conn->connect_error) {
   die("Koneksi gagal: " . $conn->connect_error);

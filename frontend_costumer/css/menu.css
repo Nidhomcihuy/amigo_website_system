@@ -174,50 +174,114 @@ body {
 
 /* PRODUCT GRID */
 .product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-  gap: 25px;
-  margin-top: 30px;
-  padding: 10px;
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+gap: 25px;
+margin-top: 30px;
+padding: 10px;
+
+/* Tambahan penting */
+max-width: 1200px;
+margin-left: auto;
+margin-right: auto;
 }
 
 .product-card {
-    background: #FCF1DB;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
-    text-align: center;
-
-    /* Hapus width dan margin auto */
-    width: 100%; 
-    margin: 0; 
+background: #FCF1DB;
+padding: 20px;
+border-radius: 15px;
+box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+text-align: center;
+width: 100%;
+box-sizing: border-box;
 }
 
 .product-card img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 10px;
+width: 100%;
+height: 220px;
+object-fit: cover;
+border-radius: 10px;
 }
 
+/* ========== PRODUCT INFO ========== */
 .product-info {
-    margin-top: 15px;
-    font-size: 15px;
-    font-weight: bold;
-    color: #000;
+  margin-top: 15px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #000;
 }
+
+/* Nama produk */
+.product-info h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+/* Harga */
+.product-info p {
+  font-size: 15px;
+  color: #5b4732;
+}
+
+/* ========== CATEGORY BUTTONS ========== */
+.menu-categories {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.menu-categories button {
+  padding: 8px 18px;
+  border-radius: 18px;
+  border: none;
+  background: #b4161b;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.menu-categories button:hover {
+  background: #8f0f15;
+}
+
+.menu-categories .active {
+  background: #f3d7c0;
+  color: #000;
+}
+
+/* ========== MENU DESCRIPTION ========== */
+.menu-description {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  background: #fdf2e1;
+  border-radius: 15px;
+  font-size: 15px;
+  color: #333;
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+
+.menu-description.show {
+  opacity: 1;
+}  
 
 
 
 .view-more {
-  background: #fff;
-  color: #690108;
+  background: #690108;
+  color: #FCF1DB;
   border: none;
   margin-top: 20px;
   padding: 10px 25px;
   border-radius: 8px;
   cursor: pointer;
 }
+
+
 
 /* FOOTER */
  footer {
