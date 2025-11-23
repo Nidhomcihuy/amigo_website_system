@@ -95,7 +95,7 @@
   </p>
 
   <?php
-$conn = new mysqli("localhost", "root", "55555", "db_amigocake");
+$conn = new mysqli("localhost", "root", "qwerty", "db_amigocake");
 
 // cek error koneksi
 if ($conn->connect_error) {
