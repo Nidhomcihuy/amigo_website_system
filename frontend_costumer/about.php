@@ -8,8 +8,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About | Amigo Cake</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/about.css" />
+  <link rel="stylesheet" href="css/about.css?v=<?php echo time(); ?>">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
    <script>
@@ -39,13 +38,11 @@
     
     <div class="about-text">
       <h2>We Are Amigo Cake 🎂</h2>
-      <p>Di sini, kami percaya kalau setiap potongan kue bukan cuma soal rasa, tapi juga tentang momen dan kebahagiaan yang menyertainya.</p>
-      <p>Dari resep klasik hingga kreasi kekinian, semua kue kami dibuat dengan bahan berkualitas dan penuh cinta dari dapur kami yang hangat.</p>
-      <p>Baik kamu lagi cari kue ulang tahun, 
-kue pernikahan, atau cuma pengin manisin
-hari, Amigo Cake siap nemenin setiap momenmu biar makin spesial. Jadi, duduk 
-santai aja, jelajahi menu kami, dan biarkan aroma manis dari Amigo Cake bikin harimu 
-lebih berwarna 🍰✨</p>
+      <p>Berawal dari sebuah oven listrik kecil, perjalanan ini dimulai dengan sederhana namun dipenuhi dengan cinta, ketekunan, dan keyakinan yang besar.</p>
+      <p>Dari alat yang terbatas itulah kami belajar memahami setiap detail proses, menerima setiap kegagalan sebagai pelajaran, dan merayakan setiap keberhasilan kecil sebagai pijakan untuk melangkah lebih jauh.</p>
+      <p>Tidak terhitung berapa kali adonan harus diulang, resep harus diperbaiki, dan teknik harus ditingkatkan, namun justru di situlah kami menemukan makna sejati dari berkembang—bahwa kesempurnaan lahir dari proses panjang yang penuh kesabaran.</p>
+      <p>Seiring waktu, usaha kecil ini tumbuh, bukan hanya dari segi alat dan kemampuan, tetapi juga dari mimpi dan keyakinan bahwa hal baik selalu layak diperjuangkan. Dari oven kecil itu pula kami belajar bahwa segala sesuatu memiliki titik awal, dan dengan komitmen yang tulus, sesuatu yang sederhana dapat berkembang menjadi lebih besar dan lebih berarti.</p>
+      <p>Kini, berada di titik ini bukanlah akhir perjalanan, melainkan langkah baru untuk terus berinovasi, berkarya, dan menghadirkan sesuatu yang lebih baik. Dan dengan semangat yang sama seperti saat pertama kali memulai, kami akan terus bertumbuh—pelan namun pasti—hingga nanti.🍰✨</p>
     </div>
       <div class="book-map">
         <h3>Lokasi Kami</h3>
@@ -92,7 +89,7 @@ lebih berwarna 🍰✨</p>
     <div>
       <h3>Opening Hours</h3>
       <p>Everyday</p>
-      <p>08.00 AM - 10.00 PM</p>
+      <p>08.00 - 18.00 </p>
     </div>
   </div>
   <p class="footer-bottom">© 2025 All Rights Reserved By Kita Sendiri :)</p>

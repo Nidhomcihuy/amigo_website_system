@@ -90,7 +90,27 @@ if (!$q || $q->num_rows == 0) {
 <?php } ?>
 </div>
 
-<button class="view-more">View More</button>
+<button class="view-more" onclick="openPopup()">Order Now</button>
+
+<!-- POPUP ORDER FORM -->
+<div id="popupOverlay" class="popup-overlay">
+  <div class="popup-box">
+    <h2>Order Cake</h2>
+
+    <input type="text" placeholder="Nama Pemesan">
+    <input type="text" placeholder="No. Telf">
+    <input type="text" placeholder="Alamat">
+    <input type="date" placeholder="Tgl Pengambilan">
+    <input type="text" placeholder="Diameter (custom cake)">
+    <input type="text" placeholder="Varian Cake">
+    <input type="text" placeholder="Req Tulisan Cake (latin/biasa)">
+    <input type="time" placeholder="Jam Pengambilan">
+
+    <button class="submit-order">Order</button>
+
+    <span class="close-btn" onclick="closePopup()">×</span>
+  </div>
+</div>
 
 </section>
 
@@ -121,7 +141,7 @@ if (!$q || $q->num_rows == 0) {
     <div>
       <h3>Opening Hours</h3>
       <p>Everyday</p>
-      <p>08.00 AM - 10.00 PM</p>
+      <p>08.00 - 18.00 </p>
     </div>
   </div>
   <p class="footer-bottom">© 2025 All Rights Reserved By Kita Sendiri :)</p>
@@ -178,6 +198,14 @@ buttons.forEach(btn => {
   });
 });
 </script>
+<script>
+  function openPopup() {
+  document.getElementById('popupOverlay').style.display = 'flex';
+}
 
+function closePopup() {
+  document.getElementById('popupOverlay').style.display = 'none';
+}
+</script>
 </body>
 </html>
