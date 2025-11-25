@@ -10,7 +10,7 @@
   <title>Book A Cake | Amigo Cake</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="css/galery.css" />
+  <link rel="stylesheet" href="css/galery.css?v=<?php echo time(); ?>">
    <script>
     function toggleMenu() {
       const nav = document.querySelector('.nav-links');
@@ -45,30 +45,30 @@
       <div class="galeri-grid">
 
         <div class="galeri-card fade-card">
-          <div class="galeri-image" style="background-image: url('image_costumer/coba4.jpeg');"></div>
+          <div class="galeri-image" style="background-image: url('image_costumer/coba5.jpeg');"></div>
           <div class="galeri-info">
-            <h3>Workshop Mobile Application</h3>
+            <h3>Ngopaski</h3>
           </div>
         </div>
 
         <div class="galeri-card fade-card">
-          <div class="galeri-image" style="background-image: url('image_costumer/coba4.jpeg');"></div>
+          <div class="galeri-image" style="background-image: url('image_costumer/coba5.jpeg');"></div>
           <div class="galeri-info">
-            <h3>Workshop Mobile Application</h3>
+            <h3>Ngopaski</h3>
           </div>
         </div>
 
         <div class="galeri-card fade-card">
-          <div class="galeri-image" style="background-image: url('image_costumer/coba4.jpeg');"></div>
+          <div class="galeri-image" style="background-image: url('image_costumer/coba5.jpeg');"></div>
           <div class="galeri-info">
-            <h3>Workshop Mobile Application</h3>
+            <h3>Ngopaski</h3>
           </div>
         </div>
 
         <div class="galeri-card fade-card">
-          <div class="galeri-image" style="background-image: url('image_costumer/coba4.jpeg');"></div>
+          <div class="galeri-image" style="background-image: url('image_costumer/coba5.jpeg');"></div>
           <div class="galeri-info">
-            <h3>Workshop Mobile Application</h3>
+            <h3>Ngopaski</h3>
           </div>
         </div>
 
@@ -112,7 +112,7 @@
     <div>
       <h3>Opening Hours</h3>
       <p>Everyday</p>
-      <p>08.00 AM - 10.00 PM</p>
+      <p>08.00 - 18.00 </p>
     </div>
   </div>
   <p class="footer-bottom">© 2025 All Rights Reserved By Kita Sendiri :)</p>

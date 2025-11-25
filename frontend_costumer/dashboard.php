@@ -9,7 +9,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Amigo Cake</title>
+<<<<<<< HEAD
    <link rel="stylesheet" href="css/style.css?v=<?php echo time(); ?>">
+=======
+  <link rel="stylesheet" href="css/style.css?v=<?php echo time(); ?>">
+>>>>>>> d856e19f7bf7a7426dfa17d6f0a8f4546ca84919
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
  <script>
@@ -83,7 +87,7 @@
   </div>
 </section>
 
-  <!-- MENU SECTION -->
+   <!-- MENU SECTION -->
 <section class="menu" id="menu">
   <h2>Our Menu</h2>
 
@@ -101,25 +105,23 @@
     Selamat datang di menu kami 🍰
   </p>
 
-  <?php
-$conn = new mysqli("localhost", "root", "55555", "db_amigocake");
+<?php
+$conn = new mysqli("localhost", "root", "qwerty", "db_amigocake");
 
-// cek error koneksi
 if ($conn->connect_error) {
   die("Koneksi gagal: " . $conn->connect_error);
 }
 
-// Ambil data produk terbaru (urutan paling baru di atas)
 $sql = "SELECT * FROM product ORDER BY ID_PRODUCT DESC";
 $q = $conn->query($sql);
 
-// Jika tidak ada data
 if (!$q || $q->num_rows == 0) {
   echo "<p>Tidak ada produk.</p>";
   return;
 }
 ?>
 
+<!-- PRODUK GRID -->
 <div class="product-grid">
 
 <?php while($p = $q->fetch_assoc()) { ?>
@@ -135,11 +137,34 @@ if (!$q || $q->num_rows == 0) {
         <h3><?php echo $p['NAMA_PRODUCT']; ?></h3>
         <p>Rp<?php echo number_format($p['HARGA'], 0, ',', '.'); ?></p>
       </div>
+
   </div>
+
 <?php } ?>
 </div>
 
-  <button class="view-more">View More</button>
+<button class="view-more" onclick="openPopup()">Order Now</button>
+
+<!-- POPUP ORDER FORM -->
+<div id="popupOverlay" class="popup-overlay">
+  <div class="popup-box">
+    <h2>Order Cake</h2>
+
+    <input type="text" placeholder="Nama Pemesan">
+    <input type="text" placeholder="No. Telf">
+    <input type="text" placeholder="Alamat">
+    <input type="date" placeholder="Tgl Pengambilan">
+    <input type="text" placeholder="Diameter (custom cake)">
+    <input type="text" placeholder="Varian Cake">
+    <input type="text" placeholder="Req Tulisan Cake (latin/biasa)">
+    <input type="time" placeholder="Jam Pengambilan">
+
+    <button class="submit-order">Order</button>
+
+    <span class="close-btn" onclick="closePopup()">×</span>
+  </div>
+</div>
+
 </section>
 
    <!-- ABOUT SECTION -->
@@ -177,36 +202,36 @@ lebih berwarna 🍰✨</p>
     <div class="book-text">
 
       <h2>Galeri Kegiatan Kami</h2>
-      <p class="galeri-subtitle">Dokumentasi kegiatan workshop, event, dan aktivitas bersama pelanggan ✨</p>
+      <p class="galeri-subtitle">"Momen berharga yang kami abadikan dalam setiap langkah perjalanan bersama.✨"</p>
 
       <!-- ==== WRAPPER GRID ==== -->
       <div class="galeri-grid">
 
-        <div class="galeri-card fade-card">
-          <div class="galeri-image" style="background-image: url('image_costumer/coba4.jpeg');"></div>
+         <div class="galeri-card fade-card">
+          <div class="galeri-image" style="background-image: url('image_costumer/coba5.jpeg');"></div>
           <div class="galeri-info">
-            <h3>Workshop Mobile Application</h3>
+            <h3>Ngopaski</h3>
           </div>
         </div>
 
         <div class="galeri-card fade-card">
-          <div class="galeri-image" style="background-image: url('image_costumer/coba4.jpeg');"></div>
+          <div class="galeri-image" style="background-image: url('image_costumer/coba5.jpeg');"></div>
           <div class="galeri-info">
-            <h3>Workshop Mobile Application</h3>
+            <h3>Ngopaski</h3>
           </div>
         </div>
 
         <div class="galeri-card fade-card">
-          <div class="galeri-image" style="background-image: url('image_costumer/coba4.jpeg');"></div>
+          <div class="galeri-image" style="background-image: url('image_costumer/coba5.jpeg');"></div>
           <div class="galeri-info">
-            <h3>Workshop Mobile Application</h3>
+            <h3>Ngopaski</h3>
           </div>
         </div>
 
         <div class="galeri-card fade-card">
-          <div class="galeri-image" style="background-image: url('image_costumer/coba4.jpeg');"></div>
+          <div class="galeri-image" style="background-image: url('image_costumer/coba5.jpeg');"></div>
           <div class="galeri-info">
-            <h3>Workshop Mobile Application</h3>
+            <h3>Ngopaski</h3>
           </div>
         </div>
 
@@ -251,7 +276,7 @@ lebih berwarna 🍰✨</p>
     <div>
       <h3>Opening Hours</h3>
       <p>Everyday</p>
-      <p>08.00 AM - 10.00 PM</p>
+      <p>08.00 - 18.00 </p>
     </div>
   </div>
   <p class="footer-bottom">© 2025 All Rights Reserved By Kita Sendiri :)</p>
@@ -387,6 +412,14 @@ buttons.forEach(btn => {
   });
 });
 </script>
+<script>
+  function openPopup() {
+  document.getElementById('popupOverlay').style.display = 'flex';
+}
 
+function closePopup() {
+  document.getElementById('popupOverlay').style.display = 'none';
+}
+</script>
 </body>
 </html>
