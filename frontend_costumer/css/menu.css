@@ -203,11 +203,9 @@ object-fit: cover;
 border-radius: 10px;
 }
 
-<<<<<<< HEAD
 
-=======
 /* ========== PRODUCT INFO ========== */
->>>>>>> d856e19f7bf7a7426dfa17d6f0a8f4546ca84919
+
 .product-info {
   margin-top: 15px;
   font-size: 15px;
@@ -277,11 +275,8 @@ border-radius: 10px;
 
 .view-more {
   background: #690108;
-<<<<<<< HEAD
   color: #fff;
-=======
   color: #FCF1DB;
->>>>>>> d856e19f7bf7a7426dfa17d6f0a8f4546ca84919
   border: none;
   margin-top: 20px;
   padding: 10px 25px;

@@ -65,11 +65,7 @@ body::before {
     backdrop-filter: blur(12px);
     box-shadow: 0 10px 35px rgba(0,0,0,0.25);
     animation: pop 0.35s ease;
-<<<<<<< HEAD
-    margin-top: -40%;
-=======
     margin-top: -50%;
->>>>>>> d856e19f7bf7a7426dfa17d6f0a8f4546ca84919
 }
 
 
