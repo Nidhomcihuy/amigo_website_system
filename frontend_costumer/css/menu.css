@@ -174,31 +174,35 @@ body {
 
 /* PRODUCT GRID */
 .product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-  gap: 25px;
-  margin-top: 30px;
-  padding: 10px;
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+gap: 25px;
+margin-top: 30px;
+padding: 10px;
+
+/* Tambahan penting */
+max-width: 1200px;
+margin-left: auto;
+margin-right: auto;
 }
 
 .product-card {
-    background: #FCF1DB;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
-    text-align: center;
-
-    /* Hapus width dan margin auto */
-    width: 100%; 
-    margin: 0; 
+background: #FCF1DB;
+padding: 20px;
+border-radius: 15px;
+box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+text-align: center;
+width: 100%;
+box-sizing: border-box;
 }
 
 .product-card img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 10px;
+width: 100%;
+height: 220px;
+object-fit: cover;
+border-radius: 10px;
 }
+
 
 .product-info {
     margin-top: 15px;
@@ -210,8 +214,8 @@ body {
 
 
 .view-more {
-  background: #fff;
-  color: #690108;
+  background: #690108;
+  color: #fff;
   border: none;
   margin-top: 20px;
   padding: 10px 25px;
@@ -359,4 +363,17 @@ body {
     color: #5a0c0c;
     text-align: right;
   }
+}
+
+/* Responsive Grid Breakpoints */
+@media (max-width: 992px) {
+.product-grid {
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+}
+
+@media (max-width: 600px) {
+.product-grid {
+grid-template-columns: 1fr;
+}
 }

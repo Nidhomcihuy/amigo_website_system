@@ -1,6 +1,7 @@
 <?php
 // (opsional) jika nanti mau load data dari database, taruh di sini.
 // include "db.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -8,7 +9,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Amigo Cake</title>
-  <link rel="stylesheet" href="css/style.css" />
+   <link rel="stylesheet" href="css/style.css?v=<?php echo time(); ?>">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
  <script>
@@ -24,13 +25,19 @@
   <header class="navbar">
     <div class="logo">Aloha, Amigos! 🍰</div>
     <nav class="nav-links">
-      <a href="dashboard.php" class="active">Home</a>
-      <a href="menu.php">Menu</a>
-      <a href="about.php">About</a>
-      <a href="galery.php">Galery</a>
+        <a href="dashboard.php" class="active">Home</a>
+        <a href="menu.php">Menu</a>
+        <a href="about.php">About</a>
+        <a href="galery.php">Galery</a>
     </nav>
+
+    <!-- Logout Button -->
+    <div class="user-actions">
+        <a href="logout.php" class="logout-btn" onclick="return confirm('Yakin ingin keluar?')">Logout</a>
+    </div>
+
     <div class="menu-icon" onclick="toggleMenu()">☰</div>
-  </header>
+</header>
 
  <!-- HERO SECTION -->
 <section class="hero">

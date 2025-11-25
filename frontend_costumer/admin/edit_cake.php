@@ -60,10 +60,6 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                  FROM product 
                  WHERE ID_PRODUCT = ?";
     
-    // PENTING: Jika koneksi mysqli otomatis tertutup setelah blok data pertama, 
-    // Anda mungkin perlu memastikan koneksi masih hidup di sini.
-    // Jika Anda menggunakan include_once, dan $conn adalah global, ini seharusnya aman.
-    
     if ($stmt_edit = $conn->prepare($sql_edit)) {
         $stmt_edit->bind_param("i", $edit_product_id);
         $stmt_edit->execute();

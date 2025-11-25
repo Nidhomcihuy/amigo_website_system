@@ -787,51 +787,69 @@ body {
 /* =================================== */
 /* CSS Notifikasi TOAST POP-UP BARU */
 /* =================================== */
+/* =================================== */
+/* CSS Notifikasi TOAST POP-UP (Minimalis) */
+/* =================================== */
 .toast-notification {
     position: fixed; 
-    bottom: 30px; 
-    right: 30px; 
+    bottom: 20px; /* Jarak dari bawah */
+    right: 20px; /* Jarak dari kanan */
     z-index: 1100; 
-    padding: 15px 25px;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
+    
+    /* PENGECILAN UKURAN */
+    padding: 10px 15px; /* Padding dikurangi */
+    max-width: 300px; /* Lebar maksimum dikurangi */
+    
+    /* Gaya visual lainnya */
+    border-radius: 6px; 
+    font-size: 0.95rem; /* Font dikecilkan */
+    font-weight: 500; 
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 400px; 
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); 
     
-    /* Animasi: Awalnya sembunyikan sebagian */
+    /* Animasi */
     opacity: 0;
     transform: translateY(50px);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out; 
 }
 
-/* Warna Toast untuk Sukses */
+/* Warna Toast untuk Sukses/Error (Dipertahankan) */
 .toast-notification.success {
     background-color: #d4edda; 
     color: #155724; 
     border: 1px solid #c3e6cb;
 }
 
-/* Warna Toast untuk Error */
 .toast-notification.error {
     background-color: #f8d7da; 
     color: #721c24; 
     border: 1px solid #f5c6cb;
 }
 
+/* Penyesuaian Tombol Tutup */
 .close-notification {
     cursor: pointer;
-    font-size: 1.5rem;
+    font-size: 1.2rem; /* Ukuran tombol tutup dikecilkan */
     font-weight: bold;
     line-height: 1;
-    margin-left: 15px;
+    margin-left: 10px; /* Margin dikurangi */
     color: inherit; 
     transition: opacity 0.2s;
 }
 
+/* Media Query untuk Mobile */
+@media (max-width: 600px) {
+    .toast-notification {
+        bottom: 10px;
+        left: 50%; 
+        right: auto;
+        transform: translateX(-50%); 
+        width: 90%;
+        max-width: 90%; 
+    }
+}
 /* =================================== */
 /* CSS Kustom untuk Modal "Add Cake" */
 /* =================================== */
