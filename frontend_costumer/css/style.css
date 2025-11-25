@@ -273,11 +273,8 @@ grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 gap: 25px;
 margin-top: 30px;
 padding: 10px;
-<<<<<<< HEAD
-=======
 
 /* Tambahan penting */
->>>>>>> d856e19f7bf7a7426dfa17d6f0a8f4546ca84919
 max-width: 1200px;
 margin-left: auto;
 margin-right: auto;
@@ -300,11 +297,8 @@ object-fit: cover;
 border-radius: 10px;
 }
 
-<<<<<<< HEAD
-
-=======
 /* ========== PRODUCT INFO ========== */
->>>>>>> d856e19f7bf7a7426dfa17d6f0a8f4546ca84919
+
 .product-info {
   margin-top: 15px;
   font-size: 15px;

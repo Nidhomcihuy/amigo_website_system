@@ -1,19 +1,19 @@
 <?php
 // includes/db_config.php
 
-<<<<<<< HEAD
+
 // Hindari akses langsung via URL
 defined('APP_PATH') or define('APP_PATH', dirname(__DIR__) . '/');
-=======
+
 // -----------------------------------------------------
 // KONFIGURASI KONEKSI DATABASE
 // Ganti dengan detail koneksi database Anda yang sebenarnya
 // -----------------------------------------------------
 define('DB_SERVER', 'localhost');
 define('DB_USERNAME', 'root'); // Ganti dengan username DB Anda
-define('DB_PASSWORD', 'qwerty');     // Ganti dengan password DB Anda
+define('DB_PASSWORD', '55555');     // Ganti dengan password DB Anda
 define('DB_NAME', 'db_amigocake'); // Ganti dengan nama database Anda
->>>>>>> d856e19f7bf7a7426dfa17d6f0a8f4546ca84919
+
 
 $host = 'localhost';
 $dbname = 'db_amigocake';   // sesuaikan nama database Anda
