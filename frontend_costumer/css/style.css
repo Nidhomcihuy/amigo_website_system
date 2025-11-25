@@ -266,50 +266,35 @@ body {
   opacity: 1;
 }
 
-/* ========== PRODUCT GRID ========== */
+/* PRODUCT GRID */
 .product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-  margin-top: 30px;
-  padding: 10px;
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+gap: 25px;
+margin-top: 30px;
+padding: 10px;
+
+/* Tambahan penting */
+max-width: 1200px;
+margin-left: auto;
+margin-right: auto;
 }
 
-/* ========== PRODUCT CARD ========== */
 .product-card {
-  background: #FCF1DB;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
-  text-align: center;
-  width: 100%;
+background: #FCF1DB;
+padding: 20px;
+border-radius: 15px;
+box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+text-align: center;
+width: 100%;
+box-sizing: border-box;
 }
 
-/* ========== PRODUCT IMAGE FIX (UKURAN SAMA) ========== */
-.product-image {
-  width: 100%;
-  height: 250px;              /* samakan tinggi gambar */
-  border-radius: 10px;
-  background-color: #eee;     /* placeholder / default */
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Jika pakai <img> di dalam .product-image */
-.product-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;          /* crop rapi */
-}
-
-/* Jika pakai <img> langsung di card */
 .product-card img {
-  width: 100%;
-  height: 250px;              /* sama dengan .product-image */
-  object-fit: cover;
-  border-radius: 10px;
+width: 100%;
+height: 220px;
+object-fit: cover;
+border-radius: 10px;
 }
 
 /* ========== PRODUCT INFO ========== */
@@ -376,7 +361,9 @@ body {
 
 .menu-description.show {
   opacity: 1;
-}
+}  
+
+
 
 .view-more {
   background: #690108;
@@ -387,8 +374,72 @@ body {
   border-radius: 8px;
   cursor: pointer;
 }
+/* POPUP OVERLAY */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
 
+/* POPUP BOX */
+.popup-box {
+  background: #7a0a0a;           /* warna maroon */
+  padding: 40px 30px;
+  width: 90%;
+  max-width: 450px;
+  border-radius: 20px;
+  color: #fff3dd;                /* soft cream */
+  position: relative;
+  animation: popupAnim .3s ease;
+  text-align: center;
+}
 
+/* Animasi */
+@keyframes popupAnim {
+  from { transform: scale(.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Input */
+.popup-box input {
+  width: 100%;
+  padding: 14px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 15px;
+  background: #d9d9d9;
+  font-size: 15px;
+}
+
+/* Order Button */
+.submit-order {
+  margin-top: 15px;
+  padding: 12px 25px;
+  background: #fff3dd;
+  color: #7a0a0a;
+  border: none;
+  border-radius: 25px;
+  font-size: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 35px;
+  cursor: pointer;
+  color: #fff3dd;
+}
 
 /* ABOUT */
 .about {

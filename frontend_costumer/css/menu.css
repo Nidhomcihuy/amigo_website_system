@@ -280,6 +280,72 @@ border-radius: 10px;
   border-radius: 8px;
   cursor: pointer;
 }
+/* POPUP OVERLAY */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* POPUP BOX */
+.popup-box {
+  background: #7a0a0a;           /* warna maroon */
+  padding: 40px 30px;
+  width: 90%;
+  max-width: 450px;
+  border-radius: 20px;
+  color: #fff3dd;                /* soft cream */
+  position: relative;
+  animation: popupAnim .3s ease;
+  text-align: center;
+}
+
+/* Animasi */
+@keyframes popupAnim {
+  from { transform: scale(.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Input */
+.popup-box input {
+  width: 100%;
+  padding: 14px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 15px;
+  background: #d9d9d9;
+  font-size: 15px;
+}
+
+/* Order Button */
+.submit-order {
+  margin-top: 15px;
+  padding: 12px 25px;
+  background: #fff3dd;
+  color: #7a0a0a;
+  border: none;
+  border-radius: 25px;
+  font-size: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 35px;
+  cursor: pointer;
+  color: #fff3dd;
+}
 
 
 
