@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 session_start();
 
@@ -85,6 +86,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
 }
 ?>
 
+=======
+>>>>>>> d856e19f7bf7a7426dfa17d6f0a8f4546ca84919
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -93,6 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
     <title>Login | Amigo Cake</title>
     <link rel="stylesheet" href="css/login.css?v=<?php echo time(); ?>">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<<<<<<< HEAD
     <style>
         .alert {
             padding: 0.75rem;
@@ -104,16 +108,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
         .alert.error { background-color: #ffecec; color: #c0392b; }
         .alert.success { background-color: #e8f5e9; color: #27ae60; }
     </style>
+=======
+>>>>>>> d856e19f7bf7a7426dfa17d6f0a8f4546ca84919
 </head>
 <body>
 
 <div class="container">
+<<<<<<< HEAD
+=======
+
+    <!-- LEFT SIDE -->
+>>>>>>> d856e19f7bf7a7426dfa17d6f0a8f4546ca84919
     <div class="left">
         <div class="text-box">
             <h1>Lets order<br>delicious<br>cake</h1>
         </div>
     </div>
 
+<<<<<<< HEAD
     <div class="right">
         <div class="form-wrapper">
 
@@ -187,6 +199,76 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
         </div>
     </div>
 </div>
+=======
+    <!-- RIGHT SIDE -->
+    <div class="right">
+    <div class="form-wrapper">
+
+        <!-- LOGIN FORM -->
+        <div class="login-card form-card active" id="loginCard">
+            <h2>Login</h2>
+
+            <label>Email</label>
+            <div class="input-group">
+                <input type="email" placeholder="Masukan email">
+            </div>
+
+            <label>Password</label>
+            <div class="input-group">
+                <input type="password" placeholder="Masukan password">
+            </div>
+
+            <button class="btn-login">Login</button>
+
+            <p class="register-text">
+                Belum punya akun? 
+                <a href="#" id="toRegister">daftar</a>
+            </p>
+
+            <div class="divider">or continue with</div>
+
+            <div class="google-btn"><span>G</span></div>
+        </div>
+
+        <!-- REGISTER FORM -->
+        <div class="login-card form-card" id="registerCard">
+            <h2>Daftar</h2>
+
+            <label>Nama</label>
+            <div class="input-group">
+                <input type="text" placeholder="Masukan nama">
+            </div>
+
+            <label>Email</label>
+            <div class="input-group">
+                <input type="email" placeholder="Masukan email">
+            </div>
+
+            <label>Password</label>
+            <div class="input-group">
+                <input type="password" placeholder="Masukan password">
+            </div>
+
+            <label>Konfirmasi Password</label>
+            <div class="input-group">
+                <input type="password" placeholder="Masukan ulang password">
+            </div>
+
+            <button class="btn-login">Daftar</button>
+
+            <p class="register-text">
+                Sudah punya akun? 
+                <a href="#" id="toLogin">login</a>
+            </p>
+            <div class="divider">or continue with</div>
+
+            <div class="google-btn"><span>G</span></div>
+        </div>
+
+    </div>
+</div>
+</div>
+>>>>>>> d856e19f7bf7a7426dfa17d6f0a8f4546ca84919
 
 <script>
 const loginCard = document.getElementById("loginCard");
@@ -206,4 +288,8 @@ document.getElementById("toLogin").onclick = (e) => {
 </script>
 
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> d856e19f7bf7a7426dfa17d6f0a8f4546ca84919
