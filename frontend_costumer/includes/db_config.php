@@ -1,29 +1,24 @@
 <?php
 // includes/db_config.php
 
-// -----------------------------------------------------
-// KONFIGURASI KONEKSI DATABASE
-// Ganti dengan detail koneksi database Anda yang sebenarnya
-// -----------------------------------------------------
-define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'root'); // Ganti dengan username DB Anda
-define('DB_PASSWORD', '55555');     // Ganti dengan password DB Anda
-define('DB_NAME', 'db_amigocake'); // Ganti dengan nama database Anda
+// Hindari akses langsung via URL
+defined('APP_PATH') or define('APP_PATH', dirname(__DIR__) . '/');
 
-/* Mencoba terhubung ke database MySQL */
-$conn = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+$host = 'localhost';
+$dbname = 'db_amigocake';   // sesuaikan nama database Anda
+$username = 'root';       // sesuaikan
+$password = '55555';           // sesuaikan (default Laragon: kosong)
 
-// Cek koneksi
-if ($conn->connect_error) {
-    // Jika koneksi gagal, hentikan program dan tampilkan error
-    die("Koneksi Database Gagal: " . $conn->connect_error);
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password, [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::ATTR_EMULATE_PREPARES => false,
+    ]);
+} catch (PDOException $e) {
+    die("Koneksi database gagal: " . $e->getMessage());
 }
 
-// Opsional: Atur charset menjadi utf8mb4 (disarankan)
-$conn->set_charset("utf8mb4");
-
-// Echo ini hanya untuk tes. Hapus setelah diproduksi!
-// echo "Koneksi berhasil! Siap mengambil data kue.";
-
-// Catatan: Setelah ini, Anda bisa menggunakan variabel $conn untuk query SQL
+// Pastikan $pdo tersedia di luar file ini
+// Tidak perlu return, karena kita pakai variabel global biasa
 ?>

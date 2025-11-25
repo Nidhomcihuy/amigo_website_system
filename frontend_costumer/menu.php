@@ -8,7 +8,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Menu | Amigo Cake</title>
-  <link rel="stylesheet" href="css/menu.css">
+ <link rel="stylesheet" href="css/menu.css?v=<?php echo time(); ?>">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -19,7 +19,6 @@
     }
   </script>
 </head>
-
 <body>
 
   <!-- NAVBAR -->
@@ -100,7 +99,7 @@ if (!$q || $q->num_rows == 0) {
     <div>
       <h3>Contact Us</h3>
       <p>📍 Location</p>
-      <p>📞 +62 858-0061-1600</p>
+      <p>📞 +62 858-0061-1600</p> 
       <p>✉️ illonaleilani@gmail.com</p>
     </div>
 
