@@ -19,7 +19,7 @@ $current_page = 'edit_galery';
 $user_name = htmlspecialchars($_SESSION['nama'] ?? 'Admin');
 $user_initial = urlencode($_SESSION['nama'] ?? 'Admin');
 
-// Asumsi: Koneksi $conn akan ditutup di akhir file jika dibuka.
+// Asumsi: Koneksi $pdo akan ditutup di akhir file jika dibuka.
 // Karena kita hanya menggunakan include_once di awal, tidak perlu menutupnya di sini.
 ?>
 

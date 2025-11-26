@@ -67,7 +67,7 @@ $new_notifications_count = count(array_filter($notifications, fn($n) => !$n['is_
 // Jika Anda perlu koneksi database, include di sini:
 // include('../includes/db_config.php');
 // ... (logika pengambilan data dari tabel notifikasi) ...
-// $conn->close();
+// $pdo->close();
 ?>
 
 <!DOCTYPE html>

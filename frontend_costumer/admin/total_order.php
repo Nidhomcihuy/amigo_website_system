@@ -29,7 +29,7 @@ $user_initial = urlencode($_SESSION['nama'] ?? 'Illona');
 $current_page = 'total_order'; 
 
 // Tutup koneksi (disarankan)
-$conn->close(); 
+$pdo = null;
 ?>
 
 <!DOCTYPE html>

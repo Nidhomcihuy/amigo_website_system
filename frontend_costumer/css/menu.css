@@ -113,6 +113,28 @@ body {
   user-select: none;
 
 }
+/* tombol pesanan saya */
+.order-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 40px;
+    margin-top: 10px;
+}
+
+.order-button {
+    background: #FCF1DB;
+    color: #690108;
+    padding: 10px 22px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.order-button:hover {
+    background: #ffffff;
+}
 
 /* MENU SECTION */
 .menu {
@@ -285,71 +307,121 @@ border-radius: 10px;
 }
 /* POPUP OVERLAY */
 .popup-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.7);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
 }
 
 /* POPUP BOX */
 .popup-box {
-  background: #7a0a0a;           /* warna maroon */
-  padding: 40px 30px;
-  width: 90%;
-  max-width: 450px;
-  border-radius: 20px;
-  color: #fff3dd;                /* soft cream */
-  position: relative;
-  animation: popupAnim .3s ease;
-  text-align: center;
+    width: 450px;
+    background: #690108;
+    padding: 30px;
+    border-radius: 18px;
+    position: relative;
+    color: white;
+    transition: 0.3s ease;
 }
 
-/* Animasi */
-@keyframes popupAnim {
-  from { transform: scale(.7); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-
-/* Input */
-.popup-box input {
-  width: 100%;
-  padding: 14px;
-  margin: 10px 0;
-  border: none;
-  border-radius: 15px;
-  background: #d9d9d9;
-  font-size: 15px;
-}
-
-/* Order Button */
-.submit-order {
-  margin-top: 15px;
-  padding: 12px 25px;
-  background: #fff3dd;
-  color: #7a0a0a;
-  border: none;
-  border-radius: 25px;
-  font-size: 20px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-/* Close button */
+/* CLOSE BUTTON */
 .close-btn {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 35px;
-  cursor: pointer;
-  color: #fff3dd;
+    position: absolute;
+    right: 18px;
+    top: 18px;
+    font-size: 24px;
+    cursor: pointer;
 }
 
+/* TITLE */
+.popup-title {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 28px;
+    font-family: 'Dancing Script', cursive;
+}
+
+/* INPUT */
+input[type="text"],
+input[type="date"],
+input[type="time"] {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 16px;
+    background: #f2f2f2;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+}
+
+/* BUTTON */
+.btn-primary {
+    width: 100%;
+    background: #FCF1DB;
+    color: #690108;
+    border: none;
+    padding: 12px 0;
+    font-size: 18px;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* STEP TRANSITION */
+#stepPayment {
+    display: none;
+}
+
+/* TITLE LABEL */
+.label-title {
+    color: #fff;
+    margin: 10px 0 5px;
+    display: block;
+    font-size: 16px;
+}
+
+/* RADIO SELECT BOX */
+.select-box {
+    background: #f2f2f2;
+    padding: 12px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    color: black;
+}
+
+/* INPUT BOX */
+.input-box input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    background: #f2f2f2;
+}
+
+/* UPLOAD AREA */
+.upload-area {
+    width: 120px;
+    height: 120px;
+    background: #d9d9d9;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.upload-area img {
+    width: 55px;
+    opacity: 0.5;
+}
 
 
 /* FOOTER */
