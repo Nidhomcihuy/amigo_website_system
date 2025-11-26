@@ -29,6 +29,14 @@
       <a href="about.php" class="active">About</a>
       <a href="galery.php">Galery</a>
     </nav>
+       <div class="user-actions">
+    <a href="logout.php" class="logout-btn" onclick="return confirm('Yakin ingin keluar?')">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#fff " viewBox="0 0 16 16">
+          <path d="M6 3.5A.5.5 0 0 1 6.5 3h6a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-6a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h6A1.5 1.5 0 0 0 14 12.5v-9A1.5 1.5 0 0 0 12.5 2h-6A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
+          <path d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+        </svg>
+    </a>
+</div>
     <div class="menu-icon" onclick="toggleMenu()">☰</div>
   </header>
 

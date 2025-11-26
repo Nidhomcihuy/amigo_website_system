@@ -23,7 +23,7 @@ $current_email = 'illona@amigo.com';
 
 // Anda dapat menyertakan db_config.php di sini jika ingin mengambil data pengguna secara real-time
 // include('../includes/db_config.php');
-// $conn->close(); 
+// $z->close(); 
 ?>
 
 <!DOCTYPE html>

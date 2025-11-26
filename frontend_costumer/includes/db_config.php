@@ -11,14 +11,14 @@ defined('APP_PATH') or define('APP_PATH', dirname(__DIR__) . '/');
 // -----------------------------------------------------
 define('DB_SERVER', 'localhost');
 define('DB_USERNAME', 'root'); // Ganti dengan username DB Anda
-define('DB_PASSWORD', '55555');     // Ganti dengan password DB Anda
+define('DB_PASSWORD', 'qwerty');     // Ganti dengan password DB Anda
 define('DB_NAME', 'db_amigocake'); // Ganti dengan nama database Anda
 
 
 $host = 'localhost';
 $dbname = 'db_amigocake';   // sesuaikan nama database Anda
 $username = 'root';       // sesuaikan
-$password = '55555';           // sesuaikan (default Laragon: kosong)
+$password = 'qwerty';           // sesuaikan (default Laragon: kosong)
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password, [
@@ -28,6 +28,12 @@ try {
     ]);
 } catch (PDOException $e) {
     die("Koneksi database gagal: " . $e->getMessage());
+}
+
+$conn = new mysqli($host, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Koneksi MySQLi gagal: " . $conn->connect_error);
 }
 
 // Pastikan $pdo tersedia di luar file ini
