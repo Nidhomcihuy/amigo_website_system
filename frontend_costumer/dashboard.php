@@ -109,7 +109,7 @@
   </p>
 
 <?php
-$conn = new mysqli("localhost", "root", "qwerty", "db_amigocake");
+$conn = new mysqli("localhost", "root", "55555", "db_amigocake");
 
 if ($conn->connect_error) {
   die("Koneksi gagal: " . $conn->connect_error);
