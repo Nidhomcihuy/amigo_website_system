@@ -138,10 +138,11 @@ if (!$q || $q->num_rows == 0) {
     </div>
 
     <!-- HARGA -->
-    <div id="hargaBox">
-        <label>Harga :</label>
-        <input type="text" id="harga" readonly>
+  <div id="hargaGroup">
+    <label>Harga</label>
+    <input type="text" id="harga" readonly>
     </div>
+
 
     <!-- FORM ORDER -->
     <input type="text" id="namaPemesan" placeholder="Nama Pemesan">
@@ -303,42 +304,54 @@ function loadKategori() {
 function loadProductByKategori() {
     let kategori = document.getElementById("kategoriProduct").value;
     let productSelect = document.getElementById("namaProduct");
+    let hargaInput = document.getElementById("harga");
 
+    // Jika tidak pilih kategori
     if (!kategori) {
         productSelect.innerHTML = `<option value="">-- Pilih Produk --</option>`;
+        hargaInput.value = "";
+        document.getElementById("hargaGroup").style.display = "block";
         return;
     }
 
-    // jika custom cake
+    // JIKA CUSTOM CAKE
     if (kategori.toLowerCase() === "custom cake") {
+
         document.getElementById("customArea").style.display = "block";
         productSelect.innerHTML = `<option>(Custom tidak punya produk)</option>`;
         productSelect.disabled = true;
+
+        // SEMBUNYIKAN HARGA
+        document.getElementById("hargaGroup").style.display = "none";
+        hargaInput.value = ""; // harga kosong
+
         return;
     }
 
-    // normal → load product berdasarkan kategori
+    // NORMAL (kategori lain)
     document.getElementById("customArea").style.display = "none";
     productSelect.disabled = false;
+
+    // TAMPILKAN HARGA
+    document.getElementById("hargaGroup").style.display = "block";
+
     productSelect.innerHTML = `<option>Loading...</option>`;
 
+    // Fetch produk
     fetch("product_api.php?mode=product&kategori=" + encodeURIComponent(kategori))
         .then(r => r.json())
         .then(data => {
-            console.log("PRODUCT:", data);
-
             productSelect.innerHTML = `<option value="">-- Pilih Produk --</option>`;
-
             data.forEach(p => {
                 productSelect.innerHTML += `
                     <option value="${p.ID_PRODUCT}" data-harga="${p.HARGA}">
                         ${p.NAMA_PRODUCT}
                     </option>`;
             });
-
         })
         .catch(err => console.error("FETCH ERROR:", err));
 }
+
 
 // load kategori saat modal dibuka
 document.addEventListener("DOMContentLoaded", loadKategori);
@@ -402,7 +415,13 @@ function goToPayment() {
     formData.append("waktu", document.getElementById("waktuAmbil").value);
     formData.append("kategori", document.getElementById("kategoriProduct").value);
     formData.append("product_id", document.getElementById("namaProduct").value);
+    let kategori = document.getElementById("kategoriProduct").value;
+if (kategori.toLowerCase() !== "custom cake") {
     formData.append("harga", document.getElementById("harga").value);
+} else {
+    formData.append("harga", "0"); // harga 0 dulu → admin yang isi nanti
+}
+
 
 
     fetch("order_process.php", {
