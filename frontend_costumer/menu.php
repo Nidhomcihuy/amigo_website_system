@@ -102,6 +102,8 @@ if (!$q || $q->num_rows == 0) {
 <?php } ?>
 </div>
 
+<?php echo "". ($_SESSION['user_id'] ?? ''); ?>
+
 <button class="view-more" onclick="openOrderPopup()">Order Now</button>
 
 <!-- POPUP ORDER + PEMBAYARAN (2 STEP) -->
@@ -113,23 +115,43 @@ if (!$q || $q->num_rows == 0) {
         <span class="close-btn" onclick="closeAll()">✕</span>
 
         <!-- STEP 1 : ORDER FORM -->
-        <div id="stepOrder" style="display:block;">
+       <div id="stepOrder" style="display:block;">
 
-            <h2 class="popup-title">Order Cake</h2>
-          <input type="text" id="namaPemesan" placeholder="Nama Pemesan">
-          <input type="text" id="telpPemesan" placeholder="No. Telp"> 
-          <input type="text" id="alamatPemesan" placeholder="Alamat">
-          <input type="date" id="tanggalPemesan">
+    <h2 class="popup-title">Order Cake</h2>
 
-          <input type="text" id="diameterCake" placeholder="Diameter (custom cake)">
-          <input type="text" id="varianCake" placeholder="Varian Cake">
-          <input type="text" id="tulisanCake" placeholder="Req Tulisan Cake (latin/biasa)">
-          <input type="time" id="waktuAmbil">
+    <!-- KATEGORI & PRODUCT (dipindah ke sini) -->
+    <label>Pilih Kategori</label>
+    <select id="kategoriProduct" onchange="loadProductByKategori()">
+        <option value="">-- Pilih Kategori --</option>
+    </select>
 
+    <label>Pilih Produk</label>
+    <select id="namaProduct" disabled onchange="fillProductDetail()">
+        <option value="">-- Pilih Produk --</option>
+    </select>
 
-            <button class="btn-primary" onclick="goToPayment()">Bayar</button>
-        </div>
+    <!-- CUSTOM AREA -->
+    <div id="customArea" style="display:none;">
+        <input type="text" id="diameterCake" placeholder="Diameter (custom cake)">
+        <input type="text" id="varianCake" placeholder="Varian Cake">
+        <input type="text" id="tulisanCake" placeholder="Req Tulisan Cake (latin/biasa)">
+    </div>
 
+    <!-- HARGA -->
+    <div id="hargaBox">
+        <label>Harga :</label>
+        <input type="text" id="harga" readonly>
+    </div>
+
+    <!-- FORM ORDER -->
+    <input type="text" id="namaPemesan" placeholder="Nama Pemesan">
+    <input type="text" id="telpPemesan" placeholder="No. Telp">
+    <input type="text" id="alamatPemesan" placeholder="Alamat">
+    <input type="date" id="tanggalPemesan">
+    <input type="time" id="waktuAmbil">
+
+    <button class="btn-primary" onclick="goToPayment()">Bayar</button>
+</div>
 
         <!-- STEP 2 : PEMBAYARAN -->
         <div id="stepPayment" style="display:none;">
@@ -257,6 +279,72 @@ buttons.forEach(btn => {
   });
 });
 </script>
+
+<script>
+function loadKategori() {
+
+    fetch("product_api.php?mode=kategori")
+        .then(r => r.json())
+        .then(data => {
+            console.log("KATEGORI:", data);
+
+            let select = document.getElementById("kategoriProduct");
+
+            select.innerHTML = `<option value="">-- Pilih Kategori --</option>`;
+
+            data.forEach(k => {
+                select.innerHTML += `<option value="${k}">${k}</option>`;
+            });
+        })
+        .catch(err => console.error("FETCH ERROR:", err));
+}
+
+
+function loadProductByKategori() {
+    let kategori = document.getElementById("kategoriProduct").value;
+    let productSelect = document.getElementById("namaProduct");
+
+    if (!kategori) {
+        productSelect.innerHTML = `<option value="">-- Pilih Produk --</option>`;
+        return;
+    }
+
+    // jika custom cake
+    if (kategori.toLowerCase() === "custom cake") {
+        document.getElementById("customArea").style.display = "block";
+        productSelect.innerHTML = `<option>(Custom tidak punya produk)</option>`;
+        productSelect.disabled = true;
+        return;
+    }
+
+    // normal → load product berdasarkan kategori
+    document.getElementById("customArea").style.display = "none";
+    productSelect.disabled = false;
+    productSelect.innerHTML = `<option>Loading...</option>`;
+
+    fetch("product_api.php?mode=product&kategori=" + encodeURIComponent(kategori))
+        .then(r => r.json())
+        .then(data => {
+            console.log("PRODUCT:", data);
+
+            productSelect.innerHTML = `<option value="">-- Pilih Produk --</option>`;
+
+            data.forEach(p => {
+                productSelect.innerHTML += `
+                    <option value="${p.ID_PRODUCT}" data-harga="${p.HARGA}">
+                        ${p.NAMA_PRODUCT}
+                    </option>`;
+            });
+
+        })
+        .catch(err => console.error("FETCH ERROR:", err));
+}
+
+// load kategori saat modal dibuka
+document.addEventListener("DOMContentLoaded", loadKategori);
+</script>
+
+
 <script>
 // RESET POPUP
 function openOrderPopup() {
@@ -289,8 +377,6 @@ function closeAll() {
     document.getElementById("popupWrap").style.display = "none";
 }
 
-
-
 // -------------------------------------
 // STEP 1 → INSERT ORDER
 // -------------------------------------
@@ -314,6 +400,10 @@ function goToPayment() {
     formData.append("varian", document.getElementById("varianCake").value);
     formData.append("tulisan", document.getElementById("tulisanCake").value);
     formData.append("waktu", document.getElementById("waktuAmbil").value);
+    formData.append("kategori", document.getElementById("kategoriProduct").value);
+    formData.append("product_id", document.getElementById("namaProduct").value);
+    formData.append("harga", document.getElementById("harga").value);
+
 
     fetch("order_process.php", {
         method: "POST",
@@ -393,4 +483,24 @@ function finishPayment() {
 }
 </script>
 
+<script>
+function fillProductDetail() {
+    let selected = document.querySelector("#namaProduct option:checked");
 
+    if (selected && selected.dataset.harga) {
+        document.getElementById("harga").value = selected.dataset.harga;
+    }
+}
+</script>
+<script>
+// Load kategori saat halaman dibuka
+document.addEventListener("DOMContentLoaded", () => {
+    fetch("product_api.php?mode=kategori")
+    .then(r => r.json())
+    .then(data => {
+        let kategoriSelect = document.getElementById("kategoriProduct");
+        data.forEach(k => {
+            kategoriSelect.innerHTML += `<option value="${k}">${k}</option>`;
+        });
+    });
+});

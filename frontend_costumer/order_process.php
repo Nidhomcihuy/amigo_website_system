@@ -15,24 +15,39 @@ if (!isset($_SESSION['user_id'])) {
 ============================================================ */
 if ($_POST['step'] === "order") {
 
+    $kategori    = $_POST['kategori'];
+    $product_id  = $_POST['product_id'];
+    $harga       = $_POST['harga'];
+
+    // Jika custom cake → override nilai
+    if (strtolower($kategori) === "custom cake") {
+        $product_id = null;
+        // harga custom bebas, sementara 0 dulu
+        $harga = 0;
+    }
+
     try {
+
         $stmt = $pdo->prepare("
             INSERT INTO orders 
-            (id_users, nama_pemesan, telp, alamat, tanggal, diameter, varian, tulisan, waktu, created_at)
+            (id_users, kategori, id_product, nama_pemesan, telp, alamat, tanggal, diameter, varian, tulisan, harga, waktu, created_at)
             VALUES 
-            (:id_users, :nama, :telp, :alamat, :tanggal, :diameter, :varian, :tulisan, :waktu, NOW())
+            (:id_users, :kategori, :id_product, :nama, :telp, :alamat, :tanggal, :diameter, :varian, :tulisan, :harga, :waktu, NOW())
         ");
 
         $stmt->execute([
-            ":id_users" => $_SESSION['user_id'],
-            ":nama"     => $_POST['nama'],
-            ":telp"     => $_POST['telp'],
-            ":alamat"   => $_POST['alamat'],
-            ":tanggal"  => $_POST['tanggal'],
-            ":diameter" => $_POST['diameter'],
-            ":varian"   => $_POST['varian'],
-            ":tulisan"  => $_POST['tulisan'],
-            ":waktu"    => $_POST['waktu']
+            ":id_users"   => $_SESSION['user_id'],
+            ":kategori"   => $kategori,
+            ":id_product" => $product_id,
+            ":nama"       => $_POST['nama'],
+            ":telp"       => $_POST['telp'],
+            ":alamat"     => $_POST['alamat'],
+            ":tanggal"    => $_POST['tanggal'],
+            ":diameter"   => $_POST['diameter'],
+            ":varian"     => $_POST['varian'],
+            ":tulisan"    => $_POST['tulisan'],
+            ":harga"      => $harga,
+            ":waktu"      => $_POST['waktu']
         ]);
 
         $order_id = $pdo->lastInsertId();
@@ -45,6 +60,7 @@ if ($_POST['step'] === "order") {
         exit;
     }
 }
+
 
 /* ============================================================
    STEP 2 — INSERT PAYMENT
