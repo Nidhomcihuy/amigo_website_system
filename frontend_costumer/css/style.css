@@ -114,7 +114,14 @@ body {
   user-select: none;
 
 }
+.desktop-only {
+  display: block;
+}
 
+/* Mobile Only */
+.logout-mobile {
+  display: none;
+}
 
 
 /* ===== HERO ===== */
@@ -817,6 +824,18 @@ align-items: center;
     text-align: justify;
   }
 
+   .menu-categories {
+    gap: 12px;            
+    flex-wrap: wrap;        
+    padding: 0 10px;
+  }
+
+  .menu-categories button {
+    padding: 10px 20px;    
+    font-size: 14px;        
+    border-radius: 20px;    
+  }
+
    footer {
     padding: 50px 5%;
   }
@@ -872,5 +891,26 @@ align-items: center;
   /* Saat menu buka */
   .nav-links.active {
     display: flex;
+  }
+   .desktop-only {
+    display: none;
+  }
+
+  /* logout mobile muncul */
+  .logout-mobile {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    color: #ffdede !important;
+    font-weight: bold;
+  }
+
+  .logout-mobile svg {
+    width: 20px;
+    height: 20px;
   }
 }

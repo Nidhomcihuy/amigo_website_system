@@ -116,6 +116,15 @@ body {
 
 }
 
+.desktop-only {
+  display: block;
+}
+
+/* Mobile Only */
+.logout-mobile {
+  display: none;
+}
+
 /* ABOUT */
 .about {
   background: linear-gradient( #FCF1DB, #690108);
@@ -324,5 +333,26 @@ body {
   /* Saat menu buka */
   .nav-links.active {
     display: flex;
+  }
+
+   .desktop-only {
+    display: none;
+  }
+  
+  .logout-mobile {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    color: #ffdede !important;
+    font-weight: bold;
+  }
+
+  .logout-mobile svg {
+    width: 20px;
+    height: 20px;
   }
 }

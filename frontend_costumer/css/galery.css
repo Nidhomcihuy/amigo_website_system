@@ -112,24 +112,32 @@ body {
   cursor: pointer;
   font-size: 28px;
   user-select: none;
+}
+ 
+.desktop-only {
+  display: block;
+}
 
+/* Mobile Only */
+.logout-mobile {
+  display: none;
 }
 
 /* ===== GALERI ===== */
+/* ===== GALERI WRAPPER ===== */
 .galeri {
   background: linear-gradient(#690108, #FCF1DB);
   text-align: center;
-  padding-top: 80px;
-  padding-bottom: 50px;
+  padding: 80px 0 50px;
   overflow: hidden;
 }
 
+/* ===== TITLE ===== */
 .galeri h2 {
   font-family: "Playfair Display", serif;
   color: #FCF1DB;
   font-size: 46px;
   margin-bottom: 10px;
-  letter-spacing: 1px;
 }
 
 .galeri h2::after {
@@ -150,37 +158,31 @@ body {
   margin-bottom: 40px;
 }
 
-/* GRID */
+/* ===== GRID ===== */
 .galeri-grid {
-display: flex;
-flex-direction: column; /* Pertahankan ini untuk tampilan mobile/defa ult */
-width: 90%;
-margin: auto;
-gap: 45px;
-align-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);  /* ❤️ Dua gambar berdampingan */
+  gap: 25px;
+  width: 90%;
+  margin: auto;
 }
 
-/* CARD */
+/* ===== CARD ===== */
 .galeri-card {
   position: relative;
-  width: 100%;
-  height: 700px;
-  border-radius: 20px;
+  aspect-ratio: 1 / 1;   /* gambar persegi */
+  border-radius: 18px;
   overflow: hidden;
   background: #000;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  box-shadow: 0 8px 22px rgba(0,0,0,0.45);
-  transition: 0.4s ease;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.35);
+  transition: .3s ease;
 }
 
 .galeri-card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 14px 30px rgba(0,0,0,0.55);
+  transform: scale(1.03);
 }
 
-/* IMAGE */
+/* ===== IMAGE ===== */
 .galeri-image {
   position: absolute;
   inset: 0;
@@ -188,26 +190,37 @@ align-items: center;
   height: 100%;
   background-size: cover;
   background-position: center;
-  filter: brightness(0.72);
-  transition: 0.4s ease;
+  filter: brightness(.72);
+  transition: .3s ease;
 }
 
 .galeri-card:hover .galeri-image {
-  filter: brightness(0.92);
+  filter: brightness(.9);
   transform: scale(1.05);
+  align-items: flex-end;
 }
 
-/* TEXT */
+
+/* ===== TEXT ===== */
 .galeri-info {
+  position: absolute;
+  bottom: 0;                       /* ❤️ posisi TEPAT di bawah gambar */
+  left: 0;
   width: 100%;
-  padding: 20px 0;
-  background: rgba(0,0,0,0.45);
-  backdrop-filter: blur(3px);
+  padding: 18px 12px;
+  background: rgba(0,0,0,0.45);    /* overlay gelap */
+  text-align: center;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  opacity: 0;
-  transform: translateY(16px);
-  transition: 0.35s ease;
+  opacity: 1;                      /* ❤️ selalu terlihat */
+  transform: translateY(0);        /* pastikan tidak geser */
+}
+
+.galeri-info h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  color: #fff;
+  margin: 0;
 }
 
 .galeri-card:hover .galeri-info {
@@ -215,13 +228,7 @@ align-items: center;
   transform: translateY(0);
 }
 
-.galeri-info h3 {
-  font-family: "Playfair Display", serif;
-  font-size: 28px;
-  color: #fff;
-}
-
-/* FADE EFFECT ON LOAD */
+/* ===== FADE EFFECT ===== */
 .fade-card {
   opacity: 0;
   transform: translateY(40px);
@@ -233,7 +240,7 @@ align-items: center;
   transform: translateY(0);
 }
 
-/* LIGHTBOX */
+/* ===== LIGHTBOX ===== */
 .lightbox {
   position: fixed;
   inset: 0;
@@ -244,7 +251,7 @@ align-items: center;
   z-index: 20000;
   opacity: 0;
   pointer-events: none;
-  transition: 0.3s ease;
+  transition: .3s ease;
 }
 
 .lightbox.show {
@@ -257,6 +264,30 @@ align-items: center;
   max-height: 90%;
   border-radius: 12px;
   box-shadow: 0 0 40px rgba(0,0,0,0.6);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .galeri-card {
+    aspect-ratio: 1 / 1;   /* Tetap persegi */
+  }
+
+  .galeri-info h3 {
+    font-size: 20px;
+  }
+
+  .galeri h2 {
+    font-size: 34px;
+  }
+}
+@media (max-width: 768px) {
+  .galeri-grid {
+    grid-template-columns: 1fr;   /* mobile jadi 1 gambar per baris */
+  }
+
+  .galeri-info h3 {
+    font-size: 18px;
+  }
 }
 
 
@@ -416,5 +447,26 @@ align-items: center;
     padding: 10px 0;
     color: #5a0c0c;
     text-align: right;
+  }
+
+   .desktop-only {
+    display: none;
+  }
+
+      .logout-mobile {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    color: #690108 !important;
+    font-weight: bold;
+  }
+
+  .logout-mobile svg {
+    width: 20px;
+    height: 20px;
   }
 }
