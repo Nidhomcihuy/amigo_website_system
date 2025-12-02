@@ -176,78 +176,136 @@
 .tab-btn:hover:not(.active) {
     color: #6D2835;
 }
-/* ORDER HISTORY PAGE - CARD & STATUS STYLE */
+/* ========== PENAMBAHAN & PERUBAHAN UNTUK order_history.css ========== */
 
-.order-card { 
-    display: flex; 
-    justify-content: space-between; 
-    padding: 12px; 
-    border: 1px solid #eee; 
-    border-radius: 8px; 
-    margin-bottom: 10px; 
-    background: #fff; 
+/* 1) Status badge (background + pill) */
+.order-status .badge {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: capitalize;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.06);
 }
 
-.card-left { 
-    max-width: 70%; 
+/* warna badge konsisten dengan kelas text color yang sudah ada */
+.status-done { background-color: #10b981; }    /* hijau */
+.status-process { background-color: #f59e0b; } /* amber */
+.status-cancel { background-color: #ef4444; }  /* merah */
+
+/* 2) Card hover & transition */
+.order-card {
+    transition: transform .12s ease, box-shadow .12s ease;
+    will-change: transform;
+}
+.order-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(13, 38, 59, 0.08);
 }
 
-.order-id { 
-    font-weight: 600; 
-    margin-bottom: 6px; 
+/* 3) Thumbnail area (optional) */
+.order-card .thumb {
+    width: 90px;
+    height: 72px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+    border: 1px solid #f0f0f0;
+}
+.order-card .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
-.order-status .badge { 
-    padding: 4px 8px; 
-    border-radius: 8px; 
-    color: #fff; 
-    font-size: 13px; 
+/* 4) Struktur isi: gabungkan thumb + details */
+.card-left {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
 }
 
-/* STATUS COLOR */
-.status-process { background: #f59e0b; }  /* orange/amber */
-.status-done { background: #10b981; }      /* green */
-.status-cancel { background: #ef4444; }    /* red */
-
-/* META */
-.order-meta { 
-    margin-top: 6px; 
-    color: #555; 
-    font-size: 14px; 
+/* 5) Truncate teks agar rapi */
+.order-meta,
+.order-id,
+.order-total {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 680px;
 }
 
-/* ACTION BUTTONS */
-.order-actions button { 
-    margin-left: 6px; 
-    padding: 6px 10px; 
-    border: 0; 
-    border-radius: 6px; 
-    cursor: pointer; 
+/* Jika perlu multiline truncate (alamat panjang) */
+.order-meta .meta-line {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.action-btn { background: #eee; }
-
-.cancel-btn { 
-    background: #ef4444; 
-    color: #fff; 
+/* 6) Small helper text */
+.small-muted {
+    color: #757575;
+    font-size: 13px;
 }
 
-.complete-btn { 
-    background: #10b981; 
-    color: #fff; 
+/* 7) Tombol: ukuran & ikon */
+.action-btn i { margin-right: 6px; font-size: 14px; vertical-align: middle; }
+.action-btn { display: inline-flex; align-items: center; gap: 6px; }
+
+/* 8) Responsive: tampilan mobile */
+@media (max-width: 900px) {
+    .order-history-content { padding-right: 15px; max-width: 100%; }
+    .search-bar-container { width: 100%; }
+    .order-card { flex-direction: column; align-items: stretch; padding: 14px; gap: 12px; }
+    .card-right { align-items: flex-start; width: 100%; display:flex; justify-content:space-between; }
+    .card-left { width: 100%; }
+    .order-date { text-align:left; }
+    .order-meta { font-size: 13px; }
+    .tab-switcher { width: 100%; }
 }
 
-.delete-btn { 
-    background: #ef4444; 
-    color: #fff; 
+/* 9) Fokus aksesibilitas untuk tombol */
+.tab-btn:focus, .action-btn:focus {
+    outline: 3px solid rgba(109,40,53,0.12);
+    outline-offset: 2px;
+    box-shadow: none;
 }
 
-/* EMPTY STATE */
-.no-orders { 
-    color: #666; 
+/* 10) Empty state center */
+.no-orders {
+    text-align: center;
+    padding: 30px 10px;
+    background: #fff;
+    border-radius: 12px;
 }
 
-/* SEARCH FILTER EFFECT (optional) */
-#ordersList .order-card.hidden {
-    display: none !important;
+/* 11) Search highlight (subtle) */
+.search-bar-container input:focus {
+    box-shadow: 0 0 0 3px rgba(109,40,53,0.06);
+    border-color: rgba(109,40,53,0.15);
+}
+
+/* 12) Utility small badge for price */
+.price-badge {
+    background: rgba(16,185,129,0.08);
+    color: #065f46;
+    padding: 6px 8px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+/* 13) Accessibility: reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .order-card, .order-card:hover { transform: none; transition: none; }
 }
