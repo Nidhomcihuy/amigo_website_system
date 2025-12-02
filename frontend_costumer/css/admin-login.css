@@ -1,4 +1,4 @@
-/* --- CSS Khusus Halaman Login --- */
+/* --- Responsive Login Page CSS (Final) --- */
 
 /* Reset body untuk halaman login */
 body.login-body {
@@ -9,13 +9,16 @@ body.login-body {
     min-height: 100vh;
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
+/* Container */
 .login-container {
     display: flex;
-    width: 900px; /* Ukuran total container */
-    max-width: 90%;
-    height: 600px;
+    width: 900px;           /* default desktop width */
+    max-width: 96%;
+    height: 600px;          /* default desktop height */
     background-color: #fff;
     border-radius: 20px;
     overflow: hidden;
@@ -32,6 +35,7 @@ body.login-body {
     flex-direction: column;
     justify-content: center;
     color: white;
+    min-width: 280px;
 }
 
 .login-left-content {
@@ -42,7 +46,7 @@ body.login-body {
 .login-logo {
     display: flex;
     align-items: center;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .logo-circle {
@@ -60,7 +64,7 @@ body.login-body {
     font-size: 14px;
     font-weight: 600;
     line-height: 1.2;
-    text-align: center;
+    text-align: left;
 }
 
 .logo-text span {
@@ -71,7 +75,8 @@ body.login-body {
 .welcome-text {
     font-size: 40px;
     font-weight: bold;
-    line-height: 1.2;
+    line-height: 1.05;
+    margin-top: 6px;
 }
 
 /* Elemen Dekorasi */
@@ -82,8 +87,9 @@ body.login-body {
     left: -50px;
     width: 200px;
     height: 200px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
     border-radius: 50%;
+    pointer-events: none;
 }
 
 .login-left::after {
@@ -93,8 +99,9 @@ body.login-body {
     right: -100px;
     width: 400px;
     height: 400px;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.04);
     border-radius: 50%;
+    pointer-events: none;
 }
 
 /* Panel Kanan */
@@ -104,46 +111,52 @@ body.login-body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background: linear-gradient(180deg,#fff,#fff); /* keep white */
+    min-width: 320px;
 }
 
 .login-right h2 {
     font-size: 30px;
     font-weight: 600;
     color: #333;
-    margin-bottom: 40px;
-    line-height: 1.3;
+    margin-bottom: 30px;
+    line-height: 1.15;
 }
 
+/* Form controls */
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
 .form-group label {
     display: block;
-    font-size: 16px;
+    font-size: 15px;
     color: #555;
     margin-bottom: 8px;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .login-input {
     width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #ddd;
+    padding: 12px 14px;
+    border: 1px solid #e2e2e2;
     border-radius: 8px;
-    font-size: 16px;
-    transition: border-color 0.3s;
+    font-size: 15px;
+    transition: border-color 0.2s, box-shadow 0.15s;
     outline: none;
+    background: #fff;
 }
 
 .login-input:focus {
     border-color: #6D2835;
+    box-shadow: 0 4px 12px rgba(109,40,53,0.08);
 }
 
+/* Remember & actions */
 .remember-me {
     display: flex;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 22px;
     font-size: 14px;
     color: #555;
 }
@@ -155,9 +168,12 @@ body.login-body {
 
 .login-actions {
     display: flex;
-    gap: 15px;
+    gap: 12px;
+    align-items: center;
+    margin-top: 6px;
 }
 
+/* Buttons */
 .btn-login {
     padding: 12px 30px;
     background-color: #6D2835;
@@ -165,43 +181,143 @@ body.login-body {
     border: none;
     border-radius: 8px;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.2s, transform 0.06s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.btn-login:hover {
-    background-color: #5B212D;
-}
+.btn-login:hover { background-color: #5B212D; transform: translateY(-1px); }
+.btn-login:active { transform: translateY(0); }
 
 .btn-signup {
-    padding: 12px 30px;
+    padding: 12px 22px;
     background-color: white;
     color: #6D2835;
     border: 1px solid #6D2835;
     border-radius: 8px;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: background-color 0.15s;
 }
 
-.btn-signup:hover {
-    background-color: #f5f5f5;
+.btn-signup:hover { background-color: #f7f7f7; }
+
+/* Auxiliary text */
+.login-help {
+    margin-top: 14px;
+    font-size: 13px;
+    color: #777;
 }
 
-/* Responsiveness */
+/* Small screens: tablet and phone */
+/* Breakpoint: <= 992px (tablet portrait) */
 @media (max-width: 992px) {
-    .login-left {
-        display: none;
-    }
     .login-container {
-        width: 450px;
-        max-width: 90%;
+        width: 760px;
         height: auto;
+        flex-direction: column;
+        border-radius: 16px;
     }
+
+    .login-left {
+        width: 100%;
+        padding: 30px;
+        display: block; /* show left panel on medium screens */
+        min-height: 160px;
+    }
+
     .login-right {
         width: 100%;
-        padding: 50px 40px;
+        padding: 30px;
+    }
+
+    .welcome-text {
+        font-size: 34px;
+    }
+
+    .login-right h2 {
+        font-size: 24px;
+        margin-bottom: 22px;
     }
 }
+
+/* Breakpoint: <= 768px (phones) */
+/* On small phones we hide left panel to prioritize form */
+@media (max-width: 768px) {
+    body.login-body {
+        align-items: flex-start; /* allow scrolling */
+        padding: 20px 0;
+    }
+
+    .login-container {
+        width: 100%;
+        height: auto;
+        max-width: 420px;
+        flex-direction: column;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    .login-left {
+        display: none; /* hide decorative panel */
+    }
+
+    .login-right {
+        width: 100%;
+        padding: 28px 22px;
+    }
+
+    .login-right h2 {
+        font-size: 22px;
+        margin-bottom: 18px;
+    }
+
+    .login-input {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .btn-login, .btn-signup {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .login-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .login-container {
+        margin: 0 16px;
+    }
+}
+
+/* Very small phones: <= 420px */
+@media (max-width: 420px) {
+    .login-right {
+        padding: 20px;
+    }
+
+    .login-right h2 {
+        font-size: 20px;
+    }
+
+    .welcome-text { font-size: 28px; }
+    .logo-circle { width: 48px; height: 48px; }
+    .logo-text span { font-size: 18px; }
+}
+
+/* Accessibility & utility tweaks */
+.sr-only {
+    position: absolute !important;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0);
+    border: 0;
+}
+
+/* End of Login CSS */

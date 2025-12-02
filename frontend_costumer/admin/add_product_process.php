@@ -90,14 +90,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $conn->prepare($sql);
     
     // Binding: sdssis (Nama, Harga, Path, Kategori, Diameter, Deskripsi)
-    $stmt->bind_param("sdsiss", 
-        $nama_product, 
-        $harga, 
-        $path_gambar, 
-        $kategori_product, 
-        $diameter, 
+    // Nama (s), Harga (d), Path (s), Kategori (s), Diameter (i), Deskripsi (s)
+    $stmt->bind_param("sdssis",
+        $nama_product,
+        $harga,
+        $path_gambar,
+        $kategori_product,
+        $diameter,
         $deskripsi
     );
+
 
 
     if ($stmt->execute()) {

@@ -22,9 +22,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Sanitasi dan Konversi Tipe Data
     $product_id = (int)$product_id;
-    $nama_product = $pdo->real_escape_string($nama_product);
-    $kategori_product = $pdo->real_escape_string($kategori_product);
-    $deskripsi = $pdo->real_escape_string($deskripsi);
+    $nama_product = $conn->real_escape_string($nama_product);
+    $kategori_product = $conn->real_escape_string($kategori_product);
+    $deskripsi = $conn->real_escape_string($deskripsi);
     $harga = (float)$harga; 
     $diameter = (int)$diameter; 
 
@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 DESKRIPSI_PRODUCT = ?
             WHERE ID_PRODUCT = ?";
     
-    $stmt = $pdo->prepare($sql);
+    $stmt = $conn->prepare($sql);
     
     // Binding: sdsisi (6 kolom update + 1 ID
     // TIPE DATA YANG DIKOREKSI: sdssisi (7 TIPE DATA)
@@ -105,11 +105,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($stmt->execute()) {
         $_SESSION['message'] = "✅ Produk **$nama_product** berhasil diperbarui!";
     } else {
-        $_SESSION['message'] = "❌ Gagal memperbarui produk: " . $pdo->error;
+        $_SESSION['message'] = "❌ Gagal memperbarui produk: " . $conn->error;
     }
 
     $stmt->close();
-    $pdo->close();
+    $conn->close();
     
     // Redirect kembali ke halaman edit_cake
     header("Location: edit_cake.php");
