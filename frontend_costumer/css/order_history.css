@@ -29,6 +29,26 @@
     color: #333;
 }
 
+/* --- Messages (alert area) --- */
+.message-box {
+    margin: 12px 0;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.message-success {
+    background: #e6f7ea;
+    color: #1a7a2b;
+    border: 1px solid #c6edd3;
+}
+
+.message-error {
+    background: #fdecea;
+    color: #7a1a1a;
+    border: 1px solid #f5c6c6;
+}
+
 /* --- Search Bar --- */
 .search-bar-container {
     position: relative;
@@ -98,8 +118,8 @@
     flex-grow: 1;
 }
 
-.order-id, 
-.order-status, 
+.order-id,
+.order-status,
 .order-total {
     font-size: 16px;
     color: #333;
@@ -112,7 +132,7 @@
     margin-bottom: 10px;
 }
 
-/* Warna Status */
+/* Warna Status (text color fallback jika tidak pakai badge) */
 .status-done {
     color: #3b9f5f;
     font-weight: 600;
@@ -150,6 +170,9 @@
     font-size: 14px;
     font-weight: 500;
     transition: background-color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 }
 
 /* Delete / Cancel Buttons */
@@ -176,6 +199,7 @@
 .tab-btn:hover:not(.active) {
     color: #6D2835;
 }
+
 /* ========== PENAMBAHAN & PERUBAHAN UNTUK order_history.css ========== */
 
 /* 1) Status badge (background + pill) */
@@ -258,9 +282,8 @@
     font-size: 13px;
 }
 
-/* 7) Tombol: ukuran & ikon */
+/* 7) Tombol: ukuran & ikon (ikon menggunakan <i> di button) */
 .action-btn i { margin-right: 6px; font-size: 14px; vertical-align: middle; }
-.action-btn { display: inline-flex; align-items: center; gap: 6px; }
 
 /* 8) Responsive: tampilan mobile */
 @media (max-width: 900px) {
@@ -309,3 +332,87 @@
 @media (prefers-reduced-motion: reduce) {
     .order-card, .order-card:hover { transform: none; transition: none; }
 }
+
+/* ================= Modal Konfirmasi (dipindahkan dari inline) ================= */
+
+/* overlay & centering */
+.confirm-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.45);
+    display: none;             /* default tersembunyi; JS akan set display:flex */
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    padding: 20px;
+}
+
+/* kotak modal */
+.confirm-box{
+    background: #fff;
+    padding: 20px 22px;
+    border-radius: 8px;
+    width: 340px;
+    max-width: 100%;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.confirm-box h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.confirm-box p {
+    margin: 0 0 16px 0;
+    color: #444;
+}
+
+/* tombol di modal */
+.confirm-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.confirm-buttons button {
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: 0;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* variasi tombol */
+.btn-yes {
+    background: #28a745;
+    color: #fff;
+}
+
+.btn-no {
+    background: #6c757d;
+    color: #fff;
+}
+
+/* tutup modal ketika klik area luar: styling pointer agar indikasi click */
+.confirm-overlay { cursor: default; }
+.confirm-box { cursor: auto; }
+
+/* small accessibility tweak: focus ring for modal buttons */
+.confirm-buttons button:focus {
+    outline: 3px solid rgba(16,185,129,0.14);
+    outline-offset: 2px;
+}
+
+/* jika ingin animasi masuk (opsional) */
+@keyframes modalPop {
+    from { transform: translateY(8px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+.confirm-box { animation: modalPop .12s ease both; }
+
+/* ============================================================================ */
