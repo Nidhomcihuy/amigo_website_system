@@ -18,7 +18,7 @@
     }
   </script>
   </head>
-<body>
+<body class="page-enter">
 
  <!-- NAVBAR -->
   <header class="navbar">
@@ -56,46 +56,52 @@
 </header>
   
 
-  <!-- ==== GALERI ==== -->
+ <!-- ==== GALERI ==== -->
 <section class="galeri">
   <div class="galeri-container">
-    <div class="book-text">
 
-      <h2>Galeri Kegiatan Kami</h2>
-      <p class="galeri-subtitle">"Momen berharga yang kami abadikan dalam setiap langkah perjalanan bersama.✨"</p>
+    <!-- Title & Subtitle -->
+    <h2 class="galeri-title reveal">Galeri Kegiatan Kami</h2>
+    <p class="galeri-subtitle reveal">
+      "Momen berharga yang kami abadikan dalam setiap langkah perjalanan bersama.✨"
+    </p>
 
-      <!-- ==== WRAPPER GRID ==== -->
-      <div class="galeri-grid">
+    <!-- ==== GRID WRAPPER ==== -->
+    <div class="galeri-grid">
 
-        <div class="galeri-card fade-card">
-          <div class="galeri-image" style="background-image: url('image_costumer/coba5.jpeg');"></div>
-          <div class="galeri-info">
-            <h3>Ngopaski</h3>
-          </div>
+      <!-- CARD 1 -->
+      <div class="galeri-card reveal">
+        <div class="galeri-image" style="background-image: url('image_costumer/coba5.jpeg');"></div>
+        <div class="galeri-info">
+          <h3>Ngopaski</h3>
         </div>
+      </div>
 
-        <div class="galeri-card fade-card">
-          <div class="galeri-image" style="background-image: url('image_costumer/coba5.jpeg');"></div>
-          <div class="galeri-info">
-            <h3>Ngopaski</h3>
-          </div>
+      <!-- CARD 2 -->
+      <div class="galeri-card reveal">
+        <div class="galeri-image" style="background-image: url('image_costumer/coba5.jpeg');"></div>
+        <div class="galeri-info">
+          <h3>Ngopaski</h3>
         </div>
+      </div>
 
-        <div class="galeri-card fade-card">
-          <div class="galeri-image" style="background-image: url('image_costumer/coba5.jpeg');"></div>
-          <div class="galeri-info">
-            <h3>Ngopaski</h3>
-          </div>
+      <!-- CARD 3 -->
+      <div class="galeri-card reveal">
+        <div class="galeri-image" style="background-image: url('image_costumer/coba5.jpeg');"></div>
+        <div class="galeri-info">
+          <h3>Ngopaski</h3>
         </div>
+      </div>
 
-        <div class="galeri-card fade-card">
-          <div class="galeri-image" style="background-image: url('image_costumer/coba5.jpeg');"></div>
-          <div class="galeri-info">
-            <h3>Ngopaski</h3>
-          </div>
+      <!-- CARD 4 -->
+      <div class="galeri-card reveal">
+        <div class="galeri-image" style="background-image: url('image_costumer/coba5.jpeg');"></div>
+        <div class="galeri-info">
+          <h3>Ngopaski</h3>
         </div>
+      </div>
 
-      </div> <!-- end galeri-grid -->
+    </div> <!-- end galeri-grid -->
 
     </div> <!-- end book-text -->
   </div> <!-- end galeri-container -->
@@ -112,7 +118,7 @@
   <div class="footer-content">
     <div>
       <h3>Contact Us</h3>
-      <p>📍 Location</p>
+      <p>📍 Jl Barito IVA No. 19 Keringan, Nganjuk</p>
       <p>📞 +62 858-0061-1600</p>
       <p>✉️ illonaleilani@gmail.com</p>
     </div>
@@ -176,5 +182,51 @@ lightbox.addEventListener("click", () => {
   lightbox.classList.remove("show");
 });
 </script>
+
+<script>
+document.querySelectorAll(".galeri-card").forEach(card => {
+  card.addEventListener("mousemove", e => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width/2;
+    const y = e.clientY - rect.top - rect.height/2;
+
+    const rotateX = (y / rect.height) * 15;
+    const rotateY = -(x / rect.width) * 15;
+
+    card.style.transform =
+      `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.06)`;
+  });
+
+  card.addEventListener("mouseleave", () => {
+    card.style.transform = "";
+  });
+});
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll(".scroll-blur");
+
+    function reveal() {
+        elements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 80) {
+                el.classList.add("show");
+            }
+        });
+    }
+
+    window.addEventListener("scroll", reveal);
+    reveal();
+});
+</script>
+
+<script>
+window.addEventListener("load", () => {
+  document.body.classList.add("page-show");
+});
+</script>
+
 </body>
 </html>

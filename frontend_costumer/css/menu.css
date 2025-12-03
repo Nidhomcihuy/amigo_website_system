@@ -487,16 +487,54 @@ input:focus {
 }
 
 /* ============================
-   NOMOR REKENING
+   REKENING CARD
 ============================ */
-.input-box input {
+.rekening-card {
+    background: linear-gradient(135deg, #005bea, #00c6fb);
+    color: #fff;
+    padding: 20px;
+    border-radius: 15px;
     width: 100%;
-    padding: 12px;
-    border-radius: 12px;
-    border: 1px solid #ddd;
-    background: #f7f7f7;
-    margin-bottom: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    margin-top: 15px;
+    display: none; /* default hidden */
+    flex-direction: column;
+    gap: 6px;
 }
+
+.bank-logo {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.rekening-number {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.rekening-name {
+    font-size: 15px;
+    opacity: 0.9;
+}
+
+.copy-btn {
+    background: rgba(255,255,255,0.25);
+    border: none;
+    padding: 8px 12px;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 14px;
+    width: 80px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: 0.3s;
+}
+
+.copy-btn:hover {
+    background: rgba(255,255,255,0.4);
+}
+
 
 /* ============================
    UPLOAD AREA
@@ -777,4 +815,111 @@ grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 .product-grid {
 grid-template-columns: 1fr;
 }
+}
+/* ===== PAGE FADE IN ===== */
+body {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: pageFade 0.8s ease-out forwards;
+}
+
+@keyframes pageFade {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== NAVBAR DROP ANIMATION ===== */
+.navbar {
+    transform: translateY(-40px);
+    opacity: 0;
+    animation: navbarDrop 0.9s ease-out forwards 0.2s;
+}
+
+@keyframes navbarDrop {
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* ===== HEADING “OUR MENU” ===== */
+.menu-title {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    animation: titleShow 1s ease-out forwards 0.4s;
+}
+
+@keyframes titleShow {
+    0% {
+        opacity: 0; transform: translateY(20px) scale(0.95);
+    }
+    100% {
+        opacity: 1; transform: translateY(0) scale(1);
+    }
+}
+
+/* ===== CATEGORY BUTTONS STAGGER ===== */
+.category-btn {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: filterShow 0.6s ease-out forwards;
+}
+
+.category-btn:nth-child(1) { animation-delay: 0.6s; }
+.category-btn:nth-child(2) { animation-delay: 0.7s; }
+.category-btn:nth-child(3) { animation-delay: 0.8s; }
+.category-btn:nth-child(4) { animation-delay: 0.9s; }
+.category-btn:nth-child(5) { animation-delay: 1.0s; }
+
+@keyframes filterShow {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== PRODUCT CARD ENTER ===== */
+.product-card {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    animation: prodEnter 0.8s ease-out forwards;
+}
+
+@keyframes prodEnter {
+    0% {
+        opacity: 0; transform: translateY(30px) scale(0.94);
+    }
+    100% {
+        opacity: 1; transform: translateY(0) scale(1);
+    }
+}
+
+/* STAGGER (otomatis untuk 1 row) */
+.product-card:nth-child(1) { animation-delay: 1.1s; }
+.product-card:nth-child(2) { animation-delay: 1.2s; }
+.product-card:nth-child(3) { animation-delay: 1.3s; }
+.product-card:nth-child(4) { animation-delay: 1.4s; }
+.product-card:nth-child(5) { animation-delay: 1.5s; }
+
+/* ===== HOVER ANIMASI PREMIUM ===== */
+.product-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    transition: 0.3s ease;
+    box-shadow: 0px 12px 28px rgba(0,0,0,0.15);
+}
+
+/* ===== BUTTON “PESANAN SAYA” ===== */
+.order-btn {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: orderBtnShow 1s ease-out forwards 1.3s;
+}
+
+@keyframes orderBtnShow {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== PARALLAX EFFECT BACKGROUND ===== */
+.header-menu {
+    background-attachment: fixed;
+    animation: bgFade 1.5s ease-out forwards;
+}
+
+@keyframes bgFade {
+    from { filter: brightness(0.7); }
+    to   { filter: brightness(1); }
 }

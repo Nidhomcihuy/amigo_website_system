@@ -1,3 +1,6 @@
+/* ========================================= */
+/* ===== 0. RESET DAN DASAR ===== */
+/* ========================================= */
 * {
   margin: 0;
   padding: 0;
@@ -10,7 +13,33 @@ body {
   background-color: #fff;
 }
 
-/* ===== NAVBAR (MENU UTAMA) ===== */
+
+/* ========================================= */
+/* ===== 1. KEYFRAMES ANIMASI (DASAR) ===== */
+/* ========================================= */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ========================================= */
+/* ===== 2. NAVBAR (MENU UTAMA) ===== */
+/* ========================================= */
 .navbar,
 .site-header {
   display: flex;
@@ -22,9 +51,11 @@ body {
   position: sticky;
   top: 0;
   z-index: 10;
+  /* Animasi load-in untuk Navbar */
+  animation: fadeIn 0.8s ease-out 0s backwards;
 }
 
-/* ===== HEADER INNER ===== */
+/* HEADER INNER */
 .header-inner {
   display: flex;
   justify-content: space-between;
@@ -39,10 +70,12 @@ body {
   text-decoration: none;
 }
 
-/* ===== NAVIGATION LINKS ===== */
+/* NAVIGATION LINKS */
 .nav-links {
   display: flex;
   align-items: center;
+  margin-left: auto;
+  gap: 20px;
 }
 
 .nav-links a {
@@ -76,13 +109,13 @@ body {
   width: 100%;
 }
 
-/* ===== HALAMAN AKTIF ===== */
+/* HALAMAN AKTIF */
 .nav-links a.active {
   font-weight: 700;
   color: #ffffff;
 }
 
-/* Garis bawah untuk link aktif (lebih kuat dari hover) */
+/* Garis bawah untuk link aktif */
 .nav-links a.active::after {
   content: "";
   position: absolute;
@@ -90,15 +123,10 @@ body {
   bottom: 0;
   width: 100%;
   height: 2px;
-  background-color: #ffffff; /* Warna putih */
+  background-color: #ffffff;
 }
-.nav-links {
-  display: flex;
-  align-items: center;
-  margin-left: auto; /* ⬅️ dorong menu ke kanan */
-  gap: 20px;
-}
-/* ===== HAMBURGER MENU (MOBILE) ===== */
+
+/* HAMBURGER MENU (MOBILE) */
 .hamburger {
   display: none;
   font-size: 24px;
@@ -108,11 +136,10 @@ body {
   cursor: pointer;
 }
 .menu-icon {
-  display: none;       /* hamburger hilang di desktop */
+  display: none;
   cursor: pointer;
   font-size: 28px;
   user-select: none;
-
 }
 .desktop-only {
   display: block;
@@ -124,11 +151,13 @@ body {
 }
 
 
-/* ===== HERO ===== */
+/* ========================================= */
+/* ===== 3. HERO SECTION (ANIMATED) ===== */
+/* ========================================= */
 .hero {
   position: relative;
   width: 100%;
-  height: 100vh; /* 🔹 gambar penuh 1 layar */
+  height: 100vh;
   background: url("../image_costumer/bghero.png") no-repeat center center/cover;
   display: flex;
   align-items: center;
@@ -136,15 +165,15 @@ body {
   overflow: hidden;
 }
 
-/* 🔹 lapisan gelap/transparan agar teks mudah dibaca */
+/* lapisan gelap/transparan */
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4); /* bisa ubah transparansi */
+  background: rgba(0, 0, 0, 0.4);
   z-index: 1;
 }
 
-/* 🔹 teks di atas gambar */
+/* teks di atas gambar */
 .hero-content {
   position: relative;
   z-index: 2;
@@ -152,8 +181,6 @@ body {
   color: #fff;
   max-width: 800px;
   padding: 0 20px;
-
-  /* biar teks tetap di tengah */
   margin: 0 auto;
 }
 
@@ -162,35 +189,33 @@ body {
   font-size: 64px;
   line-height: 1;
   margin-bottom: 16px;
+  /* Animasi Load-in */
+  animation: fadeInUp 1s ease-out 0.4s backwards; 
 }
 
 .hero-content p {
   font-family: "Poppins", sans-serif;
   font-size: 20px;
   line-height: 1.8;
+  /* Animasi Load-in */
+  animation: fadeInUp 1s ease-out 0.6s backwards; 
 }
 
-/* SLIDER TEKS - FIX */
+/* SLIDER TEKS */
 .hero-slider {
   list-style: none;
   padding: 0;
   margin: 0;
-
-  /* hilangkan posisi absolute */
   position: relative;
-
-  /* tinggi mengikuti konten secara normal */
   min-height: auto;
 }
 
-/* tiap slide ditumpuk normal, tapi hanya 1 yang tampil */
 .hero-slider .slide {
-  display: none;         /* sembunyikan default */
+  display: none;
   opacity: 0;
   transition: opacity .4s ease;
 }
 
-/* slide aktif tampil normal dan horizontal */
 .hero-slider .li-active {
   display: block;
   opacity: 1;
@@ -200,6 +225,8 @@ body {
 .hero-indicator {
   margin-top: 20px;
   text-align: center;
+  /* Animasi Load-in */
+  animation: fadeIn 1s ease-out 0.8s backwards;
 }
 
 .hero-indicator span {
@@ -217,7 +244,9 @@ body {
 }
 
 
-/* MENU SECTION */
+/* ========================================= */
+/* ===== 4. MENU SECTION (SCROLL REVEAL TARGET) ===== */
+/* ========================================= */
 .menu {
   text-align: center;
   background: linear-gradient(#690108, #FCF1DB);
@@ -229,110 +258,16 @@ body {
   font-family: 'Dancing Script', cursive;
   font-size: 40px;
   color: #FCF1DB;
+  /* Diberi class scroll-reveal di HTML */
 }
 
-.menu-categories {
-  margin: 20px 0;
-}
-
-.menu-categories button {
-  background: #690108;
-  color: #FCF1DB;
-  border: none;
-  margin: 5px;
-  padding: 8px 15px;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-.menu-categories button.active {
-  background: #FCF1DB;
-  color: #690108;
-}
-
-/* DESKRIPSI DINAMIS */
-.menu-description {
-  background: #FCF1DB;
-  color: #690108;
-  display: inline-block;     /* tetap mengikuti panjang teks */
-  padding: 10px 20px;
-  border-radius: 25px;
-  margin-top: 10px;
-  font-size: 14px;
-  text-align: center;
-  max-width: 700px;          /* batasi lebar agar tidak terlalu panjang */
-  line-height: 1.5;
-  word-wrap: break-word;     /* teks panjang tetap turun */
-}
-
-/* ANIMASI */
-.fade {
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-.fade.show {
-  opacity: 1;
-}
-
-/* PRODUCT GRID */
-.product-grid {
-display: grid;
-grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-gap: 25px;
-margin-top: 30px;
-padding: 10px;
-
-/* Tambahan penting */
-max-width: 1200px;
-margin-left: auto;
-margin-right: auto;
-}
-
-.product-card {
-background: #FCF1DB;
-padding: 20px;
-border-radius: 15px;
-box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
-text-align: center;
-width: 100%;
-box-sizing: border-box;
-}
-
-.product-card img {
-width: 100%;
-height: 220px;
-object-fit: cover;
-border-radius: 10px;
-}
-
-/* ========== PRODUCT INFO ========== */
-
-.product-info {
-  margin-top: 15px;
-  font-size: 15px;
-  font-weight: bold;
-  color: #000;
-}
-
-/* Nama produk */
-.product-info h3 {
-  font-size: 18px;
-  margin-bottom: 5px;
-}
-
-/* Harga */
-.product-info p {
-  font-size: 15px;
-  color: #5b4732;
-}
-
-/* ========== CATEGORY BUTTONS ========== */
+/* CATEGORY BUTTONS */
 .menu-categories {
   display: flex;
   justify-content: center;
   gap: 10px;
   margin: 20px 0;
+  /* Diberi class scroll-reveal di HTML */
 }
 
 .menu-categories button {
@@ -343,19 +278,20 @@ border-radius: 10px;
   color: #fff;
   cursor: pointer;
   font-weight: 600;
-  transition: 0.2s;
+  transition: all 0.2s ease-in-out; 
 }
 
 .menu-categories button:hover {
   background: #8f0f15;
+  transform: scale(1.05); 
 }
 
-.menu-categories .active {
+.menu-categories button.active {
   background: #f3d7c0;
   color: #000;
 }
 
-/* ========== MENU DESCRIPTION ========== */
+/* MENU DESCRIPTION */
 .menu-description {
   text-align: center;
   max-width: 800px;
@@ -371,9 +307,61 @@ border-radius: 10px;
 
 .menu-description.show {
   opacity: 1;
-}  
+}
 
+/* PRODUCT GRID */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+  padding: 10px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  /* Diberi class scroll-reveal di HTML */
+}
 
+.product-card {
+  background: #FCF1DB;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
+}
+
+.product-card:hover {
+  transform: translateY(-5px); 
+  box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+}
+
+.product-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* PRODUCT INFO */
+.product-info {
+  margin-top: 15px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #000;
+}
+
+.product-info h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.product-info p {
+  font-size: 15px;
+  color: #5b4732;
+}
 
 .view-more {
   background: #690108;
@@ -383,125 +371,156 @@ border-radius: 10px;
   padding: 10px 25px;
   border-radius: 8px;
   cursor: pointer;
+  transition: all 0.3s ease; 
+  /* Diberi class scroll-reveal di HTML */
 }
+
+
+/* ========================================= */
+/* ===== 5. POPUP / MODAL (RESERVASI) ===== */
+/* ========================================= */
 /* POPUP OVERLAY */
 .popup-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.55);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  /* Animasi fade in/out pada overlay */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
 
 /* POPUP BOX */
 .popup-box {
-    width: 450px;
-    background: #690108;
-    padding: 30px;
-    border-radius: 18px;
-    position: relative;
-    color: white;
-    transition: 0.3s ease;
+  width: 450px;
+  background: #690108;
+  padding: 30px;
+  border-radius: 18px;
+  position: relative;
+  color: white;
+  /* Animasi muncul dari atas */
+  transform: translateY(-50px);
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
 }
+
+/* Saat overlay tampil, box harus di-reset */
+.popup-overlay.show {
+  opacity: 1;
+}
+
+.popup-overlay.show .popup-box {
+  transform: translateY(0);
+}
+
 
 /* CLOSE BUTTON */
 .close-btn {
-    position: absolute;
-    right: 18px;
-    top: 18px;
-    font-size: 24px;
-    cursor: pointer;
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  font-size: 24px;
+  cursor: pointer;
 }
 
 /* TITLE */
 .popup-title {
-    text-align: center;
-    margin-bottom: 25px;
-    font-size: 28px;
-    font-family: 'Dancing Script', cursive;
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 28px;
+  font-family: 'Dancing Script', cursive;
 }
 
 /* INPUT */
 input[type="text"],
 input[type="date"],
 input[type="time"] {
-    width: 100%;
-    padding: 12px 14px;
-    margin-bottom: 16px;
-    background: #f2f2f2;
-    border: none;
-    border-radius: 12px;
-    font-size: 15px;
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  background: #f2f2f2;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
 }
 
 /* BUTTON */
 .btn-primary {
-    width: 100%;
-    background: #FCF1DB;
-    color: #690108;
-    border: none;
-    padding: 12px 0;
-    font-size: 18px;
-    border-radius: 15px;
-    cursor: pointer;
-    margin-top: 10px;
-    font-weight: bold;
+  width: 100%;
+  background: #FCF1DB;
+  color: #690108;
+  border: none;
+  padding: 12px 0;
+  font-size: 18px;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-weight: bold;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
 /* STEP TRANSITION */
 #stepPayment {
-    display: none;
+  display: none;
 }
 
 /* TITLE LABEL */
 .label-title {
-    color: #fff;
-    margin: 10px 0 5px;
-    display: block;
-    font-size: 16px;
+  color: #fff;
+  margin: 10px 0 5px;
+  display: block;
+  font-size: 16px;
 }
 
 /* RADIO SELECT BOX */
 .select-box {
-    background: #f2f2f2;
-    padding: 12px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 15px;
-    color: black;
+  background: #f2f2f2;
+  padding: 12px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  color: black;
 }
 
 /* INPUT BOX */
 .input-box input {
-    width: 100%;
-    padding: 12px;
-    border-radius: 12px;
-    border: none;
-    background: #f2f2f2;
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: #f2f2f2;
 }
 
 /* UPLOAD AREA */
 .upload-area {
-    width: 120px;
-    height: 120px;
-    background: #d9d9d9;
-    border-radius: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    margin-bottom: 20px;
+  width: 120px;
+  height: 120px;
+  background: #d9d9d9;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 20px;
 }
 
 .upload-area img {
-    width: 55px;
-    opacity: 0.5;
+  width: 55px;
+  opacity: 0.5;
 }
-/* ABOUT */
+
+
+/* ========================================= */
+/* ===== 6. ABOUT / MAP SECTION (SCROLL REVEAL TARGET) ===== */
+/* ========================================= */
 .about {
   background: linear-gradient( #FCF1DB, #690108);
   display: flex;
@@ -515,15 +534,14 @@ input[type="time"] {
 .about-text {
   flex: 1;
   min-width: 300px;
-  /* ⚠️ HAPUS margin-left negatif agar teks tidak keluar layout */
   margin-left: 0;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: #2b2b2b;
   font-family: "Poppins", sans-serif;
   line-height: 1.8;
+  /* Diberi class scroll-reveal di HTML */
 }
 
 .about-text h2 {
@@ -548,6 +566,7 @@ input[type="time"] {
   flex: 1;
   min-width: 300px;
   text-align: center;
+  /* Diberi class scroll-reveal di HTML */
 }
 
 .book-map h3 {
@@ -572,7 +591,9 @@ input[type="time"] {
 }
 
 
-/* ===== GALERI ===== */
+/* ========================================= */
+/* ===== 7. GALERI SECTION (SCROLL REVEAL TARGET) ===== */
+/* ========================================= */
 .galeri {
   background: linear-gradient(#690108, #FCF1DB);
   color: #fff;
@@ -583,7 +604,7 @@ input[type="time"] {
   overflow: hidden;
 }
 
-/* ===== JUDUL GALERI ===== */
+/* JUDUL GALERI */
 .galeri h2 {
   color: #FCF1DB;
   padding: 60px 0 40px;
@@ -591,23 +612,24 @@ input[type="time"] {
   font-size: 40px;
   font-weight: 600;
   letter-spacing: 1px;
+  /* Diberi class scroll-reveal di HTML */
 }
 
 /* GRID */
 .galeri-grid {
-display: flex;
-flex-direction: column; /* Pertahankan ini untuk tampilan mobile/defa ult */
-width: 90%;
-margin: auto;
-gap: 45px;
-align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: auto;
+  gap: 45px;
+  align-items: center;
 }
 
-/* ===== CARD KEGIATAN (MAGIC FIX) ===== */
+/* CARD KEGIATAN */
 .galeri-card {
   position: relative;
   width: 100%;
-  height: 450px;        /* FIX: dari 1500px → proporsional */
+  height: 450px;
   margin: 0 auto;
   overflow: hidden;
   border-radius: 20px;
@@ -617,6 +639,7 @@ align-items: center;
   align-items: flex-end;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   background: #000;
+  /* Diberi class scroll-reveal di HTML */
 }
 
 .galeri-card:hover {
@@ -624,7 +647,7 @@ align-items: center;
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
 }
 
-/* ===== GAMBAR ===== */
+/* GAMBAR */
 .galeri-image {
   position: absolute;
   inset: 0;
@@ -641,7 +664,7 @@ align-items: center;
   transform: scale(1.05);
 }
 
-/* ===== TEKS INFO ===== */
+/* TEKS INFO */
 .galeri-info {
   position: relative;
   width: 100%;
@@ -654,7 +677,7 @@ align-items: center;
 
 .galeri-info h3 {
   font-family: "Poppins", sans-serif;
-  font-size: 22px;     /* lebih pas */
+  font-size: 22px;
   font-weight: 600;
   margin: 0;
   color: #fff;
@@ -666,17 +689,7 @@ align-items: center;
   margin-bottom: 40px;
   color: #FCF1DB;
   opacity: 0.9;
-}
-/* Fade-in effect */
-.fade-card {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: 0.7s ease;
-}
-
-.fade-card.show {
-  opacity: 1;
-  transform: translateY(0);
+  /* Diberi class scroll-reveal di HTML */
 }
 
 /* Lightbox */
@@ -690,7 +703,7 @@ align-items: center;
   z-index: 10000;
   opacity: 0;
   pointer-events: none;
-  transition: 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
 .lightbox.show {
@@ -706,16 +719,16 @@ align-items: center;
 }
 
 
-
-
-
-/* FOOTER */
- footer {
+/* ========================================= */
+/* ===== 8. FOOTER SECTION (SCROLL REVEAL TARGET) ===== */
+/* ========================================= */
+footer {
   background: linear-gradient(to bottom, #6d1a1d, #4d2226);
   color: #fff;
   padding: 60px 10%;
   font-family: "Poppins", sans-serif;
   text-align: center;
+  /* Diberi class scroll-reveal di HTML */
 }
 
 .footer-content {
@@ -743,7 +756,7 @@ align-items: center;
   margin: 5px 0;
 }
 
-/* ===== Ikon Sosial Media ===== */
+/* Ikon Sosial Media */
 .social-icons {
   margin-top: 20px;
   display: flex;
@@ -790,13 +803,43 @@ align-items: center;
 }
 
 
+/* ========================================= */
+/* ===== 9. SCROLL REVEAL (FUNGSI UTAMA) ===== */
+/* ========================================= */
+/* Kelas dasar yang harus ditambahkan ke elemen di HTML */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px); /* Awalnya sedikit di bawah */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
 
+/* Kelas yang ditambahkan oleh JavaScript saat elemen terlihat */
+.scroll-reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-/* ===== Hover Button ===== */
+/* Fade-in effect untuk elemen yang tidak perlu translasi */
+.fade {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.fade.show {
+  opacity: 1;
+}
+
+/* Tombol Umum */
 .btn:hover {
   transform: translateY(-2px);
   box-shadow: 4px 6px 0px #4d2226;
 }
+
+
+/* ========================================= */
+/* ===== 10. RESPONSIVE MEDIA QUERIES ===== */
+/* ========================================= */
 
 /* ===== Responsive: Tablet (≤1024px) ===== */
 @media (max-width: 1024px) {
@@ -815,28 +858,27 @@ align-items: center;
     gap: 10px;
   }
 
-  .hero-text h1 {
-    font-size: 30px;
+  .hero-content h1 {
+    font-size: 44px; /* Disesuaikan untuk mobile */
   }
 
-  .hero-text p {
-    font-size: 15px;
-    text-align: justify;
+  .hero-content p {
+    font-size: 16px; /* Disesuaikan untuk mobile */
+    text-align: center;
   }
 
-   .menu-categories {
-    gap: 12px;            
-    flex-wrap: wrap;        
+  .menu-categories {
+    gap: 8px;
+    flex-wrap: wrap;
     padding: 0 10px;
   }
 
   .menu-categories button {
-    padding: 10px 20px;    
-    font-size: 14px;        
-    border-radius: 20px;    
+    padding: 10px 15px;
+    font-size: 13px;
   }
 
-   footer {
+  footer {
     padding: 50px 5%;
   }
 
@@ -848,9 +890,10 @@ align-items: center;
   .social-icons {
     margin-top: 15px;
   }
+  
   .galeri-card {
-    width: 95%; /* 🔹 jarak lebih kecil di layar HP */
-    height: 90vh; /* 🔹 biar nggak terlalu tinggi di HP */
+    width: 95%; 
+    height: 60vh; /* Sedikit lebih kecil agar lebih banyak di layar */
   }
 
   .galeri-info h3 {
@@ -861,12 +904,11 @@ align-items: center;
     font-size: 30px;
   }
   
-   .menu-icon {
+  .menu-icon {
     display: block;
     font-size: 32px;
     cursor: pointer;
     z-index: 2000;
-    display: block;
   }
 
   /* Sembunyikan menu awalnya */
@@ -879,20 +921,21 @@ align-items: center;
     width: 200px;
     padding: 20px;
     border-radius: 12px;
-    display: none;  /* hidden default */
-  }
-
-  .nav-links a {
-    padding: 10px 0;
-    color: #fff;
-    text-align: right;
+    display: none; 
+    /* Transisi untuk menu mobile */
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.3s ease-in-out;
   }
 
   /* Saat menu buka */
   .nav-links.active {
     display: flex;
+    opacity: 1;
+    transform: translateX(0);
   }
-   .desktop-only {
+  
+  .desktop-only {
     display: none;
   }
 

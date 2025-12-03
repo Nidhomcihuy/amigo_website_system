@@ -10,21 +10,33 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
-// Ambil semua pesanan milik user
-$sql = "SELECT * FROM orders WHERE id_users = ? ORDER BY created_at DESC";
+// ===============================
+// AMBIL LIST PESANAN (JOIN PRODUK)
+// ===============================
+$sql = "SELECT o.*, p.NAMA_PRODUCT 
+        FROM orders o
+        LEFT JOIN product p ON o.id_product = p.ID_PRODUCT
+        WHERE o.id_users = ?
+        ORDER BY o.created_at DESC";
+
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
 $orders = $stmt->get_result();
 
-// Jika ada detail order yang dipilih
+// ===============================
+// AMBIL DETAIL PESANAN
+// ===============================
 $selectedOrder = null;
 if (isset($_GET['order_id'])) {
 
     $order_id = $_GET['order_id'];
 
-    // Ambil detail orders
-    $detailQuery = "SELECT * FROM orders WHERE id = ? AND id_users = ?";
+    $detailQuery = "SELECT o.*, p.NAMA_PRODUCT
+                FROM orders o
+                LEFT JOIN product p ON o.id_product = p.ID_PRODUCT
+                WHERE o.id = ? AND o.id_users = ?";
+
     $detailStmt = $conn->prepare($detailQuery);
     $detailStmt->bind_param("ii", $order_id, $user_id);
     $detailStmt->execute();
@@ -61,17 +73,37 @@ if (isset($_GET['order_id'])) {
 
         <?php if ($orders->num_rows > 0): ?>
             <?php while ($row = $orders->fetch_assoc()): ?>
-                <a href="pesanan.php?order_id=<?= $row['id']; ?>" class="order-card">
 
-                    <div class="checkbox"></div>
+                <div class="order-card">
 
-                    <div class="order-info">
-                        <p class="order-name"><?= $row['varian']; ?> (<?= $row['diameter']; ?> cm)</p>
-                        <p class="order-price">Rp <?= number_format($row['harga'], 0, ',', '.'); ?></p>
-                        <p class="order-qty">Jumlah : 1</p>
+                    <!-- CHECKBOX DENGAN AUTO ACTIVE -->
+                    <div class="checkbox 
+                        <?= (isset($_GET['order_id']) && $_GET['order_id'] == $row['id']) ? 'active' : '' ?>" 
+                        onclick="window.location.href='pesanan.php?order_id=<?= $row['id']; ?>'">
                     </div>
 
-                </a>
+                    <div class="order-info">
+
+                      <?php 
+        $isCustom = empty($row['id_product']) || $row['kategori'] === "custom cake";
+            ?>
+
+            <?php if ($isCustom): ?>
+         <p class="order-name">Custom Cake</p>
+             <p>Diameter: <?= $row['diameter']; ?> cm</p>
+          <p>Tulisan: <?= $row['tulisan'] ?: "-"; ?></p>
+            <?php else: ?>
+             <p class="order-name"><?= $row['NAMA_PRODUCT']; ?></p>
+            <?php endif; ?>
+
+
+                        <p class="order-qty">Jumlah: 1</p>
+                        <p class="order-price">Rp <?= number_format($row['harga'], 0, ',', '.'); ?></p>
+
+                    </div>
+
+                </div>
+
             <?php endwhile; ?>
         <?php else: ?>
             <p>Tidak ada pesanan.</p>
@@ -84,12 +116,20 @@ if (isset($_GET['order_id'])) {
 
         <div class="detail-box">
             <?php if ($selectedOrder): ?>
-                <p><strong>Nama Cake :</strong> <?= $selectedOrder['varian']; ?></p>
 
-                <p><strong>Diameter :</strong> <?= $selectedOrder['diameter']; ?> cm</p>
+                <p><strong>Nama Cake :</strong>
+                   \<?php 
+                    $isCustom = empty($selectedOrder['id_product']) || $selectedOrder['kategori'] === "custom cake";
+                    ?>
 
-                <p><strong>Tulisan Cake :</strong><br>
-                <?= $selectedOrder['tulisan']; ?></p>
+                    <?= $isCustom ? "Custom Cake" : $selectedOrder['NAMA_PRODUCT']; ?>
+
+                </p>
+
+                <?php if ($selectedOrder['kategori'] === "custom cake"): ?>
+                    <p><strong>Diameter :</strong> <?= $selectedOrder['diameter']; ?> cm</p>
+                    <p><strong>Tulisan Cake :</strong><br><?= $selectedOrder['tulisan']; ?></p>
+                <?php endif; ?>
 
                 <p><strong>Tanggal Pengambilan :</strong> <?= $selectedOrder['tanggal']; ?></p>
 
@@ -111,6 +151,40 @@ if (isset($_GET['order_id'])) {
     </div>
 
 </div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(".order-card");
+
+    // Baca order_id dari URL
+    const params = new URLSearchParams(window.location.search);
+    const selectedId = params.get("order_id");
+
+    cards.forEach(card => {
+        let checkbox = card.querySelector(".checkbox");
+
+        // ID dari checkbox diambil dari onclick dalam PHP
+        let cardId = checkbox.getAttribute("onclick").match(/\d+/)[0];
+
+        // Jika card ini yang aktif → beri efek highlight
+        if (cardId === selectedId) {
+            card.classList.add("active");
+            
+            // Auto-scroll posisi card ke tengah layar
+            setTimeout(() => {
+                card.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+            }, 200);
+        }
+
+        // Klik pada card = pindah URL
+        card.addEventListener("click", () => {
+            window.location.href = `pesanan.php?order_id=${cardId}`;
+        });
+    });
+});
+</script>
 
 </body>
 </html>

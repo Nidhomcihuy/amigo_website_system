@@ -79,7 +79,7 @@
   </p>
 
 <?php
-$conn = new mysqli("localhost", "root", "gooyounjung12", "db_amigocake");
+$conn = new mysqli("localhost", "root", "qwerty", "db_amigocake");
 
 if ($conn->connect_error) {
   die("Koneksi gagal: " . $conn->connect_error);
@@ -168,45 +168,49 @@ if (!$q || $q->num_rows == 0) {
     <button class="btn-primary" onclick="goToPayment()">Bayar</button>
 </div>
 
-        <!-- STEP 2 : PEMBAYARAN -->
-        <div id="stepPayment" style="display:none;">
+<!-- STEP 2 : PEMBAYARAN -->
+<div id="stepPayment" style="display:none;">
 
-            <h2 class="popup-title">Pembayaran</h2>
+    <h2 class="popup-title">Pembayaran</h2>
 
-            <label class="label-title">Metode Pembayaran</label>
+    <label class="label-title">Metode Pembayaran</label>
 
-            <div class="select-box">
-                <input type="radio" name="pay" id="transfer">
-                <label for="transfer">Transfer Bank</label>
-            </div>
-
-            <!-- NOMOR REKENING -->
-            <div class="input-box" id="rekeningBox" style="display:none;">
-                <input type="text" id="norek" readonly>
-            </div>
-
-            <!-- UPLOAD BUKTI -->
-            <div id="uploadGroup" style="display:none;">
-                <label class="label-title">Upload Bukti Pembayaran</label>
-
-                <label class="upload-area" id="uploadBox">
-                    <input type="file" id="buktiBayar" hidden>
-                    <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
-                </label>
-            </div>
-
-            <div class="select-box">
-                <input type="radio" name="pay" id="cod">
-                <label for="cod">Bayar di tempat</label>
-            </div>
-
-            <button class="btn-primary" onclick="finishPayment()">Order</button>
-
-        </div>
-
+    <div class="select-box">
+        <input type="radio" name="pay" id="transfer">
+        <label for="transfer">Transfer Bank</label>
     </div>
-</div>
 
+    <!-- CARD NOMOR REKENING -->
+    <div id="rekeningCard" class="rekening-card" style="display:none;">
+        <div class="bank-logo">🏦 BANK BCA</div>
+
+        <div class="rekening-number">123 456 7890</div>
+
+        <div class="rekening-name">a/n Amigo Cake</div>
+
+        <button type="button" class="copy-btn" onclick="copyRekening()">Salin</button>
+    </div>
+
+    <!-- UPLOAD BUKTI -->
+    <div id="uploadGroup" style="display:none;">
+        <label class="label-title">Upload Bukti Pembayaran</label>
+
+        <label class="upload-area" id="uploadBox">
+            <input type="file" id="buktiBayar" hidden>
+            <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+        </label>
+
+        <p id="fileName" style="font-size: 14px; margin-top: 8px;"></p>
+    </div>
+
+    <div class="select-box">
+        <input type="radio" name="pay" id="cod">
+        <label for="cod">Bayar di tempat</label>
+    </div>
+
+    <button class="btn-primary" onclick="finishPayment()">Order</button>
+
+</div>
 
 </section>
 
@@ -371,46 +375,57 @@ function loadProductByKategori() {
 document.addEventListener("DOMContentLoaded", loadKategori);
 </script>
 
-
 <script>
+// SAFE GET ELEMENT
+function el(id) {
+    return document.getElementById(id);
+}
+
+// =====================================================
 // RESET POPUP
+// =====================================================
 function openOrderPopup() {
 
-    // reset step
-    document.getElementById("stepOrder").style.display = "block";
-    document.getElementById("stepPayment").style.display = "none";
+    el("stepOrder").style.display = "block";
+    el("stepPayment").style.display = "none";
 
-    // reset input
-    document.getElementById("namaPemesan").value = "";
-    document.getElementById("telpPemesan").value = "";
-    document.getElementById("alamatPemesan").value = "";
-    document.getElementById("tanggalPemesan").value = "";
-    document.getElementById("diameterCake").value = "";
-    document.getElementById("varianCake").value = "";
-    document.getElementById("tulisanCake").value = "";
-    document.getElementById("waktuAmbil").value = "";
+    // RESET INPUT
+    el("namaPemesan").value = "";
+    el("telpPemesan").value = "";
+    el("alamatPemesan").value = "";
+    el("tanggalPemesan").value = "";
+    el("diameterCake").value = "";
+    el("varianCake").value = "";
+    el("tulisanCake").value = "";
+    el("waktuAmbil").value = "";
 
-    document.getElementById("rekeningBox").style.display = "none";
-    document.getElementById("uploadGroup").style.display = "none";
+    // FIX REKENING & UPLOAD
+    el("rekeningCard").style.display = "none";
+    el("uploadGroup").style.display = "none";
 
+    // RESET RADIO
     document.querySelectorAll("input[name='pay']").forEach(r => r.checked = false);
 
-    document.getElementById("popupWrap").style.display = "flex";
+    // RESET BUKTI FILE
+    el("buktiBayar").value = "";
+
+    el("popupWrap").style.display = "flex";
 }
 
-
-// TUTUP POPUP
+// =====================================================
+// CLOSE POPUP
+// =====================================================
 function closeAll() {
-    document.getElementById("popupWrap").style.display = "none";
+    el("popupWrap").style.display = "none";
 }
 
-// -------------------------------------
+// =====================================================
 // STEP 1 → INSERT ORDER
-// -------------------------------------
+// =====================================================
 function goToPayment() {
 
-    let nama    = document.getElementById("namaPemesan").value;
-    let telp    = document.getElementById("telpPemesan").value;
+    let nama = el("namaPemesan").value;
+    let telp = el("telpPemesan").value;
 
     if (!nama || !telp) {
         alert("Nama dan No. Telp wajib diisi!");
@@ -421,22 +436,21 @@ function goToPayment() {
     formData.append("step", "order");
     formData.append("nama", nama);
     formData.append("telp", telp);
-    formData.append("alamat", document.getElementById("alamatPemesan").value);
-    formData.append("tanggal", document.getElementById("tanggalPemesan").value);
-    formData.append("diameter", document.getElementById("diameterCake").value);
-    formData.append("varian", document.getElementById("varianCake").value);
-    formData.append("tulisan", document.getElementById("tulisanCake").value);
-    formData.append("waktu", document.getElementById("waktuAmbil").value);
-    formData.append("kategori", document.getElementById("kategoriProduct").value);
-    formData.append("product_id", document.getElementById("namaProduct").value);
-    let kategori = document.getElementById("kategoriProduct").value;
-if (kategori.toLowerCase() !== "custom cake") {
-    formData.append("harga", document.getElementById("harga").value);
-} else {
-    formData.append("harga", "0"); // harga 0 dulu → admin yang isi nanti
-}
+    formData.append("alamat", el("alamatPemesan").value);
+    formData.append("tanggal", el("tanggalPemesan").value);
+    formData.append("diameter", el("diameterCake").value);
+    formData.append("varian", el("varianCake").value);
+    formData.append("tulisan", el("tulisanCake").value);
+    formData.append("waktu", el("waktuAmbil").value);
+    formData.append("kategori", el("kategoriProduct").value);
+    formData.append("product_id", el("namaProduct").value);
 
-
+    let kategori = el("kategoriProduct").value;
+    if (kategori.toLowerCase() !== "custom cake") {
+        formData.append("harga", el("harga").value);
+    } else {
+        formData.append("harga", "0"); 
+    }
 
     fetch("order_process.php", {
         method: "POST",
@@ -445,14 +459,12 @@ if (kategori.toLowerCase() !== "custom cake") {
     .then(r => r.json())
     .then(res => {
 
-        console.log("ORDER RESPON:", res);
-
         if (res.status === "success") {
 
-            window.currentOrderID = res.order_id; // simpan id
+            window.currentOrderID = res.order_id;
 
-            document.getElementById("stepOrder").style.display = "none";
-            document.getElementById("stepPayment").style.display = "block";
+            el("stepOrder").style.display = "none";
+            el("stepPayment").style.display = "block";
 
         } else {
             alert("Gagal menyimpan order.");
@@ -463,9 +475,9 @@ if (kategori.toLowerCase() !== "custom cake") {
 
 
 
-// -------------------------------------
-// STEP 2 → INSERT PEMBAYARAN
-// -------------------------------------
+// =====================================================
+// STEP 2 → SAVE PAYMENT
+// =====================================================
 function finishPayment() {
 
     let metode = document.querySelector("input[name='pay']:checked");
@@ -484,11 +496,10 @@ function finishPayment() {
 
     if (metode === "transfer") {
 
-        formData.append("norek", document.getElementById("norek").value);
+        let buktiFile = el("buktiBayar").files[0];
 
-        let buktiFile = document.getElementById("buktiBayar").files[0];
         if (!buktiFile) {
-            alert("Upload bukti pembayaran dulu.");
+            alert("Upload bukti pembayaran dulu!");
             return;
         }
 
@@ -502,8 +513,6 @@ function finishPayment() {
     .then(r => r.json())
     .then(res => {
 
-        console.log("PAYMENT RESPON:", res);
-
         if (res.status === "success") {
             alert("Order berhasil dibuat!");
             window.location.href = "pesanan.php";
@@ -512,9 +521,62 @@ function finishPayment() {
         }
     })
     .catch(err => console.error("FETCH ERROR:", err));
-
 }
+
+
+
+// =====================================================
+// SHOW / HIDE REKENING CARD & UPLOAD
+// =====================================================
+
+// Transfer
+if (el("transfer")) {
+    el("transfer").addEventListener("change", function () {
+
+        el("rekeningCard").style.display = "block";
+        el("uploadGroup").style.display = "block";
+
+        document.querySelector(".rekening-number").textContent = "123 456 7890";
+        document.querySelector(".rekening-name").textContent = "a/n Amigo Cake";
+    });
+}
+
+// COD
+if (el("cod")) {
+    el("cod").addEventListener("change", function () {
+        el("rekeningCard").style.display = "none";
+        el("uploadGroup").style.display = "none";
+        el("buktiBayar").value = "";
+    });
+}
+
+// =====================================================
+// COPY NOMOR REKENING
+// =====================================================
+function copyRekening() {
+    const norek = document.querySelector(".rekening-number").textContent.trim();
+    navigator.clipboard.writeText(norek);
+    alert("Nomor rekening disalin: " + norek);
+}
+
+// =====================================================
+// CLICK UPLOAD BOX
+// =====================================================
+if (el("uploadBox")) {
+    el("uploadBox").addEventListener("click", function () {
+        el("buktiBayar").click();
+    });
+}
+
+// FILE NAME (opsional)
+if (el("buktiBayar")) {
+    el("buktiBayar").addEventListener("change", function () {
+        console.log("File dipilih:", this.files[0]);
+    });
+}
+
 </script>
+
 
 <script>
 function fillProductDetail() {
@@ -537,3 +599,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".product-card").forEach((card, i) => {
+        card.style.animationDelay = (1 + i * 0.12) + "s";
+    });
+});
+</script>

@@ -84,12 +84,12 @@
   </section>
   </section>
 
-   <!-- FOOTER -->
+  <!-- FOOTER -->
  <footer>
   <div class="footer-content">
     <div>
       <h3>Contact Us</h3>
-      <p>📍 Location</p>
+      <p>📍 Jl Barito IVA No. 19 Keringan, Nganjuk</p>
       <p>📞 +62 858-0061-1600</p>
       <p>✉️ illonaleilani@gmail.com</p>
     </div>
@@ -117,6 +117,41 @@
   </div>
   <p class="footer-bottom">© 2025 All Rights Reserved By Kita Sendiri :)</p>
 </footer>
+
   <script src="js/script.js"></script>
+  <script>
+// ABOUT reveal: intersection observer + fallback
+(function () {
+  const about = document.querySelector('.about');
+  if (!about) return;
+
+  function reveal() {
+    // tambahkan delay kecil supaya efek child terlihat berurutan
+    about.classList.add('show-sec');
+  }
+
+  // Jika browser support IntersectionObserver -> pakai untuk performa
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          reveal();
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 }); // 15% terlihat
+    io.observe(about);
+  } else {
+    // fallback: tunggu DOM ready lalu reveal
+    document.addEventListener('DOMContentLoaded', reveal);
+    // kalau DOM sudah siap
+    if (document.readyState === 'interactive' || document.readyState === 'complete') {
+      reveal();
+    }
+  }
+})();
+
+</script>
+
 </body>
 </html>
