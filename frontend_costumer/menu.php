@@ -33,7 +33,7 @@
         <a href="galery.php">Galery</a>
 
         <!-- LOGOUT MOBILE (hanya muncul di mobile) -->
-        <a href="logout.php" class="logout-mobile" onclick="return confirm('Yakin ingin keluar?')">
+        <a href="logout.php" class="logout-mobile logout-trigger">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#690108" viewBox="0 0 16 16">
               <path d="M6 3.5A.5.5 0 0 1 6.5 3h6a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-6a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h6A1.5 1.5 0 0 0 14 12.5v-9A1.5 1.5 0 0 0 12.5 2h-6A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
               <path d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
@@ -44,7 +44,7 @@
 
     <!-- LOGOUT DESKTOP (icon) -->
     <div class="user-actions desktop-only">
-        <a href="logout.php" class="logout-btn" onclick="return confirm('Yakin ingin keluar?')">
+        <a href="logout.php" class="logout-btn logout-trigger">
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#690108" viewBox="0 0 16 16">
               <path d="M6 3.5A.5.5 0 0 1 6.5 3h6a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-6a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h6A1.5 1.5 0 0 0 14 12.5v-9A1.5 1.5 0 0 0 12.5 2h-6A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 1 1 1 0v-2z"/>
               <path d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
@@ -215,24 +215,25 @@ if (!$q || $q->num_rows == 0) {
 </section>
 
 <!-- FOOTER -->
-<footer>
+ <footer>
   <div class="footer-content">
     <div>
       <h3>Contact Us</h3>
-      <p>📍 Location</p>
-      <p>📞 +62 858-0061-1600</p> 
+      <p>📍 Jl Barito IVA No. 19 Keringan, Nganjuk</p>
+      <p>📞 +62 858-0061-1600</p>
       <p>✉️ illonaleilani@gmail.com</p>
     </div>
 
     <div>
       <h3>Amigo Cake</h3>
       <p>Setiap potongan adalah momen bahagia. Kue yang dibuat dengan cinta dan bahan terbaik untuk hari spesial Anda.</p>
-
+      
+      <!-- 🔹 Ikon Sosial Media -->
       <div class="social-icons">
         <a href="https://wa.me/6285800611600" target="_blank" class="whatsapp">
           <i class="fa-brands fa-whatsapp"></i>
         </a>
-        <a href="https://www.instagram.com/amigo.cake" target="_blank" class="instagram">
+        <a href="https://www.instagram.com/amigo.cake?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="instagram">
           <i class="fa-brands fa-instagram"></i>
         </a>
       </div>
@@ -599,6 +600,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+</script>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".product-card").forEach((card, i) => {
@@ -606,3 +608,28 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 </script>
+  <!-- LOGOUT ANIMATION POPUP -->
+<div id="logoutOverlay" class="logout-overlay">
+    <div class="logout-box">
+        <div class="logout-spinner"></div>
+        <p>See you again!👋</p>
+    </div>
+</div>
+<script>
+document.querySelectorAll(".logout-trigger").forEach(btn => {
+    btn.addEventListener("click", function(e) {
+
+        e.preventDefault(); // cegah redirect langsung
+        
+        const overlay = document.getElementById("logoutOverlay");
+        overlay.classList.add("active");
+
+        // Redirect setelah animasi
+        setTimeout(() => {
+            window.location.href = this.href;
+        }, 1300); 
+    });
+});
+</script>
+</body>
+</html>

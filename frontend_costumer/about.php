@@ -32,7 +32,7 @@
         <a href="galery.php">Galery</a>
 
         <!-- LOGOUT MOBILE (hanya muncul di mobile) -->
-        <a href="logout.php" class="logout-mobile" onclick="return confirm('Yakin ingin keluar?')">
+        <a href="logout.php" class="logout-mobile logout-trigger">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#ffffff" viewBox="0 0 16 16">
               <path d="M6 3.5A.5.5 0 0 1 6.5 3h6a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-6a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h6A1.5 1.5 0 0 0 14 12.5v-9A1.5 1.5 0 0 0 12.5 2h-6A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
               <path d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
@@ -43,7 +43,7 @@
 
     <!-- LOGOUT DESKTOP (icon) -->
     <div class="user-actions desktop-only">
-        <a href="logout.php" class="logout-btn" onclick="return confirm('Yakin ingin keluar?')">
+        <a href="logout.php" class="logout-btn logout-trigger">
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#ffffff" viewBox="0 0 16 16">
               <path d="M6 3.5A.5.5 0 0 1 6.5 3h6a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-6a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h6A1.5 1.5 0 0 0 14 12.5v-9A1.5 1.5 0 0 0 12.5 2h-6A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 1 1 1 0v-2z"/>
               <path d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
@@ -150,8 +150,29 @@
     }
   }
 })();
-
 </script>
+<!-- LOGOUT ANIMATION POPUP -->
+<div id="logoutOverlay" class="logout-overlay">
+    <div class="logout-box">
+        <div class="logout-spinner"></div>
+        <p>See you again!👋</p>
+    </div>
+</div>
+<script>
+document.querySelectorAll(".logout-trigger").forEach(btn => {
+    btn.addEventListener("click", function(e) {
 
+        e.preventDefault(); // cegah redirect langsung
+        
+        const overlay = document.getElementById("logoutOverlay");
+        overlay.classList.add("active");
+
+        // Redirect setelah animasi
+        setTimeout(() => {
+            window.location.href = this.href;
+        }, 1300); 
+    });
+});
+</script>
 </body>
 </html>

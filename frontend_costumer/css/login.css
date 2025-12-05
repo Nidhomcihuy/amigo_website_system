@@ -19,7 +19,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    backdrop-filter: blur(4px); /* blur background */
+    backdrop-filter: blur(4px);
     z-index: -1;
 }
 
@@ -56,7 +56,7 @@ body::before {
     padding: 20px;
 }
 
-/* POP UP CARD */
+/* POP UP CARD - FIX POSITION */
 .login-card {
     width: 50%;
     background: rgba(255, 247, 225, 0.75);
@@ -65,7 +65,9 @@ body::before {
     backdrop-filter: blur(12px);
     box-shadow: 0 10px 35px rgba(0,0,0,0.25);
     animation: pop 0.35s ease;
-    margin-top: -50%;
+
+    /* NAIKKAN POSISI */
+    margin-top: -355px;
 }
 
 
@@ -90,23 +92,10 @@ body::before {
     font-size: 15px;
 }
 
-/* INPUT WITH ICON */
-.input-group {
-    position: relative;
-}
-
-.input-group img {
-    width: 20px;
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    opacity: 0.6;
-}
-
+/* INPUT */
 .login-card input {
     width: 100%;
-    padding: 14px 14px 14px 45px; /* space for icon */
+    padding: 14px;
     border: none;
     border-radius: 12px;
     background: #f1f1f1;
@@ -114,7 +103,7 @@ body::before {
     font-size: 14px;
 }
 
-/* BUTTON */
+/* BUTTON LOGIN */
 .btn-login {
     width: 100%;
     margin-top: 25px;
@@ -128,7 +117,9 @@ body::before {
     transition: 0.2s;
 }
 
-.btn-login:hover { opacity: 0.9; }
+.btn-login:hover {
+    opacity: 0.9;
+}
 
 .register-text {
     text-align: right;
@@ -149,19 +140,49 @@ body::before {
     font-size: 15px;
 }
 
-/* Google Button */
+/* ============================
+   GOOGLE BUTTON FINAL (BULAT)
+   TANPA UBAH STRUKTUR HTML
+   ============================ */
+
 .google-btn {
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
-    background: #7B0C14;
-    margin: 0 auto;
-    color: white;
-    font-size: 34px;
     display: flex;
     justify-content: center;
+    margin-top: 12px;
+}
+
+.google-btn a {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+    display: flex;
     align-items: center;
+    justify-content: center;
+    text-decoration: none;
     cursor: pointer;
+    transition: 0.25s ease;
+}
+
+/* Hilangkan huruf "G" tanpa ubah HTML */
+.google-btn span {
+    font-size: 0;
+}
+
+/* Tampilkan logo Google */
+.google-btn span::before {
+    content: "";
+    width: 22px;
+    height: 22px;
+    background: url("https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg") center/contain no-repeat;
+    display: block;
+}
+
+.google-btn a:hover {
+    transform: scale(1.08);
+    background: #f3f3f3;
 }
 
 /* SWITCH ANIMATION */
@@ -189,43 +210,339 @@ body::before {
     transform: translateX(-40px);
 }
 
+
 /* ===========================
-   RESPONSIVE MOBILE
+   MOBILE PRESISI FIX
    =========================== */
 
-@media (max-width: 900px) {
-    .left {
-        display: none;
-    }
+/* HP Normal s.d Kecil */
+@media (max-width: 480px) {
 
     .right {
-        width: 100%;
-        background: transparent;
+        align-items: flex-start;
+        padding-top: 40px;
     }
 
     .login-card {
-        width: 90%;
-        padding: 28px;
-        border-radius: 25px;
+        width: 95%;
+        padding: 20px;
+        border-radius: 22px;
+        margin-top: -80px;   /* ✅ Form naik lebih presisi */
     }
 
     .login-card h2 {
-        text-align: center;
+        font-size: 22px;
+        margin-bottom: 14px;
     }
 
-    body {
-        overflow-y: auto;
+    .login-card label {
+        font-size: 13px;
+        margin-top: 10px;
+        margin-bottom: 4px;
     }
-}
 
-@media (max-width: 480px) {
-    .login-card {
-        width: 92%;
-        padding: 25px;
+    .login-card input {
+        padding: 12px;
+        font-size: 13px;
+        border-radius: 12px;
     }
 
     .btn-login {
+        margin-top: 18px;
         padding: 13px;
-        font-size: 16px;
+        font-size: 15px;
+        border-radius: 14px;
+    }
+
+    .register-text {
+        font-size: 12px;
+        margin-top: 10px;
+    }
+
+    .divider {
+        margin: 14px 0 8px;
+        font-size: 13px;
+    }
+
+    .google-btn a {
+        width: 46px;
+        height: 46px;
     }
 }
+
+/* HP Super Kecil (≤ 360px) */
+@media (max-width: 360px) {
+
+    .login-card {
+        padding: 18px;
+        margin-top: -65px;
+    }
+
+    .login-card h2 {
+        font-size: 20px;
+    }
+
+    .login-card input {
+        padding: 11px;
+        font-size: 12px;
+    }
+
+    .btn-login {
+        padding: 12px;
+        font-size: 14px;
+    }
+}
+/* FORCE MOBILE FULL FIX */
+@media (max-width: 768px) {
+
+    .container {
+        flex-direction: column;
+    }
+
+    .left {
+        display: none !important;
+    }
+
+    .right {
+        width: 100% !important;
+        padding: 20px;
+    }
+
+    .login-card {
+        width: 94% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        margin-top: 40px !important;  /* posisi atas tetap terkontrol */
+    }
+}
+
+/* HP KECIL */
+@media (max-width: 480px) {
+    .login-card {
+        width: 96% !important;
+        padding: 22px !important;
+        border-radius: 22px;
+    }
+
+    .btn-login {
+        padding: 12px;
+        font-size: 15px;
+    }
+}
+/* ===========================
+   CAKE LOADING SPINNER
+=========================== */
+
+.global-spinner {
+    position: relative;
+    width: 60px;
+    height: 55px;
+    animation: cake-bounce 1s ease-in-out infinite;
+}
+
+/* LAPISAN CAKE */
+.global-spinner::before,
+.global-spinner::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 12px;
+    background: #fff;
+}
+
+/* Lapisan bawah */
+.global-spinner::before {
+    bottom: 0;
+    width: 60px;
+    height: 20px;
+    background: linear-gradient(to right, #7B0C14, #a3121d);
+}
+
+/* Lapisan atas */
+.global-spinner::after {
+    bottom: 22px;
+    width: 45px;
+    height: 15px;
+    background: linear-gradient(to right, #f7cbd0, #f3aeb8);
+}
+
+/* Lilin */
+.global-spinner span {
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 14px;
+    background: #ffd700;
+    border-radius: 4px;
+}
+
+/* Api Lilin */
+.global-spinner span::after {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    background: orange;
+    border-radius: 50%;
+    animation: flame 0.25s infinite alternate;
+}
+
+/* ANIMASI GOYANG */
+@keyframes cake-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+/* ANIMASI API */
+@keyframes flame {
+    from { transform: translateX(-50%) scale(1); opacity: 1; }
+    to   { transform: translateX(-50%) scale(1.3); opacity: 0.7; }
+}
+
+/* RESPONSIVE HP */
+@media (max-width: 480px) {
+    .global-spinner {
+        transform: scale(0.8);
+    }
+}
+/* ===========================
+   LOADER OVERLAY
+=========================== */
+
+.loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.35);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(3px);
+}
+
+/* Sembunyikan setelah selesai load */
+.loader-overlay.hide {
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s ease;
+}
+/* ============================== */
+/* ANIMASI SLIDE CARD LOGIN/REGISTER */
+/* ============================== */
+
+.form-card {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transform: translateX(40px);
+    transition: .5s ease;
+    pointer-events: none;
+}
+
+.form-card.active {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+
+/* ============================== */
+/* ANIMASI TOMBOL LOGIN MANUAL */
+/* ============================== */
+
+.btn-login {
+    position: relative;
+    overflow: hidden;
+    transition: .3s ease;
+}
+
+.btn-login.loading {
+    color: transparent !important;
+    pointer-events: none;
+}
+
+.btn-login.loading::after {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    top: 50%;
+    left: 50%;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    transform: translate(-50%, -50%);
+    animation: spin .8s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+
+/* ============================== */
+/* GLOBAL LOADING OVERLAY GOOGLE */
+/* ============================== */
+
+#globalLoading {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, .8);
+    backdrop-filter: blur(3px);
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+#globalLoading.active {
+    display: flex;
+}
+
+/* Spinner cake */
+.global-spinner span {
+    display: block;
+    width: 50px;
+    height: 50px;
+    border: 6px solid #f8c9d4;
+    border-radius: 50%;
+    border-top-color: #e84393;
+    animation: spin .8s linear infinite;
+}
+
+
+/* ============================== */
+/* PAGE LOADER MASUK */
+/* ============================== */
+
+.loader-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: white;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .4s ease;
+}
+
+.loader-overlay.hide {
+    opacity: 0;
+    pointer-events: none;
+}    
